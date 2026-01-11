@@ -1,139 +1,206 @@
+'use client';
+
 import Link from 'next/link';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy-700 text-white">
-      <div className="section-container">
+    <footer className="relative bg-slate-950 text-white overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
+      
+      <div className="section-container relative z-10">
         {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
-          {/* Company Info */}
-          <div className="lg:col-span-5">
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-white mb-2">PROINVEST GLOBAL LTD</h3>
-              <p className="text-sm text-navy-100 font-medium">Applied AI for Hospitality Operations</p>
-            </div>
-            
-            {/* Trust Block */}
-            <div className="bg-navy-600/50 border border-navy-500/30 rounded-lg p-6 mb-6">
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <div className="text-xs text-navy-200 uppercase tracking-wider mb-1">UK Company</div>
-                  <div className="font-semibold">16851428</div>
+        <div className="py-20 border-b border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+            {/* Company Info - Wider Column */}
+            <div className="lg:col-span-5">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-navy-600 to-purple-600 flex items-center justify-center shadow-glow">
+                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
                 </div>
                 <div>
-                  <div className="text-xs text-navy-200 uppercase tracking-wider mb-1">Since</div>
-                  <div className="font-semibold">2024</div>
+                  <h3 className="text-xl font-bold tracking-tight">PROINVEST GLOBAL</h3>
+                  <p className="text-xs text-slate-400 uppercase tracking-widest">Applied AI SaaS</p>
                 </div>
-                <div>
-                  <div className="text-xs text-navy-200 uppercase tracking-wider mb-1">Business Type</div>
-                  <div className="font-semibold">AI SaaS</div>
-                </div>
-                <div>
-                  <div className="text-xs text-navy-200 uppercase tracking-wider mb-1">Industries</div>
-                  <div className="font-semibold">Hospitality & F&B</div>
+              </div>
+              
+              <p className="text-slate-300 leading-relaxed mb-6 max-w-md">
+                Applied Artificial Intelligence for the hospitality and food & beverage industries. 
+                We build AI that runs real operations, not experiments.
+              </p>
+
+              {/* Trust Badges */}
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-3 px-5 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
+                  <svg className="w-5 h-5 text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <div>
+                    <div className="text-sm font-semibold">UK Company</div>
+                    <div className="text-xs text-slate-400">Registration: 16851428</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="text-sm text-navy-100 space-y-1">
-              <p className="font-medium">2 Frederick Street, Kings Cross</p>
-              <p>London WC1X 0ND, United Kingdom</p>
+            {/* Solutions */}
+            <div className="lg:col-span-2">
+              <h4 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-5">Solutions</h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link 
+                    href="/solutions" 
+                    className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    All Solutions
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/solutions/prohotelai" 
+                    className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    ProHotelAI
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/solutions/procafeai" 
+                    className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    ProCafeAI
+                  </Link>
+                </li>
+              </ul>
             </div>
-          </div>
 
-          {/* Solutions */}
-          <div className="lg:col-span-2">
-            <h4 className="text-white text-sm font-bold uppercase tracking-wider mb-6">Solutions</h4>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link href="/solutions" className="text-navy-100 hover:text-white transition-colors font-medium">
-                  All Solutions
-                </Link>
-              </li>
-              <li>
-                <Link href="/solutions/prohotelai" className="text-navy-100 hover:text-white transition-colors">
-                  ProHotelAI
-                </Link>
-              </li>
-              <li>
-                <Link href="/solutions/procafeai" className="text-navy-100 hover:text-white transition-colors">
-                  ProCafeAI
-                </Link>
-              </li>
-            </ul>
-          </div>
+            {/* Company */}
+            <div className="lg:col-span-2">
+              <h4 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-5">Company</h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link 
+                    href="/about" 
+                    className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/case-studies" 
+                    className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    Case Studies
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/insights" 
+                    className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    Insights
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/contact" 
+                    className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-          {/* Company */}
-          <div className="lg:col-span-2">
-            <h4 className="text-white text-sm font-bold uppercase tracking-wider mb-6">Company</h4>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link href="/about" className="text-navy-100 hover:text-white transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/industries" className="text-navy-100 hover:text-white transition-colors">
-                  Industries
-                </Link>
-              </li>
-              <li>
-                <Link href="/case-studies" className="text-navy-100 hover:text-white transition-colors">
-                  Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link href="/insights" className="text-navy-100 hover:text-white transition-colors">
-                  Insights
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div className="lg:col-span-3">
-            <h4 className="text-white text-sm font-bold uppercase tracking-wider mb-6">Contact</h4>
-            <div className="space-y-4">
-              <div>
-                <p className="text-xs text-navy-200 uppercase tracking-wider mb-1">Email</p>
-                <a 
-                  href="mailto:info@proinvest-global.com" 
-                  className="text-navy-100 hover:text-white transition-colors text-sm font-medium"
-                >
-                  info@proinvest-global.com
-                </a>
-              </div>
-              <div className="pt-4">
-                <Link 
-                  href="/contact" 
-                  className="inline-flex items-center justify-center px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-lg transition-all duration-200"
-                >
-                  Get in Touch
-                </Link>
-              </div>
+            {/* Industries */}
+            <div className="lg:col-span-3">
+              <h4 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-5">Industries</h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link 
+                    href="/industries" 
+                    className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    All Industries
+                  </Link>
+                </li>
+                <li>
+                  <span className="text-slate-400 text-sm flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Hotels & Resorts
+                  </span>
+                </li>
+                <li>
+                  <span className="text-slate-400 text-sm flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Restaurants & Cafés
+                  </span>
+                </li>
+                <li>
+                  <span className="text-slate-400 text-sm flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    QSR & Fast Casual
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-navy-600/50 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-navy-200">
-            <div>
-              <p>&copy; {currentYear} PROINVEST GLOBAL LTD. All rights reserved.</p>
+        <div className="py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="text-sm text-slate-400 text-center md:text-left">
+              © {currentYear} <span className="font-semibold text-slate-300">PROINVEST GLOBAL LTD</span>. All rights reserved.
+              <span className="mx-2">•</span>
+              <span className="text-slate-500">UK Company Number: 16851428</span>
             </div>
-            <div className="flex gap-6">
-              <Link href="/privacy" className="hover:text-white transition-colors">
+
+            <div className="flex items-center gap-8">
+              <Link 
+                href="/privacy" 
+                className="text-sm text-slate-400 hover:text-white transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="hover:text-white transition-colors">
+              <Link 
+                href="/terms" 
+                className="text-sm text-slate-400 hover:text-white transition-colors"
+              >
                 Terms of Service
+              </Link>
+              <Link 
+                href="/cookies" 
+                className="text-sm text-slate-400 hover:text-white transition-colors"
+              >
+                Cookies
               </Link>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Gradient Overlay at Top */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/50 to-transparent" />
     </footer>
   );
 }
