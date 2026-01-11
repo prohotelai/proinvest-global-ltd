@@ -1,18 +1,24 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { solutionsMetadata } from '@/lib/seo';
+import { generateBreadcrumbSchema } from '@/lib/structuredData';
 
-export const metadata: Metadata = {
-  title: 'AI Solutions | ProHotelAI & ProCafeAI | Proinvest Global',
-  description: 'Explore our AI-powered solutions for hotels and restaurants: ProHotelAI and ProCafeAI. Automate operations, increase revenue, and reduce costs.',
-  openGraph: {
-    title: 'AI Solutions for Hospitality',
-    description: 'ProHotelAI and ProCafeAI - AI solutions that transform hospitality operations.',
-  },
-};
+export const metadata: Metadata = solutionsMetadata('en');
 
 export default function Solutions() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://proinvest-global.com" },
+    { name: "Solutions", url: "https://proinvest-global.com/solutions" }
+  ]);
+
   return (
     <div>
+      {/* Breadcrumb Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

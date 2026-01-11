@@ -1,18 +1,24 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { aboutMetadata } from '@/lib/seo';
+import { generateBreadcrumbSchema } from '@/lib/structuredData';
 
-export const metadata: Metadata = {
-  title: 'About Proinvest Global Ltd | AI Solutions for Hospitality',
-  description: 'Learn about Proinvest Global Ltd, a UK-based technology company specializing in Applied Artificial Intelligence for the hospitality sector.',
-  openGraph: {
-    title: 'About Proinvest Global Ltd',
-    description: 'UK-based technology company specializing in Applied AI for hospitality.',
-  },
-};
+export const metadata: Metadata = aboutMetadata('en');
 
 export default function About() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://proinvest-global.com" },
+    { name: "About", url: "https://proinvest-global.com/about" }
+  ]);
+
   return (
     <div>
+      {/* Breadcrumb Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -36,13 +42,16 @@ export default function About() {
             </h2>
             <div className="prose prose-lg text-gray-600 space-y-4">
               <p>
-                Proinvest Global Ltd is a UK-based technology and investment company specializing in Applied Artificial Intelligence solutions for the hospitality and food & beverage sectors.
+                <strong>PROINVEST GLOBAL LTD</strong> is a United Kingdom-based technology company (UK Company Number: <strong>16851428</strong>) specializing in Applied Artificial Intelligence solutions for the hospitality and food & beverage sectors.
               </p>
               <p>
                 We develop AI-driven operational platforms that automate guest and customer interactions, optimize daily operations, reduce operating costs, and increase revenue for hotels, cafés, and restaurants.
               </p>
               <p>
-                Operating under a SaaS (Software as a Service) model, we deliver scalable, cloud-based systems designed to run inside real operational environments—not experiments.
+                Operating under a <strong>SaaS (Software as a Service)</strong> model, we deliver scalable, cloud-based systems designed to run inside real operational environments—not experiments.
+              </p>
+              <p>
+                Our products include <strong>ProHotelAI</strong> for hotels and resorts, and <strong>ProCafeAI (CafeGrok AI)</strong> for cafés and restaurants.
               </p>
             </div>
           </div>
@@ -127,12 +136,24 @@ export default function About() {
             <div className="bg-white p-8 rounded-lg shadow-md">
               <dl className="space-y-4">
                 <div>
-                  <dt className="text-sm font-semibold text-gray-500 uppercase">Company Name</dt>
-                  <dd className="mt-1 text-lg text-gray-900">Proinvest Global Ltd</dd>
+                  <dt className="text-sm font-semibold text-gray-500 uppercase">Company Name (Legal)</dt>
+                  <dd className="mt-1 text-lg text-gray-900">PROINVEST GLOBAL LTD</dd>
                 </div>
                 <div>
-                  <dt className="text-sm font-semibold text-gray-500 uppercase">Company Number</dt>
+                  <dt className="text-sm font-semibold text-gray-500 uppercase">UK Company Number</dt>
                   <dd className="mt-1 text-lg text-gray-900">16851428</dd>
+                </div>
+                <div>
+                  <dt className="text-sm font-semibold text-gray-500 uppercase">Country of Incorporation</dt>
+                  <dd className="mt-1 text-lg text-gray-900">United Kingdom</dd>
+                </div>
+                <div>
+                  <dt className="text-sm font-semibold text-gray-500 uppercase">Business Type</dt>
+                  <dd className="mt-1 text-lg text-gray-900">Applied AI SaaS Company</dd>
+                </div>
+                <div>
+                  <dt className="text-sm font-semibold text-gray-500 uppercase">Industries Served</dt>
+                  <dd className="mt-1 text-lg text-gray-900">Hospitality (Hotels, Resorts) & Food & Beverage (Cafés, Restaurants)</dd>
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-gray-500 uppercase">Registered Address</dt>
@@ -146,8 +167,7 @@ export default function About() {
                 <div>
                   <dt className="text-sm font-semibold text-gray-500 uppercase">Contact</dt>
                   <dd className="mt-1 text-lg text-gray-900">
-                    Phone: <a href="tel:+447448810068" className="text-blue-600 hover:text-blue-700">+44 7448 810068</a><br />
-                    Email: <a href="mailto:info@proinvest.global" className="text-blue-600 hover:text-blue-700">info@proinvest.global</a>
+                    Email: <a href="mailto:info@proinvest-global.com" className="text-blue-600 hover:text-blue-700">info@proinvest-global.com</a>
                   </dd>
                 </div>
               </dl>

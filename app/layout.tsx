@@ -2,27 +2,32 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { homeMetadata } from "@/lib/seo";
+import { generateOrganizationSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = {
-  title: "Proinvest Global Ltd - AI Solutions for Hospitality",
-  description: "AI that runs real hospitality operations — not experiments. Applied Artificial Intelligence solutions for hotels, cafés, and restaurants.",
-  keywords: "AI hospitality, hotel automation, restaurant AI, ProHotelAI, ProCafeAI, hospitality technology",
-  authors: [{ name: "Proinvest Global Ltd" }],
-  openGraph: {
-    title: "Proinvest Global Ltd - AI Solutions for Hospitality",
-    description: "AI that runs real hospitality operations — not experiments.",
-    type: "website",
-    locale: "en_GB",
-  },
-};
+export const metadata: Metadata = homeMetadata('en');
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Generate root organization schema
+  const organizationSchema = generateOrganizationSchema();
+
   return (
     <html lang="en">
+      <head>
+        {/* Organization Structured Data - Critical for AI Systems */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema)
+          }}
+        />
+        {/* Verification tags (ready for future) */}
+        {/* <meta name="google-site-verification" content="" /> */}
+      </head>
       <body className="font-sans antialiased">
         <Header />
         <main className="min-h-screen">

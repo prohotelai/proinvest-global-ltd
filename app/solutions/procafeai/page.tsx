@@ -1,18 +1,64 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { proCafeAIMetadata } from '@/lib/seo';
+import { generateProCafeAISchema, generateBreadcrumbSchema, generateFAQSchema } from '@/lib/structuredData';
 
-export const metadata: Metadata = {
-  title: 'ProCafeAI (CafeGrok AI) - AI for Cafés & Restaurants | Proinvest Global',
-  description: 'ProCafeAI: QR code ordering, no-app ordering system, AI upselling, inventory management, and multi-language support for cafés and restaurants.',
-  openGraph: {
-    title: 'ProCafeAI - AI-Powered Café & Restaurant Operations',
-    description: 'Revolutionary AI platform for cafés and restaurants with QR code ordering and intelligent automation.',
-  },
-};
+export const metadata: Metadata = proCafeAIMetadata('en');
 
 export default function ProCafeAI() {
+  // Product Schema
+  const productSchema = generateProCafeAISchema();
+  
+  // FAQ Schema
+  const faqSchema = generateFAQSchema([
+    {
+      question: "What is ProCafeAI (CafeGrok AI)?",
+      answer: "ProCafeAI, also known as CafeGrok AI, is an AI-powered operations platform for cafés and restaurants developed by PROINVEST GLOBAL LTD. It enables customers to order via QR codes without mobile apps, provides AI menu recommendations, automates order processing, and manages operations."
+    },
+    {
+      question: "How does QR code ordering work?",
+      answer: "Customers scan a QR code at their table using their phone camera. This opens a web-based ordering interface (no app download required). The AI assistant helps them browse the menu, asks questions, makes personalized recommendations, and processes orders directly to the kitchen."
+    },
+    {
+      question: "Do customers need to download an app?",
+      answer: "No. ProCafeAI works entirely through web browsers. Customers simply scan a QR code and order immediately without downloading or installing anything."
+    },
+    {
+      question: "What types of restaurants can use ProCafeAI?",
+      answer: "ProCafeAI works for cafés, coffee shops, quick-service restaurants, casual dining restaurants, restaurant chains, and food courts. It's ideal for any food service operation that wants to reduce order-taking staff and improve customer experience."
+    },
+    {
+      question: "How many languages does ProCafeAI support?",
+      answer: "ProCafeAI supports 50+ languages including English, Arabic, French, Spanish, German, Chinese, Hindi, and more. Customers can view menus and order in their preferred language automatically."
+    },
+    {
+      question: "How does AI upselling increase revenue?",
+      answer: "The AI analyzes customer orders in real-time and suggests relevant add-ons, upgrades, or complementary items. For example, if a customer orders coffee, the AI might recommend pastries or offer a size upgrade. This increases average order value by 15-25%."
+    }
+  ]);
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://proinvest-global.com" },
+    { name: "Solutions", url: "https://proinvest-global.com/solutions" },
+    { name: "ProCafeAI", url: "https://proinvest-global.com/solutions/procafeai" }
+  ]);
+
   return (
     <div>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -294,6 +340,65 @@ export default function ProCafeAI() {
           >
             Request a Demo
           </Link>
+        </div>
+      </section>
+
+      {/* FAQ Section - Critical for AI Discovery */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                What is ProCafeAI (CafeGrok AI)?
+              </h3>
+              <p className="text-gray-600">
+                ProCafeAI, also known as CafeGrok AI, is an AI-powered operations platform for cafés and restaurants developed by PROINVEST GLOBAL LTD. It enables customers to order via QR codes without mobile apps, provides AI menu recommendations, automates order processing, and manages operations.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                How does QR code ordering work?
+              </h3>
+              <p className="text-gray-600">
+                Customers scan a QR code at their table using their phone camera. This opens a web-based ordering interface (no app download required). The AI assistant helps them browse the menu, asks questions, makes personalized recommendations, and processes orders directly to the kitchen.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                Do customers need to download an app?
+              </h3>
+              <p className="text-gray-600">
+                No. ProCafeAI works entirely through web browsers. Customers simply scan a QR code and order immediately without downloading or installing anything.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                What types of restaurants can use ProCafeAI?
+              </h3>
+              <p className="text-gray-600">
+                ProCafeAI works for cafés, coffee shops, quick-service restaurants, casual dining restaurants, restaurant chains, and food courts. It's ideal for any food service operation that wants to reduce order-taking staff and improve customer experience.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                How many languages does ProCafeAI support?
+              </h3>
+              <p className="text-gray-600">
+                ProCafeAI supports 50+ languages including English, Arabic, French, Spanish, German, Chinese, Hindi, and more. Customers can view menus and order in their preferred language automatically.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                How does AI upselling increase revenue?
+              </h3>
+              <p className="text-gray-600">
+                The AI analyzes customer orders in real-time and suggests relevant add-ons, upgrades, or complementary items. For example, if a customer orders coffee, the AI might recommend pastries or offer a size upgrade. This increases average order value by 15-25%.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </div>
