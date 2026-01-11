@@ -108,5 +108,5 @@ This project is ready to deploy on Vercel:
 
 ## License
 
-Copyright © 2026 Proinvest Global Ltd. All rights reserved.
+Copyright © 2025 Proinvest Global Ltd. All rights reserved.
 
