@@ -171,7 +171,7 @@ export default function CaseStudies() {
                 </svg>
               </div>
               <p className="text-gray-700 italic mb-4">
-                "The AI solutions from Proinvest Global have transformed how we serve our guests. The 24/7 AI assistant handles inquiries instantly, and our staff can focus on delivering personalized experiences."
+                &ldquo;The AI solutions from Proinvest Global have transformed how we serve our guests. The 24/7 AI assistant handles inquiries instantly, and our staff can focus on delivering personalized experiences.&rdquo;
               </p>
               <div className="font-semibold text-gray-900">Hotel Operations Manager</div>
               <div className="text-sm text-gray-600">5-Star Resort, MENA Region</div>
@@ -196,7 +196,7 @@ export default function CaseStudies() {
                 </svg>
               </div>
               <p className="text-gray-700 italic mb-4">
-                "ProCafeAI has been a game-changer. Our customers love the QR ordering system—no app download needed. Plus, the AI suggestions have increased our average order value significantly."
+                &ldquo;ProCafeAI has been a game-changer. Our customers love the QR ordering system—no app download needed. Plus, the AI suggestions have increased our average order value significantly.&rdquo;
               </p>
               <div className="font-semibold text-gray-900">Café Owner</div>
               <div className="text-sm text-gray-600">Premium Coffee Chain, Europe</div>

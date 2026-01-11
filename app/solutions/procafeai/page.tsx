@@ -85,7 +85,7 @@ export default function ProCafeAI() {
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">No App Download Required</h3>
                   <p className="text-gray-600">
-                    Remove friction from the ordering process. Customers don't need to download, install, or create accounts in yet another app. Works instantly via web browser on any device.
+                    Remove friction from the ordering process. Customers don&apos;t need to download, install, or create accounts in yet another app. Works instantly via web browser on any device.
                   </p>
                 </div>
               </div>
@@ -136,7 +136,7 @@ export default function ProCafeAI() {
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Inventory & Order Management</h3>
                   <p className="text-gray-600">
-                    Real-time inventory tracking, automated stock alerts, and comprehensive order analytics. Know what's selling, what's not, and when to restock.
+                    Real-time inventory tracking, automated stock alerts, and comprehensive order analytics. Know what&apos;s selling, what&apos;s not, and when to restock.
                   </p>
                 </div>
               </div>
