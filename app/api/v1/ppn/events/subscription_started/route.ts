@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
     await logEvent(eventId!, productId!, 'subscription_started', new Date(), hashBody(rawBody), 'failed', validation.error.message);
     return errorResponse(
       ErrorCodes.VALIDATION_ERROR,
-      validation.error.errors.map(e => `${e.path.join('.')}: ${e.message}`).join(', '),
+      validation.error.issues.map(e => `${e.path.join('.')}: ${e.message}`).join(', '),
       400
     );
   }
@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
     // If no attribution exists but ppn_ref or click_id provided, create one
     if (!attribution && (data.ppn_ref || data.click_id)) {
       let partnerId: string | null = null;
-      let clickId: string | null = data.click_id || null;
+      const clickId: string | null = data.click_id || null;
       let attributionType = 'api';
 
       if (data.ppn_ref) {

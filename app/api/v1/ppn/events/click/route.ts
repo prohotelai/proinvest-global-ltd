@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
     await logEvent(eventId!, productId!, 'click', new Date(), hashBody(rawBody), 'failed', validation.error.message);
     return errorResponse(
       ErrorCodes.VALIDATION_ERROR,
-      validation.error.errors.map(e => `${e.path.join('.')}: ${e.message}`).join(', '),
+      validation.error.issues.map(e => `${e.path.join('.')}: ${e.message}`).join(', '),
       400
     );
   }

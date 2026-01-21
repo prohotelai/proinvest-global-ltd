@@ -123,7 +123,7 @@ export async function POST(request: NextRequest) {
   if (!validation.success) {
     return errorResponse(
       ErrorCodes.VALIDATION_ERROR,
-      validation.error.errors.map(e => `${e.path.join('.')}: ${e.message}`).join(', '),
+      validation.error.issues.map(e => `${e.path.join('.')}: ${e.message}`).join(', '),
       400
     );
   }

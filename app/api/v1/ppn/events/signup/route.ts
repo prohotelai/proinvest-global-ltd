@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
     await logEvent(eventId!, productId!, 'signup', new Date(), hashBody(rawBody), 'failed', validation.error.message);
     return errorResponse(
       ErrorCodes.VALIDATION_ERROR,
-      validation.error.errors.map(e => `${e.path.join('.')}: ${e.message}`).join(', '),
+      validation.error.issues.map(e => `${e.path.join('.')}: ${e.message}`).join(', '),
       400
     );
   }
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
   try {
     // Find attribution source (partner)
     let partnerId: string | null = null;
-    let clickId: string | null = data.click_id || null;
+    const clickId: string | null = data.click_id || null;
     let attributionType = 'api';
 
     // Try to find partner from ppn_ref
