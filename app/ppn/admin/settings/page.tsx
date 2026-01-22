@@ -19,22 +19,30 @@ export default function SettingsPage() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
-    fetchTiers();
-  }, []);
-
-  const fetchTiers = async () => {
-    try {
-      const response = await fetch('/api/v1/ppn/admin/tiers');
-      const result = await response.json();
-      if (result.ok) {
-        setTiers(result.data.tiers);
+    let mounted = true;
+    const load = async () => {
+      try {
+        const response = await fetch('/api/v1/ppn/admin/tiers');
+        const result = await response.json();
+        if (mounted) {
+          if (result.ok) {
+            setTiers(result.data.tiers);
+          }
+          setLoading(false);
+        }
+      } catch {
+        if (mounted) setLoading(false);
       }
-      setLoading(false);
-    } catch {
-      setLoading(false);
-    }
+    };
+    load();
+    return () => { mounted = false; };
+  }, [refreshKey]);
+
+  const fetchTiers = () => {
+    setRefreshKey(k => k + 1);
   };
 
   const handleSubmitTier = async (e: React.FormEvent) => {

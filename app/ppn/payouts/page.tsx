@@ -51,6 +51,7 @@ export default function PayoutsPage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [refreshKey, setRefreshKey] = useState(0);
 
   // Method form state
   const [methodType, setMethodType] = useState<'stripe' | 'wise' | 'bank'>('stripe');
@@ -78,27 +79,33 @@ export default function PayoutsPage() {
     }
 
     if (status === 'authenticated') {
-      fetchData();
+      let mounted = true;
+      const load = async () => {
+        try {
+          const [payoutsRes, methodsRes] = await Promise.all([
+            fetch('/api/v1/ppn/partner/payouts'),
+            fetch('/api/v1/ppn/partner/payout-methods'),
+          ]);
+          
+          const payoutsData = await payoutsRes.json();
+          const methodsData = await methodsRes.json();
+          
+          if (mounted) {
+            if (payoutsData.ok) setData(payoutsData.data);
+            if (methodsData.ok) setMethods(methodsData.data.methods);
+            setLoading(false);
+          }
+        } catch {
+          if (mounted) setLoading(false);
+        }
+      };
+      load();
+      return () => { mounted = false; };
     }
-  }, [status, router]);
+  }, [status, router, refreshKey]);
 
-  const fetchData = async () => {
-    try {
-      const [payoutsRes, methodsRes] = await Promise.all([
-        fetch('/api/v1/ppn/partner/payouts'),
-        fetch('/api/v1/ppn/partner/payout-methods'),
-      ]);
-      
-      const payoutsData = await payoutsRes.json();
-      const methodsData = await methodsRes.json();
-      
-      if (payoutsData.ok) setData(payoutsData.data);
-      if (methodsData.ok) setMethods(methodsData.data.methods);
-      
-      setLoading(false);
-    } catch {
-      setLoading(false);
-    }
+  const fetchData = () => {
+    setRefreshKey(k => k + 1);
   };
 
   const handleRequestPayout = async (e: React.FormEvent) => {

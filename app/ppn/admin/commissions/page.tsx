@@ -28,27 +28,35 @@ export default function CommissionsPage() {
   const [pagination, setPagination] = useState({ total: 0, pages: 1 });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
-    fetchCommissions();
-  }, [filter, page]);
+    let mounted = true;
+    const load = async () => {
+      try {
+        const params = new URLSearchParams({ page: page.toString(), limit: '50' });
+        if (filter) params.set('status', filter);
 
-  const fetchCommissions = async () => {
-    try {
-      const params = new URLSearchParams({ page: page.toString(), limit: '50' });
-      if (filter) params.set('status', filter);
+        const response = await fetch(`/api/v1/ppn/admin/commissions?${params}`);
+        const result = await response.json();
 
-      const response = await fetch(`/api/v1/ppn/admin/commissions?${params}`);
-      const result = await response.json();
-
-      if (result.ok) {
-        setCommissions(result.data.commissions);
-        setPagination(result.data.pagination);
+        if (mounted) {
+          if (result.ok) {
+            setCommissions(result.data.commissions);
+            setPagination(result.data.pagination);
+          }
+          setLoading(false);
+        }
+      } catch {
+        if (mounted) setLoading(false);
       }
-      setLoading(false);
-    } catch {
-      setLoading(false);
-    }
+    };
+    load();
+    return () => { mounted = false; };
+  }, [filter, page, refreshKey]);
+
+  const fetchCommissions = () => {
+    setRefreshKey(k => k + 1);
   };
 
   const handleVoid = async (commission: Commission) => {

@@ -31,22 +31,30 @@ export default function ProductsPage() {
   const [success, setSuccess] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [showSecret, setShowSecret] = useState<string | null>(null);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch('/api/v1/ppn/admin/products');
-      const result = await response.json();
-      if (result.ok) {
-        setProducts(result.data.products);
+    let mounted = true;
+    const load = async () => {
+      try {
+        const response = await fetch('/api/v1/ppn/admin/products');
+        const result = await response.json();
+        if (mounted) {
+          if (result.ok) {
+            setProducts(result.data.products);
+          }
+          setLoading(false);
+        }
+      } catch {
+        if (mounted) setLoading(false);
       }
-      setLoading(false);
-    } catch {
-      setLoading(false);
-    }
+    };
+    load();
+    return () => { mounted = false; };
+  }, [refreshKey]);
+
+  const fetchProducts = () => {
+    setRefreshKey(k => k + 1);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

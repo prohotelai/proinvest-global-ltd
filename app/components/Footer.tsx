@@ -121,6 +121,15 @@ export default function Footer() {
                     Contact
                   </Link>
                 </li>
+                <li>
+                  <Link 
+                    href="/partners" 
+                    className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    Partner Program
+                  </Link>
+                </li>
               </ul>
             </div>
 

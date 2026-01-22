@@ -35,23 +35,26 @@ export default function AssetsPage() {
     }
 
     if (status === 'authenticated') {
-      fetchAssets();
+      let mounted = true;
+      const load = async () => {
+        try {
+          const response = await fetch('/api/v1/ppn/partner/assets');
+          const result = await response.json();
+          
+          if (mounted) {
+            if (result.ok) {
+              setData(result.data);
+            }
+            setLoading(false);
+          }
+        } catch {
+          if (mounted) setLoading(false);
+        }
+      };
+      load();
+      return () => { mounted = false; };
     }
   }, [status, router]);
-
-  const fetchAssets = async () => {
-    try {
-      const response = await fetch('/api/v1/ppn/partner/assets');
-      const result = await response.json();
-      
-      if (result.ok) {
-        setData(result.data);
-      }
-      setLoading(false);
-    } catch {
-      setLoading(false);
-    }
-  };
 
   const getTypeIcon = (type: string) => {
     switch (type) {

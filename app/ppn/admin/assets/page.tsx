@@ -34,28 +34,35 @@ export default function AssetsPage() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    let mounted = true;
+    const load = async () => {
+      try {
+        const [assetsRes, productsRes] = await Promise.all([
+          fetch('/api/v1/ppn/admin/assets'),
+          fetch('/api/v1/ppn/admin/products'),
+        ]);
 
-  const fetchData = async () => {
-    try {
-      const [assetsRes, productsRes] = await Promise.all([
-        fetch('/api/v1/ppn/admin/assets'),
-        fetch('/api/v1/ppn/admin/products'),
-      ]);
+        const assetsData = await assetsRes.json();
+        const productsData = await productsRes.json();
 
-      const assetsData = await assetsRes.json();
-      const productsData = await productsRes.json();
+        if (mounted) {
+          if (assetsData.ok) setAssets(assetsData.data.assets);
+          if (productsData.ok) setProducts(productsData.data.products);
+          setLoading(false);
+        }
+      } catch {
+        if (mounted) setLoading(false);
+      }
+    };
+    load();
+    return () => { mounted = false; };
+  }, [refreshKey]);
 
-      if (assetsData.ok) setAssets(assetsData.data.assets);
-      if (productsData.ok) setProducts(productsData.data.products);
-
-      setLoading(false);
-    } catch {
-      setLoading(false);
-    }
+  const fetchData = () => {
+    setRefreshKey(k => k + 1);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

@@ -3,7 +3,7 @@
  * Generates Schema.org JSON-LD markup for AI systems, search engines, and LLMs
  */
 
-import { Organization, WithContext, SoftwareApplication, Product, Corporation, FAQPage, BreadcrumbList } from 'schema-dts';
+import { Organization, WithContext, SoftwareApplication, FAQPage, BreadcrumbList } from 'schema-dts';
 
 // Company entity information
 export const COMPANY_INFO = {
@@ -238,6 +238,6 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
 /**
  * Helper function to inject JSON-LD script
  */
-export function injectStructuredData(data: any): string {
+export function injectStructuredData(data: WithContext<Organization | SoftwareApplication | FAQPage | BreadcrumbList>): string {
   return JSON.stringify(data, null, 0);
 }

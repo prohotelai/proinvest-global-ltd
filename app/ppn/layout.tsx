@@ -1,4 +1,3 @@
-import { redirect } from 'next/navigation';
 import { auth } from '@/lib/ppn/auth';
 
 export const metadata = {
@@ -10,9 +9,9 @@ export default async function PPNLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await auth();
+  // Get session for future use in protected routes
+  await auth();
 
-  // Check if user is logged in for protected routes
   // This layout is for the partner portal section
   
   return (

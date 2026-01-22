@@ -48,6 +48,7 @@ export default function PartnerDashboard() {
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -61,27 +62,37 @@ export default function PartnerDashboard() {
         return;
       }
 
-      fetchDashboard();
-    }
-  }, [status, session, router]);
+      let mounted = true;
+      const load = async () => {
+        try {
+          const response = await fetch('/api/v1/ppn/partner/dashboard');
+          const result = await response.json();
+          
+          if (mounted) {
+            if (!result.ok) {
+              setError(result.error?.message || 'Failed to load dashboard');
+              setLoading(false);
+              return;
+            }
 
-  const fetchDashboard = async () => {
-    try {
-      const response = await fetch('/api/v1/ppn/partner/dashboard');
-      const result = await response.json();
-      
-      if (!result.ok) {
-        setError(result.error?.message || 'Failed to load dashboard');
-        setLoading(false);
-        return;
-      }
-
-      setData(result.data);
-      setLoading(false);
-    } catch {
-      setError('Failed to load dashboard');
-      setLoading(false);
+            setData(result.data);
+            setLoading(false);
+          }
+        } catch {
+          if (mounted) {
+            setError('Failed to load dashboard');
+            setLoading(false);
+          }
+        }
+      };
+      load();
+      return () => { mounted = false; };
     }
+  }, [status, session, router, refreshKey]);
+
+  const fetchDashboard = () => {
+    setRefreshKey(k => k + 1);
+    setError('');
   };
 
   if (loading || status === 'loading') {

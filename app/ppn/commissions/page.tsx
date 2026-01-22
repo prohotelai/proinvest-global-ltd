@@ -49,26 +49,29 @@ export default function CommissionsPage() {
     }
 
     if (status === 'authenticated') {
-      fetchCommissions();
+      let mounted = true;
+      const load = async () => {
+        try {
+          const params = new URLSearchParams({ page: page.toString(), limit: '20' });
+          if (filter) params.set('status', filter);
+          
+          const response = await fetch(`/api/v1/ppn/partner/commissions?${params}`);
+          const result = await response.json();
+          
+          if (mounted) {
+            if (result.ok) {
+              setData(result.data);
+            }
+            setLoading(false);
+          }
+        } catch {
+          if (mounted) setLoading(false);
+        }
+      };
+      load();
+      return () => { mounted = false; };
     }
   }, [status, router, filter, page]);
-
-  const fetchCommissions = async () => {
-    try {
-      const params = new URLSearchParams({ page: page.toString(), limit: '20' });
-      if (filter) params.set('status', filter);
-      
-      const response = await fetch(`/api/v1/ppn/partner/commissions?${params}`);
-      const result = await response.json();
-      
-      if (result.ok) {
-        setData(result.data);
-      }
-      setLoading(false);
-    } catch {
-      setLoading(false);
-    }
-  };
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {

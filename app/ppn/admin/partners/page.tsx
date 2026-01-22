@@ -46,34 +46,41 @@ export default function PartnersPage() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
-    fetchData();
-  }, [filter]);
+    let mounted = true;
+    const load = async () => {
+      try {
+        const params = new URLSearchParams();
+        if (filter) params.set('status', filter);
 
-  const fetchData = async () => {
-    try {
-      const params = new URLSearchParams();
-      if (filter) params.set('status', filter);
+        const [partnersRes, tiersRes, productsRes] = await Promise.all([
+          fetch(`/api/v1/ppn/admin/partners?${params}`),
+          fetch('/api/v1/ppn/admin/tiers'),
+          fetch('/api/v1/ppn/admin/products'),
+        ]);
 
-      const [partnersRes, tiersRes, productsRes] = await Promise.all([
-        fetch(`/api/v1/ppn/admin/partners?${params}`),
-        fetch('/api/v1/ppn/admin/tiers'),
-        fetch('/api/v1/ppn/admin/products'),
-      ]);
+        const partnersData = await partnersRes.json();
+        const tiersData = await tiersRes.json();
+        const productsData = await productsRes.json();
 
-      const partnersData = await partnersRes.json();
-      const tiersData = await tiersRes.json();
-      const productsData = await productsRes.json();
+        if (mounted) {
+          if (partnersData.ok) setPartners(partnersData.data.partners);
+          if (tiersData.ok) setTiers(tiersData.data.tiers);
+          if (productsData.ok) setProducts(productsData.data.products);
+          setLoading(false);
+        }
+      } catch {
+        if (mounted) setLoading(false);
+      }
+    };
+    load();
+    return () => { mounted = false; };
+  }, [filter, refreshKey]);
 
-      if (partnersData.ok) setPartners(partnersData.data.partners);
-      if (tiersData.ok) setTiers(tiersData.data.tiers);
-      if (productsData.ok) setProducts(productsData.data.products);
-
-      setLoading(false);
-    } catch {
-      setLoading(false);
-    }
+  const fetchData = () => {
+    setRefreshKey(k => k + 1);
   };
 
   const handleUpdateStatus = async (partner: Partner, newStatus: string) => {

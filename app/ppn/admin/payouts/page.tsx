@@ -28,27 +28,35 @@ export default function PayoutsPage() {
   const [pagination, setPagination] = useState({ total: 0, pages: 1 });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
-    fetchPayouts();
-  }, [filter, page]);
+    let mounted = true;
+    const load = async () => {
+      try {
+        const params = new URLSearchParams({ page: page.toString(), limit: '50' });
+        if (filter) params.set('status', filter);
 
-  const fetchPayouts = async () => {
-    try {
-      const params = new URLSearchParams({ page: page.toString(), limit: '50' });
-      if (filter) params.set('status', filter);
+        const response = await fetch(`/api/v1/ppn/admin/payouts?${params}`);
+        const result = await response.json();
 
-      const response = await fetch(`/api/v1/ppn/admin/payouts?${params}`);
-      const result = await response.json();
-
-      if (result.ok) {
-        setPayouts(result.data.payouts);
-        setPagination(result.data.pagination);
+        if (mounted) {
+          if (result.ok) {
+            setPayouts(result.data.payouts);
+            setPagination(result.data.pagination);
+          }
+          setLoading(false);
+        }
+      } catch {
+        if (mounted) setLoading(false);
       }
-      setLoading(false);
-    } catch {
-      setLoading(false);
-    }
+    };
+    load();
+    return () => { mounted = false; };
+  }, [filter, page, refreshKey]);
+
+  const fetchPayouts = () => {
+    setRefreshKey(k => k + 1);
   };
 
   const handleUpdateStatus = async (payout: Payout, newStatus: string) => {
