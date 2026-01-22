@@ -1,20 +1,57 @@
 import CryptoJS from 'crypto-js';
 
-const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY || 'default-encryption-key-change-in-production';
+const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY;
+const ENCRYPTION_DEFAULT_KEY = 'default-encryption-key-change-in-production';
+
+/**
+ * Check if encryption is properly configured for production
+ */
+export function isEncryptionConfigured(): boolean {
+  return !!ENCRYPTION_KEY && ENCRYPTION_KEY !== ENCRYPTION_DEFAULT_KEY;
+}
+
+/**
+ * Get encryption key with fallback for dev environment
+ */
+function getEncryptionKey(): string | null {
+  if (ENCRYPTION_KEY) {
+    return ENCRYPTION_KEY;
+  }
+  // In development, use default key but log warning
+  if (process.env.NODE_ENV === 'development') {
+    console.warn('[PPN] ENCRYPTION_KEY not set, using default key (dev only)');
+    return ENCRYPTION_DEFAULT_KEY;
+  }
+  return null;
+}
 
 /**
  * Encrypt sensitive data (e.g., payout method details)
+ * Returns null if encryption is not configured in production
  */
-export function encrypt(data: string): string {
-  return CryptoJS.AES.encrypt(data, ENCRYPTION_KEY).toString();
+export function encrypt(data: string): string | null {
+  const key = getEncryptionKey();
+  if (!key) {
+    return null;
+  }
+  return CryptoJS.AES.encrypt(data, key).toString();
 }
 
 /**
  * Decrypt sensitive data
+ * Returns null if encryption is not configured or decryption fails
  */
-export function decrypt(encryptedData: string): string {
-  const bytes = CryptoJS.AES.decrypt(encryptedData, ENCRYPTION_KEY);
-  return bytes.toString(CryptoJS.enc.Utf8);
+export function decrypt(encryptedData: string): string | null {
+  const key = getEncryptionKey();
+  if (!key) {
+    return null;
+  }
+  try {
+    const bytes = CryptoJS.AES.decrypt(encryptedData, key);
+    return bytes.toString(CryptoJS.enc.Utf8);
+  } catch {
+    return null;
+  }
 }
 
 /**

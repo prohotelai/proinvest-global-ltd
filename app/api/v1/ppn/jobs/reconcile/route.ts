@@ -7,14 +7,18 @@ export const runtime = 'nodejs';
 const CRON_SECRET = process.env.PPN_CRON_SECRET;
 
 export async function POST(request: NextRequest) {
-  // Verify cron secret
-  const authHeader = request.headers.get('Authorization');
-  
+  // Verify cron secret is configured
   if (!CRON_SECRET) {
     console.error('PPN_CRON_SECRET not configured');
-    return errorResponse(ErrorCodes.INTERNAL_ERROR, 'Cron secret not configured', 500);
+    return errorResponse(
+      ErrorCodes.CRON_NOT_CONFIGURED,
+      'PPN_CRON_SECRET environment variable is not set',
+      503
+    );
   }
 
+  // Verify authorization header
+  const authHeader = request.headers.get('Authorization');
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     return errorResponse(ErrorCodes.UNAUTHORIZED, 'Missing or invalid Authorization header', 401);
   }

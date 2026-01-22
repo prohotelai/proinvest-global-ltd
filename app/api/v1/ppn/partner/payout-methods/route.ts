@@ -2,7 +2,7 @@ import { NextRequest } from 'next/server';
 import { auth } from '@/lib/ppn/auth';
 import { prisma } from '@/lib/ppn/db';
 import { successResponse, errorResponse, ErrorCodes } from '@/lib/ppn/api-response';
-import { encrypt, decrypt } from '@/lib/ppn/utils';
+import { encrypt, decrypt, isEncryptionConfigured } from '@/lib/ppn/utils';
 import { z } from 'zod';
 
 export const runtime = 'nodejs';
@@ -49,6 +49,9 @@ export async function GET() {
 
   const partnerId = session.user.partnerId!;
 
+  // Check if encryption is configured
+  const encryptionConfigured = isEncryptionConfigured();
+
   const methods = await prisma.payoutMethod.findMany({
     where: { partnerId },
     select: {
@@ -65,7 +68,19 @@ export async function GET() {
   // Decrypt and mask sensitive details
   const maskedMethods = methods.map(m => {
     try {
-      const details = JSON.parse(decrypt(m.detailsEncryptedJson));
+      const decrypted = decrypt(m.detailsEncryptedJson);
+      if (!decrypted) {
+        // Decryption failed (encryption not configured or key mismatch)
+        return {
+          id: m.id,
+          method: m.method,
+          isActive: m.isActive,
+          details: { _error: 'Unable to decrypt details' },
+          createdAt: m.createdAt,
+          updatedAt: m.updatedAt,
+        };
+      }
+      const details = JSON.parse(decrypted);
       // Mask sensitive fields
       const maskedDetails: Record<string, string> = {};
       for (const [key, value] of Object.entries(details)) {
@@ -100,11 +115,23 @@ export async function GET() {
     }
   });
 
-  return successResponse({ methods: maskedMethods });
+  return successResponse({ 
+    methods: maskedMethods,
+    encryption_configured: encryptionConfigured,
+  });
 }
 
 // POST /api/v1/ppn/partner/payout-methods - Add payout method
 export async function POST(request: NextRequest) {
+  // Check encryption configuration first
+  if (!isEncryptionConfigured()) {
+    return errorResponse(
+      ErrorCodes.ENCRYPTION_NOT_CONFIGURED,
+      'Encryption is not configured. ENCRYPTION_KEY environment variable must be set to store payout methods securely.',
+      503
+    );
+  }
+
   const session = await checkPartner();
   if (!session) {
     return errorResponse(ErrorCodes.UNAUTHORIZED, 'Partner access required', 401);
@@ -155,11 +182,20 @@ export async function POST(request: NextRequest) {
   });
 
   // Create new method
+  const encryptedDetails = encrypt(JSON.stringify(details));
+  if (!encryptedDetails) {
+    return errorResponse(
+      ErrorCodes.ENCRYPTION_NOT_CONFIGURED,
+      'Failed to encrypt payout details. Please contact support.',
+      503
+    );
+  }
+
   const payoutMethod = await prisma.payoutMethod.create({
     data: {
       partnerId,
       method,
-      detailsEncryptedJson: encrypt(JSON.stringify(details)),
+      detailsEncryptedJson: encryptedDetails,
       isActive: true,
     },
     select: {

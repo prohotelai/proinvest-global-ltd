@@ -39,10 +39,11 @@ interface PayoutsData {
 }
 
 export default function PayoutsPage() {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
   const [data, setData] = useState<PayoutsData | null>(null);
   const [methods, setMethods] = useState<PayoutMethod[]>([]);
+  const [encryptionConfigured, setEncryptionConfigured] = useState(true);
   const [loading, setLoading] = useState(true);
   const [showRequestForm, setShowRequestForm] = useState(false);
   const [showMethodForm, setShowMethodForm] = useState(false);
@@ -92,7 +93,10 @@ export default function PayoutsPage() {
           
           if (mounted) {
             if (payoutsData.ok) setData(payoutsData.data);
-            if (methodsData.ok) setMethods(methodsData.data.methods);
+            if (methodsData.ok) {
+              setMethods(methodsData.data.methods);
+              setEncryptionConfigured(methodsData.data.encryption_configured !== false);
+            }
             setLoading(false);
           }
         } catch {
@@ -276,10 +280,19 @@ export default function PayoutsPage() {
                 <button
                   onClick={() => setShowMethodForm(true)}
                   className="text-sm text-teal-600 font-medium hover:text-teal-700"
+                  disabled={!encryptionConfigured}
                 >
                   + Add Method
                 </button>
               </div>
+              {!encryptionConfigured && (
+                <div className="mb-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                  <p className="text-amber-800 text-sm">
+                    <strong>⚠️ Configuration Required:</strong> Encryption is not configured in production. 
+                    Add <code className="bg-amber-100 px-1 rounded">ENCRYPTION_KEY</code> environment variable to enable payout method storage.
+                  </p>
+                </div>
+              )}
               {methods.length === 0 ? (
                 <p className="text-slate-500">No payout methods configured. Add one to receive payouts.</p>
               ) : (
