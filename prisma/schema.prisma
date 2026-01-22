@@ -1,0 +1,311 @@
+// ProInvest Partner Network (PPN) - Database Schema
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// ============================================
+// AUTH & USER MANAGEMENT
+// ============================================
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  passwordHash  String
+  name          String?
+  role          String    @default("partner") // partner | admin
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  partner       Partner?
+  commissionOverridesSet PartnerCommissionOverride[] @relation("SetByAdmin")
+}
+
+// ============================================
+// PARTNER MANAGEMENT
+// ============================================
+
+model Tier {
+  id          String    @id @default(uuid())
+  name        String    @unique // Starter, Pro, Elite, Strategic
+  description String?
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  partners    Partner[]
+}
+
+model Partner {
+  id                String    @id @default(uuid())
+  userId            String    @unique
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  partnerCode       String    @unique // unique referral code
+  type              String    @default("referral") // referral | affiliate
+  status            String    @default("pending") // pending | approved | rejected | suspended
+  
+  tierId            String?
+  tier              Tier?     @relation(fields: [tierId], references: [id])
+  
+  country           String?   // 2-letter country code
+  approvalModeUsed  String?   // auto | manual
+  
+  // Country restrictions (JSON arrays stored as strings)
+  allowedCountries  String?   // JSON array of country codes
+  blockedCountries  String?   // JSON array of country codes
+  isGlobal          Boolean   @default(true)
+  
+  // Payout details
+  payoutMinimum     Float     @default(100)
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  clicks            Click[]
+  attributions      Attribution[]
+  commissionOverrides PartnerCommissionOverride[]
+  commissionEntries CommissionEntry[]
+  ledgerTransactions LedgerTransaction[]
+  payoutMethods     PayoutMethod[]
+  payoutRequests    PayoutRequest[]
+}
+
+// ============================================
+// PRODUCT MANAGEMENT
+// ============================================
+
+model Product {
+  id                String    @id @default(uuid())
+  name              String
+  slug              String    @unique
+  domain            String    // e.g., prohotelai.com
+  status            String    @default("active") // active | inactive
+  webhookSecret     String    // for HMAC verification
+  defaultLandingUrl String?
+  pricingUrl        String?
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  plans             ProductPlan[]
+  clicks            Click[]
+  attributions      Attribution[]
+  commissionOverrides PartnerCommissionOverride[]
+  commissionEntries CommissionEntry[]
+  assets            AssetLibrary[]
+  eventLogs         EventLog[]
+}
+
+model ProductPlan {
+  id            String    @id @default(uuid())
+  productId     String
+  product       Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  planKey       String    // e.g., "starter", "pro", "enterprise"
+  name          String
+  billingCycle  String    // monthly | annual
+  active        Boolean   @default(true)
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  commissionOverrides PartnerCommissionOverride[]
+  
+  @@unique([productId, planKey, billingCycle])
+}
+
+// ============================================
+// TRACKING
+// ============================================
+
+model Click {
+  id          String    @id @default(uuid()) // This is the click_id
+  productId   String
+  product     Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  partnerId   String
+  partner     Partner   @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  
+  landingUrl  String
+  occurredAt  DateTime
+  ip          String?
+  userAgent   String?
+  utm         String?   // JSON object as string
+  
+  createdAt   DateTime  @default(now())
+  
+  attributions Attribution[]
+}
+
+model Attribution {
+  id                   String    @id @default(uuid())
+  productId            String
+  product              Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  externalCustomerId   String
+  partnerId            String
+  partner              Partner   @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  
+  clickId              String?
+  click                Click?    @relation(fields: [clickId], references: [id])
+  
+  attributionType      String    // cookie | api | manual
+  firstSeenAt          DateTime  @default(now())
+  lockedAt             DateTime? // when first payment received
+  
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+  
+  @@unique([productId, externalCustomerId])
+}
+
+// ============================================
+// COMMISSION MANAGEMENT
+// ============================================
+
+model PartnerCommissionOverride {
+  id              String    @id @default(uuid())
+  partnerId       String
+  partner         Partner   @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  productId       String
+  product         Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  planId          String?   // Optional - if null, applies to all plans for this product
+  plan            ProductPlan? @relation(fields: [planId], references: [id])
+  
+  percent         Float     // 5-30
+  setByAdminId    String
+  setByAdmin      User      @relation("SetByAdmin", fields: [setByAdminId], references: [id])
+  effectiveFrom   DateTime  @default(now())
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  @@unique([partnerId, productId, planId])
+}
+
+model CommissionEntry {
+  id                      String    @id @default(uuid())
+  partnerId               String
+  partner                 Partner   @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  productId               String
+  product                 Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  externalCustomerId      String
+  externalSubscriptionId  String
+  externalInvoiceId       String    @unique
+  
+  amountPaid              Float
+  currency                String    @default("USD")
+  commissionPercent       Float
+  commissionAmount        Float
+  
+  status                  String    @default("pending") // pending | available | void | paid
+  
+  occurredAt              DateTime
+  eligibleAt              DateTime  // occurredAt + 60 days
+  voidReason              String?
+  paidAt                  DateTime?
+  
+  createdAt               DateTime  @default(now())
+  updatedAt               DateTime  @updatedAt
+}
+
+model LedgerTransaction {
+  id            String    @id @default(uuid())
+  partnerId     String
+  partner       Partner   @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  
+  type          String    // commission_earned | commission_voided | payout_requested | payout_paid | adjustment
+  amount        Float     // positive or negative
+  currency      String    @default("USD")
+  
+  referenceType String?   // commission | payout | manual
+  referenceId   String?   // ID of related entity
+  description   String?
+  
+  createdAt     DateTime  @default(now())
+}
+
+// ============================================
+// PAYOUT MANAGEMENT
+// ============================================
+
+model PayoutMethod {
+  id                    String    @id @default(uuid())
+  partnerId             String
+  partner               Partner   @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  
+  method                String    // stripe | wise | bank
+  detailsEncryptedJson  String    // encrypted JSON with payout details
+  isActive              Boolean   @default(true)
+  
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+}
+
+model PayoutRequest {
+  id              String    @id @default(uuid())
+  partnerId       String
+  partner         Partner   @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  
+  requestedAmount Float
+  currency        String    @default("USD")
+  method          String    // stripe | wise | bank
+  status          String    @default("requested") // requested | approved | processing | paid | rejected
+  
+  requestedAt     DateTime  @default(now())
+  processedAt     DateTime?
+  monthKey        String    // YYYY-MM format
+  adminNote       String?
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  @@unique([partnerId, monthKey])
+}
+
+// ============================================
+// ASSETS
+// ============================================
+
+model AssetLibrary {
+  id        String    @id @default(uuid())
+  productId String
+  product   Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  type      String    // banner | widget | pdf | video | copy
+  title     String
+  fileUrl   String
+  size      String?   // e.g., "300x250", "A4"
+  language  String    @default("en")
+  active    Boolean   @default(true)
+  
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+// ============================================
+// EVENT LOGGING & IDEMPOTENCY
+// ============================================
+
+model EventLog {
+  id          String    @id @default(uuid()) // This is the event_id from header
+  productId   String
+  product     Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  type        String    // click | signup | subscription_started | invoice_paid | subscription_canceled | refund
+  occurredAt  DateTime
+  receivedAt  DateTime  @default(now())
+  status      String    @default("processed") // processed | duplicate | failed
+  rawBodyHash String    // SHA256 hash of raw body for duplicate detection
+  errorMessage String?
+  
+  createdAt   DateTime  @default(now())
+  
+  @@index([productId, type])
+}
