@@ -379,7 +379,7 @@ export default function ProCafeAI() {
                 What types of restaurants can use ProCafeAI?
               </h3>
               <p className="text-gray-600">
-                ProCafeAI works for cafés, coffee shops, quick-service restaurants, casual dining restaurants, restaurant chains, and food courts. It's ideal for any food service operation that wants to reduce order-taking staff and improve customer experience.
+                ProCafeAI works for cafés, coffee shops, quick-service restaurants, casual dining restaurants, restaurant chains, and food courts. It&apos;s ideal for any food service operation that wants to reduce order-taking staff and improve customer experience.
               </p>
             </div>
             <div>

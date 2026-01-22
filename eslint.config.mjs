@@ -12,7 +12,20 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Ignore Prisma generated files
+    "lib/generated/**",
   ]),
+  // Custom rule overrides
+  {
+    rules: {
+      // Allow unused vars if they start with underscore
+      "@typescript-eslint/no-unused-vars": ["warn", {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }]
+    }
+  }
 ]);
 
 export default eslintConfig;
