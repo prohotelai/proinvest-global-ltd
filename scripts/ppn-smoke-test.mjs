@@ -93,7 +93,7 @@ async function runTests() {
 // Check if server is running
 async function checkServer() {
   try {
-    const response = await fetch(`${BASE_URL}/api/v1/ppn/health`, { 
+    await fetch(`${BASE_URL}/api/v1/ppn/health`, { 
       method: 'HEAD',
       signal: AbortSignal.timeout(5000),
     });

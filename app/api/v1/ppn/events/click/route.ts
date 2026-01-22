@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const { productId, eventId, timestamp } = verification;
+  const { productId, eventId, timestamp: _timestamp } = verification;
 
   // Check rate limit
   const rateLimit = checkRateLimit(productId!);

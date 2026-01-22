@@ -122,7 +122,7 @@ export async function createCommissionEntry(params: {
   }
 
   // Resolve commission percentage
-  const { percent, source, reason } = await resolveCommissionPercent(
+  const { percent, source: _source, reason } = await resolveCommissionPercent(
     partnerId,
     productId,
     planKey,

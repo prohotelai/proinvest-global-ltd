@@ -120,7 +120,7 @@ export function hashBody(rawBody: string): string {
  */
 export async function checkIdempotency(
   eventId: string,
-  productId: string
+  _productId: string
 ): Promise<{ isDuplicate: boolean; existingEvent?: { status: string; receivedAt: Date } }> {
   const existingEvent = await prisma.eventLog.findUnique({
     where: { id: eventId },

@@ -1,5 +1,4 @@
 import { NextRequest } from 'next/server';
-import { prisma } from '@/lib/ppn/db';
 import { verifySignature, checkIdempotency, logEvent, hashBody } from '@/lib/ppn/signature';
 import { checkRateLimit, addRateLimitHeaders } from '@/lib/ppn/rate-limit';
 import { subscriptionCanceledSchema } from '@/lib/ppn/schemas';

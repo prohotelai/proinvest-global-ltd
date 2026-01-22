@@ -26,7 +26,7 @@ interface LinksData {
 }
 
 export default function LinksPage() {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
   const [data, setData] = useState<LinksData | null>(null);
   const [loading, setLoading] = useState(true);

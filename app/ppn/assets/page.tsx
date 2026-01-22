@@ -22,7 +22,7 @@ interface AssetsData {
 }
 
 export default function AssetsPage() {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
   const [data, setData] = useState<AssetsData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -67,7 +67,8 @@ export default function AssetsPage() {
     }
   };
 
-  const filteredAssets = filter
+  // filteredAssets available for future iteration-based rendering
+  const _filteredAssets = filter
     ? data?.assets.filter(a => a.type === filter) || []
     : data?.assets || [];
 
