@@ -12,12 +12,21 @@ const globalForPrisma = globalThis as unknown as {
 function createPrismaClient() {
   const databaseUrl = process.env.DATABASE_URL || 'file:./dev.db';
   
-  const adapter = new PrismaLibSql({ url: databaseUrl });
-  
-  return new PrismaClient({
-    adapter,
-    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
-  });
+  try {
+    const adapter = new PrismaLibSql({ url: databaseUrl });
+    
+    return new PrismaClient({
+      adapter,
+      log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+    });
+  } catch (error) {
+    console.error('Failed to create Prisma client with database URL:', databaseUrl);
+    console.error('Error:', error instanceof Error ? error.message : error);
+    throw new Error(
+      `Database configuration error. Please check DATABASE_URL environment variable. ` +
+      `Expected format: "file:./path/to/db.db" for SQLite or a LibSQL connection URL.`
+    );
+  }
 }
 
 export const prisma = globalForPrisma.prisma ?? createPrismaClient();

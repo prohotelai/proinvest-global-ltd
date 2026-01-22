@@ -186,44 +186,45 @@ export async function POST(request: NextRequest) {
     return errorResponse(ErrorCodes.NOT_FOUND, 'Product not found', 404);
   }
 
-  // Check for existing override
-  const existingOverride = await prisma.partnerCommissionOverride.findFirst({
-    where: {
-      partnerId: data.partnerId,
-      productId: data.productId,
-      planId: data.planId ?? null,
-    },
-  });
-
-  let override;
-  if (existingOverride) {
-    override = await prisma.partnerCommissionOverride.update({
-      where: { id: existingOverride.id },
-      data: {
-        percent: data.percent,
-        setByAdminId: session.user.id,
-        effectiveFrom: new Date(),
-      },
-      include: {
-        product: { select: { name: true } },
-        plan: { select: { name: true } },
-      },
-    });
-  } else {
-    override = await prisma.partnerCommissionOverride.create({
-      data: {
+  // Use a transaction to prevent race conditions when finding and creating/updating
+  const override = await prisma.$transaction(async (tx) => {
+    const existingOverride = await tx.partnerCommissionOverride.findFirst({
+      where: {
         partnerId: data.partnerId,
         productId: data.productId,
         planId: data.planId ?? null,
-        percent: data.percent,
-        setByAdminId: session.user.id,
-      },
-      include: {
-        product: { select: { name: true } },
-        plan: { select: { name: true } },
       },
     });
-  }
+
+    if (existingOverride) {
+      return tx.partnerCommissionOverride.update({
+        where: { id: existingOverride.id },
+        data: {
+          percent: data.percent,
+          setByAdminId: session.user.id,
+          effectiveFrom: new Date(),
+        },
+        include: {
+          product: { select: { name: true } },
+          plan: { select: { name: true } },
+        },
+      });
+    } else {
+      return tx.partnerCommissionOverride.create({
+        data: {
+          partnerId: data.partnerId,
+          productId: data.productId,
+          planId: data.planId ?? null,
+          percent: data.percent,
+          setByAdminId: session.user.id,
+        },
+        include: {
+          product: { select: { name: true } },
+          plan: { select: { name: true } },
+        },
+      });
+    }
+  });
 
   return successResponse({ override }, undefined, 201);
 }
