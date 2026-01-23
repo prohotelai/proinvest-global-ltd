@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import { homeMetadata } from "@/lib/seo";
 import { generateOrganizationSchema } from "@/lib/structuredData";
 
@@ -29,11 +27,7 @@ export default function RootLayout({
         {/* <meta name="google-site-verification" content="" /> */}
       </head>
       <body className="font-sans antialiased">
-        <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
