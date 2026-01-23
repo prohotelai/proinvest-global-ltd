@@ -35,70 +35,95 @@ export async function POST(request: NextRequest) {
 
   const data = validation.data;
 
-  // Check if email already exists
-  const existingUser = await prisma.user.findUnique({
-    where: { email: data.email },
-  });
-
-  if (existingUser) {
-    return errorResponse(ErrorCodes.VALIDATION_ERROR, 'Email already registered', 400);
-  }
-
-  // Hash password
-  const passwordHash = await bcrypt.hash(data.password, 12);
-
-  // Generate unique partner code
-  let partnerCode = generatePartnerCode();
-  let codeExists = true;
-  let attempts = 0;
-  while (codeExists && attempts < 10) {
-    const existing = await prisma.partner.findUnique({
-      where: { partnerCode },
+  try {
+    // Check if email already exists
+    const existingUser = await prisma.user.findUnique({
+      where: { email: data.email },
     });
-    if (!existing) {
-      codeExists = false;
-    } else {
-      partnerCode = generatePartnerCode();
-      attempts++;
+
+    if (existingUser) {
+      return errorResponse(ErrorCodes.VALIDATION_ERROR, 'Email already registered', 400);
     }
-  }
 
-  if (codeExists) {
-    return errorResponse(ErrorCodes.INTERNAL_ERROR, 'Failed to generate partner code', 500);
-  }
+    // Hash password
+    const passwordHash = await bcrypt.hash(data.password, 12);
 
-  // Create user and partner
-  const user = await prisma.user.create({
-    data: {
-      email: data.email,
-      passwordHash,
-      name: data.name,
-      role: 'partner',
-      partner: {
-        create: {
-          partnerCode,
-          type: data.type,
-          status: 'pending',
-          country: data.country,
+    // Generate unique partner code
+    let partnerCode = generatePartnerCode();
+    let codeExists = true;
+    let attempts = 0;
+    while (codeExists && attempts < 10) {
+      const existing = await prisma.partner.findUnique({
+        where: { partnerCode },
+      });
+      if (!existing) {
+        codeExists = false;
+      } else {
+        partnerCode = generatePartnerCode();
+        attempts++;
+      }
+    }
+
+    if (codeExists) {
+      return errorResponse(ErrorCodes.INTERNAL_ERROR, 'Failed to generate partner code', 500);
+    }
+
+    // Create user and partner
+    const user = await prisma.user.create({
+      data: {
+        email: data.email,
+        passwordHash,
+        name: data.name,
+        role: 'partner',
+        partner: {
+          create: {
+            partnerCode,
+            type: data.type,
+            status: 'pending',
+            country: data.country,
+          },
         },
       },
-    },
-    include: {
-      partner: true,
-    },
-  });
+      include: {
+        partner: true,
+      },
+    });
 
-  return successResponse({
-    message: 'Registration successful. Your application is pending approval.',
-    user: {
-      id: user.id,
-      email: user.email,
-      name: user.name,
-    },
-    partner: {
-      id: user.partner!.id,
-      partnerCode: user.partner!.partnerCode,
-      status: user.partner!.status,
-    },
-  }, undefined, 201);
+    return successResponse({
+      message: 'Registration successful. Your application is pending approval.',
+      user: {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+      },
+      partner: {
+        id: user.partner!.id,
+        partnerCode: user.partner!.partnerCode,
+        status: user.partner!.status,
+      },
+    }, undefined, 201);
+  } catch (error) {
+    console.error('Signup error:', error);
+    
+    // Check for common database errors
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    
+    if (errorMessage.includes('no such table') || errorMessage.includes('relation') || errorMessage.includes('does not exist')) {
+      return errorResponse(
+        ErrorCodes.INTERNAL_ERROR,
+        'Database not initialized. Please run migrations.',
+        500
+      );
+    }
+    
+    if (errorMessage.includes('UNIQUE constraint') || errorMessage.includes('duplicate key')) {
+      return errorResponse(ErrorCodes.VALIDATION_ERROR, 'Email already registered', 400);
+    }
+    
+    return errorResponse(
+      ErrorCodes.INTERNAL_ERROR,
+      'Registration failed. Please try again later.',
+      500
+    );
+  }
 }
