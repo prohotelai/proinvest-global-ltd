@@ -33,6 +33,8 @@ export async function GET() {
       checks.diagnosis = 'Cannot open database file. Check DATABASE_URL path and permissions.';
     } else if (errorMsg.includes('Connection refused') || errorMsg.includes('ECONNREFUSED')) {
       checks.diagnosis = 'Cannot connect to database server. Check DATABASE_URL and network.';
+    } else if (errorMsg.includes('401') || errorMsg.includes('Unauthorized')) {
+      checks.diagnosis = 'Database authentication failed (401). For Turso/LibSQL, ensure DATABASE_URL includes ?authToken=YOUR_TOKEN';
     } else if (errorMsg.includes('authentication failed') || errorMsg.includes('Access denied')) {
       checks.diagnosis = 'Database authentication failed. Check credentials in DATABASE_URL.';
     } else {
