@@ -182,7 +182,8 @@ await fetch('https://www.proinvest.global/api/v1/ppn/events/invoice_paid', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'X-PPN-Product-Id': PRODUCT_ID,
+    'X-PPN-Product-Slug': 'procafeai',  // Use product slug (recommended)
+    // OR use 'X-PPN-Product-Id': PRODUCT_ID,  // UUID-based (legacy)
     'X-PPN-Timestamp': String(timestamp),
     'X-PPN-Event-Id': eventId,
     'X-PPN-Signature': signature,

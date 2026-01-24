@@ -24,7 +24,7 @@ const companyName = 'PROINVEST GLOBAL LTD';
  */
 export function generateMetadata(config: SEOConfig): Metadata {
   const locale = config.locale || 'en';
-  const _t = getTranslation(locale);
+  const t = getTranslation(locale);
   const lang = languages[locale];
   
   const title = `${config.title} | ${companyName}`;

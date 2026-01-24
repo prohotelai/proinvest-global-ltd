@@ -26,7 +26,7 @@ export const languages = {
 /**
  * Generate hreflang tags for a page
  */
-export function generateHreflangTags(basePath: string, _currentLocale: Locale) {
+export function generateHreflangTags(basePath: string, currentLocale: Locale) {
   const baseUrl = 'https://proinvest-global.com';
   
   return locales.map(locale => ({

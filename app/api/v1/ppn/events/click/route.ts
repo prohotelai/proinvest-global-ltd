@@ -20,11 +20,9 @@ export async function POST(request: NextRequest) {
   // Verify signature
   const verification = await verifySignature(request, rawBody);
   if (!verification.valid) {
-    return errorResponse(
-      ErrorCodes.INVALID_SIGNATURE,
-      verification.error || 'Invalid signature',
-      401
-    );
+    const errorCode = verification.errorCode || ErrorCodes.INVALID_SIGNATURE;
+    const statusCode = errorCode === 'PRODUCT_NOT_FOUND' ? 404 : 401;
+    return errorResponse(errorCode, verification.error || 'Verification failed', statusCode);
   }
 
   const { productId, eventId, timestamp: _timestamp } = verification;

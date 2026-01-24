@@ -5,6 +5,7 @@ import { prisma } from './db';
 export interface VerificationResult {
   valid: boolean;
   error?: string;
+  errorCode?: string;
   productId?: string;
   eventId?: string;
   timestamp?: number;
@@ -13,6 +14,11 @@ export interface VerificationResult {
 /**
  * Verify HMAC signature for incoming webhook events
  * 
+ * Supports product identification via:
+ * 1. X-PPN-Product-Id header (UUID) - highest priority
+ * 2. X-PPN-Product-Slug header (slug string)
+ * 3. body.product_slug field (slug string)
+ * 
  * Signing string format: v1.<timestamp>.<event_id>.<raw_body>
  * Signature header format: X-PPN-Signature: v1=<hex_hmac_sha256>
  */
@@ -20,49 +26,84 @@ export async function verifySignature(
   request: NextRequest,
   rawBody: string
 ): Promise<VerificationResult> {
-  const productId = request.headers.get('X-PPN-Product-Id');
+  const productIdHeader = request.headers.get('X-PPN-Product-Id');
+  const productSlugHeader = request.headers.get('X-PPN-Product-Slug');
   const timestamp = request.headers.get('X-PPN-Timestamp');
   const eventId = request.headers.get('X-PPN-Event-Id');
   const signature = request.headers.get('X-PPN-Signature');
 
+  // Extract product_slug from body if present
+  let bodyProductSlug: string | undefined;
+  try {
+    const bodyData = JSON.parse(rawBody);
+    bodyProductSlug = bodyData.product_slug;
+  } catch {
+    // Ignore parse errors - will be caught later in validation
+  }
+
+  // Determine product identifier (priority: id > slug header > slug body)
+  const productIdentifier = productIdHeader || productSlugHeader || bodyProductSlug;
+  const isUUID = productIdHeader !== null;
+
   // Check required headers
-  if (!productId) {
-    return { valid: false, error: 'Missing X-PPN-Product-Id header' };
+  if (!productIdentifier) {
+    return { 
+      valid: false, 
+      error: 'Missing product identifier (X-PPN-Product-Id, X-PPN-Product-Slug, or body.product_slug required)',
+      errorCode: 'MISSING_PRODUCT_IDENTIFIER'
+    };
   }
   if (!timestamp) {
-    return { valid: false, error: 'Missing X-PPN-Timestamp header' };
+    return { valid: false, error: 'Missing X-PPN-Timestamp header', errorCode: 'MISSING_TIMESTAMP' };
   }
   if (!eventId) {
-    return { valid: false, error: 'Missing X-PPN-Event-Id header' };
+    return { valid: false, error: 'Missing X-PPN-Event-Id header', errorCode: 'MISSING_EVENT_ID' };
   }
   if (!signature) {
-    return { valid: false, error: 'Missing X-PPN-Signature header' };
+    return { valid: false, error: 'Missing X-PPN-Signature header', errorCode: 'MISSING_SIGNATURE' };
   }
 
   // Parse timestamp and check for replay attack (300 seconds window)
   const timestampNum = parseInt(timestamp, 10);
   if (isNaN(timestampNum)) {
-    return { valid: false, error: 'Invalid timestamp format' };
+    return { valid: false, error: 'Invalid timestamp format', errorCode: 'INVALID_TIMESTAMP' };
   }
 
   const now = Math.floor(Date.now() / 1000);
   const timeDiff = Math.abs(now - timestampNum);
   if (timeDiff > 300) {
-    return { valid: false, error: 'Request timestamp outside acceptable window (replay protection)' };
+    return { 
+      valid: false, 
+      error: 'Request timestamp outside acceptable window (replay protection)',
+      errorCode: 'REPLAY_DETECTED'
+    };
   }
 
   // Get product and its webhook secret
-  const product = await prisma.product.findUnique({
-    where: { id: productId },
-    select: { webhookSecret: true, status: true },
-  });
+  const product = isUUID
+    ? await prisma.product.findUnique({
+        where: { id: productIdentifier },
+        select: { id: true, webhookSecret: true, status: true },
+      })
+    : await prisma.product.findUnique({
+        where: { slug: productIdentifier.toLowerCase().trim() },
+        select: { id: true, webhookSecret: true, status: true },
+      });
 
   if (!product) {
-    return { valid: false, error: 'Product not found' };
+    return { 
+      valid: false, 
+      error: 'Product not found',
+      errorCode: 'PRODUCT_NOT_FOUND'
+    };
   }
 
   if (product.status !== 'active') {
-    return { valid: false, error: 'Product is not active' };
+    return { 
+      valid: false, 
+      error: 'Product is not active',
+      errorCode: 'PRODUCT_INACTIVE'
+    };
   }
 
   // Compute expected signature
@@ -75,19 +116,19 @@ export async function verifySignature(
   // Parse signature header (format: v1=<hex>)
   const signatureParts = signature.split('=');
   if (signatureParts.length !== 2 || signatureParts[0] !== 'v1') {
-    return { valid: false, error: 'Invalid signature format' };
+    return { valid: false, error: 'Invalid signature format', errorCode: 'INVALID_SIGNATURE_FORMAT' };
   }
 
   const providedSignature = signatureParts[1];
 
   // Constant-time comparison to prevent timing attacks
   if (!timingSafeEqual(expectedSignature, providedSignature)) {
-    return { valid: false, error: 'Invalid signature' };
+    return { valid: false, error: 'Invalid signature', errorCode: 'INVALID_SIGNATURE' };
   }
 
   return {
     valid: true,
-    productId,
+    productId: product.id,
     eventId,
     timestamp: timestampNum,
   };

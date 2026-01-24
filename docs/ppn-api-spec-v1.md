@@ -10,16 +10,29 @@ The PPN API allows product integrations to send events for tracking partner refe
 
 All event endpoints require HMAC signature authentication.
 
+### Product Identification
+
+You can identify your product in one of three ways (in order of priority):
+
+1. **X-PPN-Product-Id** header (UUID) - Legacy method, still supported
+2. **X-PPN-Product-Slug** header (string) - **Recommended** for new integrations
+3. **product_slug** field in request body (string) - Fallback option
+
+**Note:** If multiple identifiers are provided, the order above determines which one is used. For example, if both `X-PPN-Product-Id` and `X-PPN-Product-Slug` are present, the Product-Id will be used.
+
 ### Required Headers
 
-| Header | Description |
-|--------|-------------|
-| `Content-Type` | `application/json` |
-| `X-PPN-Product-Id` | Your product's UUID |
-| `X-PPN-Timestamp` | Unix timestamp (seconds) |
-| `X-PPN-Event-Id` | Unique event UUID (for idempotency) |
-| `X-PPN-Signature` | HMAC signature |
-| `Idempotency-Key` | Same as X-PPN-Event-Id |
+| Header | Description | Required |
+|--------|-------------|----------|
+| `Content-Type` | `application/json` | Yes |
+| `X-PPN-Product-Id` | Your product's UUID | No* |
+| `X-PPN-Product-Slug` | Your product's slug (e.g., "procafeai") | No* |
+| `X-PPN-Timestamp` | Unix timestamp (seconds) | Yes |
+| `X-PPN-Event-Id` | Unique event UUID (for idempotency) | Yes |
+| `X-PPN-Signature` | HMAC signature | Yes |
+| `Idempotency-Key` | Same as X-PPN-Event-Id | Yes |
+
+\* At least one product identifier must be provided: `X-PPN-Product-Id`, `X-PPN-Product-Slug`, or `body.product_slug`
 
 ### Signature Generation
 
@@ -42,10 +55,35 @@ const signature = 'v1=' + crypto
 
 ### Example Header Generation (Node.js)
 
+**Using Product Slug (Recommended):**
 ```javascript
 const crypto = require('crypto');
 
-function generateHeaders(productId, webhookSecret, body) {
+function generateHeaders(productSlug, webhookSecret, body) {
+  const timestamp = Math.floor(Date.now() / 1000);
+  const eventId = crypto.randomUUID();
+  const rawBody = JSON.stringify(body);
+  
+  const signingString = `v1.${timestamp}.${eventId}.${rawBody}`;
+  const signature = 'v1=' + crypto
+    .createHmac('sha256', webhookSecret)
+    .update(signingString)
+    .digest('hex');
+  
+  return {
+    'Content-Type': 'application/json',
+    'X-PPN-Product-Slug': productSlug,  // e.g., 'procafeai'
+    'X-PPN-Timestamp': String(timestamp),
+    'X-PPN-Event-Id': eventId,
+    'X-PPN-Signature': signature,
+    'Idempotency-Key': eventId,
+  };
+}
+```
+
+**Using Product ID (Legacy):**
+```javascript
+function generateHeadersWithId(productId, webhookSecret, body) {
   const timestamp = Math.floor(Date.now() / 1000);
   const eventId = crypto.randomUUID();
   const rawBody = JSON.stringify(body);
@@ -97,10 +135,15 @@ function generateHeaders(productId, webhookSecret, body) {
 | Code | HTTP Status | Description |
 |------|-------------|-------------|
 | `INVALID_SIGNATURE` | 401 | Signature verification failed |
-| `REPLAY_DETECTED` | 401 | Timestamp outside acceptable window |
-| `MISSING_HEADER` | 400 | Required header missing |
-| `PRODUCT_NOT_FOUND` | 404 | Product ID not found |
-| `PRODUCT_INACTIVE` | 403 | Product is inactive |
+| `INVALID_SIGNATURE_FORMAT` | 401 | Signature header format is invalid |
+| `MISSING_PRODUCT_IDENTIFIER` | 401 | No product identifier provided (ID, slug header, or body field) |
+| `MISSING_TIMESTAMP` | 401 | X-PPN-Timestamp header missing |
+| `MISSING_EVENT_ID` | 401 | X-PPN-Event-Id header missing |
+| `MISSING_SIGNATURE` | 401 | X-PPN-Signature header missing |
+| `INVALID_TIMESTAMP` | 401 | Timestamp format is invalid |
+| `REPLAY_DETECTED` | 401 | Timestamp outside acceptable window (replay protection) |
+| `PRODUCT_NOT_FOUND` | 404 | Product not found by ID or slug |
+| `PRODUCT_INACTIVE` | 403 | Product exists but is not active |
 | `PARTNER_NOT_FOUND` | 404 | Partner code not found |
 | `PARTNER_NOT_APPROVED` | 403 | Partner is not approved |
 | `VALIDATION_ERROR` | 400 | Request body validation failed |
@@ -566,6 +609,100 @@ function getPPNAttribution() {
     ppn_ref: cookies.ppn_ref,
     click_id: cookies.ppn_click_id,
   };
+}
+```
+
+---
+
+## Product-Specific Integration Examples
+
+### ProcafeAI Integration
+
+ProcafeAI uses product slug identification for cleaner integration. Here's a complete example:
+
+**Setup:**
+```javascript
+const PRODUCT_SLUG = 'procafeai';
+const WEBHOOK_SECRET = 'your-webhook-secret'; // From PPN Admin UI
+```
+
+**Sending Events:**
+```javascript
+const crypto = require('crypto');
+
+function sendPPNEvent(eventType, eventData) {
+  const timestamp = Math.floor(Date.now() / 1000);
+  const eventId = crypto.randomUUID();
+  
+  // Include product_slug in body for fallback
+  const body = {
+    ...eventData,
+    product_slug: PRODUCT_SLUG,
+    occurred_at: new Date().toISOString(),
+  };
+  
+  const rawBody = JSON.stringify(body);
+  const signingString = `v1.${timestamp}.${eventId}.${rawBody}`;
+  const signature = 'v1=' + crypto
+    .createHmac('sha256', WEBHOOK_SECRET)
+    .update(signingString)
+    .digest('hex');
+  
+  const headers = {
+    'Content-Type': 'application/json',
+    'X-PPN-Product-Slug': PRODUCT_SLUG,  // Primary identifier
+    'X-PPN-Timestamp': String(timestamp),
+    'X-PPN-Event-Id': eventId,
+    'X-PPN-Signature': signature,
+    'Idempotency-Key': eventId,
+  };
+  
+  return fetch(`https://proinvest.global/api/v1/ppn/events/${eventType}`, {
+    method: 'POST',
+    headers,
+    body: rawBody,
+  });
+}
+
+// Example: Send signup event
+await sendPPNEvent('signup', {
+  external_customer_id: 'customer_123',
+  ppn_ref: 'CAFE001',  // From query params or cookie
+});
+
+// Example: Send invoice paid event
+await sendPPNEvent('invoice_paid', {
+  external_customer_id: 'customer_123',
+  external_subscription_id: 'sub_456',
+  external_invoice_id: 'inv_789',
+  plan_key: 'pro',
+  billing_cycle: 'monthly',
+  amount_paid: 29.99,
+  currency: 'USD',
+});
+```
+
+**Error Handling:**
+```javascript
+const response = await sendPPNEvent('signup', data);
+const result = await response.json();
+
+if (!result.ok) {
+  const { code, message } = result.error;
+  
+  switch (code) {
+    case 'PRODUCT_NOT_FOUND':
+      console.error('ProcafeAI product not found in PPN. Check slug:', PRODUCT_SLUG);
+      break;
+    case 'INVALID_SIGNATURE':
+      console.error('Invalid webhook secret. Check configuration.');
+      break;
+    case 'VALIDATION_ERROR':
+      console.error('Event validation failed:', message);
+      break;
+    default:
+      console.error('PPN error:', code, message);
+  }
 }
 ```
 
