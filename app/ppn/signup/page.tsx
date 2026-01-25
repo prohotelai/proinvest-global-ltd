@@ -63,7 +63,7 @@ export default function SignupPage() {
 
   if (success) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-navy-950 via-slate-900 to-purple-950 py-12 px-4">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-navy-950 via-slate-900 to-purple-950 py-12 px-4 isolate relative z-[60]">
         <div className="max-w-md w-full text-center">
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -89,7 +89,7 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-navy-950 via-slate-900 to-purple-950 py-12 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-navy-950 via-slate-900 to-purple-950 py-12 px-4 isolate relative z-[60]">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
           <Link href="/" className="inline-block mb-6">

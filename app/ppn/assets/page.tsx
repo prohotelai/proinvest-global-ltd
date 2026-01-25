@@ -90,8 +90,8 @@ export default function AssetsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-100">
-      <header className="bg-white shadow-sm">
+    <div className="min-h-screen bg-slate-100 isolate relative">
+      <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-bold text-slate-900">Marketing Assets</h1>
