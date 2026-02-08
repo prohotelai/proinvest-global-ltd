@@ -114,6 +114,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
         }
       }
     },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified,
+      changeFrequency: 'yearly' as const,
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified,
+      changeFrequency: 'yearly' as const,
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/cookies`,
+      lastModified,
+      changeFrequency: 'yearly' as const,
+      priority: 0.5,
+    },
   ];
   
   return mainPages;
