@@ -10,6 +10,8 @@ interface Partner {
   status: string;
   country: string | null;
   isGlobal: boolean;
+  websiteUrl: string | null;
+  marketingPlan: string | null;
   createdAt: string;
   user: { id: string; email: string; name: string | null };
   tier: { id: string; name: string } | null;
@@ -198,6 +200,7 @@ export default function PartnersPage() {
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">Partner</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">Code</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">Website / Plan</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">Status</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">Tier</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">Commissions</th>
@@ -214,6 +217,28 @@ export default function PartnersPage() {
                   <p className="text-xs text-slate-400 capitalize">{partner.type}</p>
                 </td>
                 <td className="px-6 py-4 font-mono text-sm">{partner.partnerCode}</td>
+                <td className="px-6 py-4">
+                  <div className="max-w-xs">
+                    {partner.websiteUrl ? (
+                      <a
+                        href={partner.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-teal-600 hover:underline truncate block"
+                        title={partner.websiteUrl}
+                      >
+                        {partner.websiteUrl.replace(/^https?:\/\//, '').slice(0, 30)}{partner.websiteUrl.length > 40 ? '...' : ''}
+                      </a>
+                    ) : (
+                      <span className="text-sm text-slate-400">No website</span>
+                    )}
+                    {partner.marketingPlan && (
+                      <p className="text-xs text-slate-500 mt-1 line-clamp-2" title={partner.marketingPlan}>
+                        {partner.marketingPlan.slice(0, 100)}{partner.marketingPlan.length > 100 ? '...' : ''}
+                      </p>
+                    )}
+                  </div>
+                </td>
                 <td className="px-6 py-4">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(partner.status)}`}>
                     {partner.status}

@@ -13,6 +13,8 @@ const signupSchema = z.object({
   name: z.string().min(1),
   country: z.string().length(2).optional(),
   type: z.enum(['referral', 'affiliate']).default('referral'),
+  websiteUrl: z.string().url().optional().or(z.literal('')),
+  marketingPlan: z.string().max(2000).optional(),
 });
 
 // POST /api/v1/ppn/auth/signup - Partner signup
@@ -81,6 +83,8 @@ export async function POST(request: NextRequest) {
             type: data.type,
             status: 'pending',
             country: data.country,
+            websiteUrl: data.websiteUrl || null,
+            marketingPlan: data.marketingPlan || null,
           },
         },
       },

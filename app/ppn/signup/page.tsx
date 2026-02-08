@@ -11,6 +11,8 @@ export default function SignupPage() {
     confirmPassword: '',
     country: '',
     type: 'referral' as 'referral' | 'affiliate',
+    websiteUrl: '',
+    marketingPlan: '',
     agreeTerms: false,
   });
   const [error, setError] = useState('');
@@ -43,6 +45,8 @@ export default function SignupPage() {
           password: formData.password,
           country: formData.country || undefined,
           type: formData.type,
+          websiteUrl: formData.websiteUrl || undefined,
+          marketingPlan: formData.marketingPlan || undefined,
         }),
       });
 
@@ -198,6 +202,37 @@ export default function SignupPage() {
                   <option value="affiliate">Affiliate Partner</option>
                 </select>
               </div>
+            </div>
+
+            <div>
+              <label htmlFor="websiteUrl" className="block text-sm font-medium text-slate-700 mb-2">
+                Website or Social Media Link
+              </label>
+              <input
+                id="websiteUrl"
+                type="url"
+                value={formData.websiteUrl}
+                onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
+                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition"
+                placeholder="https://yourwebsite.com or social media profile"
+              />
+              <p className="mt-1 text-xs text-slate-500">Your website, blog, YouTube channel, or social media page</p>
+            </div>
+
+            <div>
+              <label htmlFor="marketingPlan" className="block text-sm font-medium text-slate-700 mb-2">
+                How Will You Market Our Products?
+              </label>
+              <textarea
+                id="marketingPlan"
+                value={formData.marketingPlan}
+                onChange={(e) => setFormData({ ...formData, marketingPlan: e.target.value })}
+                rows={3}
+                maxLength={2000}
+                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition resize-none"
+                placeholder="Describe your audience and how you plan to promote our products..."
+              />
+              <p className="mt-1 text-xs text-slate-500">Brief summary of your content and marketing approach</p>
             </div>
 
             <div className="flex items-start">

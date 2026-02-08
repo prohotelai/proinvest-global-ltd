@@ -57,6 +57,10 @@ model Partner {
   country           String?   // 2-letter country code
   approvalModeUsed  String?   // auto | manual
   
+  // Partner application details
+  websiteUrl        String?   // Website or social media page link
+  marketingPlan     String?   // Summary of how they will market the product
+  
   // Country restrictions (JSON arrays stored as strings)
   allowedCountries  String?   // JSON array of country codes
   blockedCountries  String?   // JSON array of country codes
