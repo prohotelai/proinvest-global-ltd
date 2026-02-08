@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import { proCafeAIMetadata } from '@/lib/seo';
 import { generateProCafeAISchema, generateBreadcrumbSchema, generateFAQSchema } from '@/lib/structuredData';
 
@@ -12,35 +11,35 @@ export default function ProCafeAI() {
   // FAQ Schema
   const faqSchema = generateFAQSchema([
     {
-      question: "What is ProCafeAI (CafeGrok AI)?",
-      answer: "ProCafeAI, also known as CafeGrok AI, is an AI-powered operations platform for cafés and restaurants developed by PROINVEST GLOBAL LTD. It enables customers to order via QR codes without mobile apps, provides AI menu recommendations, automates order processing, and manages operations."
+      question: "How does CafeGrok AI save staff costs?",
+      answer: "CafeGrok AI automates order taking via QR codes and AI chat, reducing the need for waitstaff by 30-50%. Customers scan, order, and pay directly from their phones."
     },
     {
-      question: "How does QR code ordering work?",
-      answer: "Customers scan a QR code at their table using their phone camera. This opens a web-based ordering interface (no app download required). The AI assistant helps them browse the menu, asks questions, makes personalized recommendations, and processes orders directly to the kitchen."
+      question: "What is Grok AI and how does it help my cafe?",
+      answer: "Grok AI from xAI powers our intelligent chat system. It understands customer requests in any language, suggests menu items, handles customizations, and provides upsell recommendations to boost sales by 20-40%."
+    },
+    {
+      question: "Can I manage multiple cafe branches?",
+      answer: "Yes! Our Pro and Enterprise plans support multi-branch management with unified dashboards, shared inventory, and cross-branch reporting."
+    },
+    {
+      question: "How do I get started?",
+      answer: "Getting started is easy! Choose your plan (Basic $200/mo, Pro $300/mo, or Enterprise $500/mo), complete checkout, and you're ready to transform your cafe with AI-powered ordering within minutes."
     },
     {
       question: "Do customers need to download an app?",
-      answer: "No. ProCafeAI works entirely through web browsers. Customers simply scan a QR code and order immediately without downloading or installing anything."
+      answer: "No. CafeGrok AI works entirely through web browsers. Customers simply scan a QR code and order immediately without downloading or installing anything."
     },
     {
-      question: "What types of restaurants can use ProCafeAI?",
-      answer: "ProCafeAI works for cafés, coffee shops, quick-service restaurants, casual dining restaurants, restaurant chains, and food courts. It's ideal for any food service operation that wants to reduce order-taking staff and improve customer experience."
-    },
-    {
-      question: "How many languages does ProCafeAI support?",
-      answer: "ProCafeAI supports 50+ languages including English, Arabic, French, Spanish, German, Chinese, Hindi, and more. Customers can view menus and order in their preferred language automatically."
-    },
-    {
-      question: "How does AI upselling increase revenue?",
-      answer: "The AI analyzes customer orders in real-time and suggests relevant add-ons, upgrades, or complementary items. For example, if a customer orders coffee, the AI might recommend pastries or offer a size upgrade. This increases average order value by 15-25%."
+      question: "How many languages does CafeGrok AI support?",
+      answer: "CafeGrok AI supports 50+ languages including English, Arabic, French, Spanish, German, Chinese, Hindi, and more. Customers can view menus and order in their preferred language automatically."
     }
   ]);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://proinvest-global.com" },
-    { name: "Solutions", url: "https://proinvest-global.com/solutions" },
-    { name: "ProCafeAI", url: "https://proinvest-global.com/solutions/procafeai" }
+    { name: "Home", url: "https://proinvest.global" },
+    { name: "Solutions", url: "https://proinvest.global/solutions" },
+    { name: "CafeGrok AI", url: "https://proinvest.global/solutions/procafeai" }
   ]);
 
   return (
@@ -60,38 +59,232 @@ export default function ProCafeAI() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-amber-600 to-amber-800 text-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+              </span>
+              Powered by Grok AI from xAI
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              ProCafeAI (CafeGrok AI)
+              ☕ CafeGrok AI
             </h1>
-            <p className="text-2xl mb-6 text-green-100">
-              AI-Powered Café & Restaurant Operations Platform
+            <p className="text-2xl mb-6 text-amber-100">
+              AI-Powered SaaS for Cafes & Restaurants
             </p>
-            <p className="text-xl text-green-100 mb-8">
-              Revolutionary ordering and operations platform that eliminates the need for mobile apps while maximizing revenue and efficiency.
+            <p className="text-xl text-amber-100 mb-8">
+              From QR Code Arrival to Smart Reports – Your AI Assistant for Smarter, Profitable Cafes. Save 30-50% on staff costs, increase sales 20-40%.
             </p>
-            <Link
-              href="/contact"
-              className="inline-block bg-white text-green-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-50 transition"
-            >
-              Request a Demo
-            </Link>
+            <div className="flex flex-wrap gap-4 mb-8">
+              <div className="flex items-center gap-2 text-sm">
+                <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span><strong>30-50%</strong> staff cost savings</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm">
+                <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span><strong>20-40%</strong> sales increase</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm">
+                <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span><strong>50+</strong> languages supported</span>
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="https://www.procafeai.com/pricing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-white text-amber-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-amber-50 transition text-center"
+              >
+                Start Now →
+              </a>
+              <a
+                href="https://www.procafeai.com/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-white/10 transition text-center"
+              >
+                Contact Sales
+              </a>
+            </div>
+            <p className="text-sm text-amber-200 mt-4">Credit card required • 7-day refund guarantee • Cancel anytime</p>
           </div>
         </div>
       </section>
 
-      {/* Overview */}
+      {/* Stats Section */}
+      <section className="bg-white py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-sm text-gray-500 mb-6">Trusted by 1,000+ cafes and restaurants worldwide</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="text-center">
+              <p className="text-3xl md:text-4xl font-bold text-amber-600">1,000+</p>
+              <p className="text-sm text-gray-500 mt-1">Active Cafes</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl md:text-4xl font-bold text-amber-600">50+</p>
+              <p className="text-sm text-gray-500 mt-1">Languages</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl md:text-4xl font-bold text-amber-600">99.9%</p>
+              <p className="text-sm text-gray-500 mt-1">Uptime</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl md:text-4xl font-bold text-amber-600">24/7</p>
+              <p className="text-sm text-gray-500 mt-1">Support</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="bg-gray-50 py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Save Costs. Boost Profits. <span className="text-amber-600">Automatically.</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              CafeGrok AI transforms your operations with measurable results
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg">💰</div>
+                <div>
+                  <p className="text-sm text-green-600 font-medium">LABOR SAVINGS</p>
+                  <p className="text-4xl font-bold text-green-700">30-50%</p>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Reduce Staff Costs Dramatically</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Customers order via QR – no waitstaff needed</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>AI handles orders, questions, and complaints</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Automate reservations, inventory, reporting</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg">📈</div>
+                <div>
+                  <p className="text-sm text-blue-600 font-medium">REVENUE INCREASE</p>
+                  <p className="text-4xl font-bold text-blue-700">20-40%</p>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Boost Sales with AI Intelligence</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>AI upsells and cross-sells every order</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Custom dish creation from inventory with dynamic pricing</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Smart promotions based on weather, trends, inventory</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
       <section className="bg-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Ordering Without Apps, Powered by AI
-            </h2>
-            <p className="text-lg text-gray-600">
-              ProCafeAI (CafeGrok AI) is a production-ready AI platform that transforms how cafés and restaurants operate. Customers simply scan a QR code to access an intelligent AI ordering assistant—no app download required.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Simple Setup. <span className="text-amber-600">Zero Apps Needed.</span>
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Customers scan the QR code on their table and start chatting with AI instantly. No downloads, no logins, no friction. Works on any device, in any language.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 bg-gray-50 rounded-xl p-4">
+                  <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center text-xl flex-shrink-0">📱</div>
+                  <div>
+                    <h4 className="font-semibold">Scan QR, Start Ordering</h4>
+                    <p className="text-sm text-gray-600">No apps to download. Works on any smartphone browser instantly.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 bg-gray-50 rounded-xl p-4">
+                  <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center text-xl flex-shrink-0">💬</div>
+                  <div>
+                    <h4 className="font-semibold">Natural Conversation</h4>
+                    <p className="text-sm text-gray-600">Order like talking to a friend. &quot;I&apos;d like a latte, extra hot&quot; just works.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 bg-gray-50 rounded-xl p-4">
+                  <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center text-xl flex-shrink-0">🌍</div>
+                  <div>
+                    <h4 className="font-semibold">Auto Language Detection</h4>
+                    <p className="text-sm text-gray-600">Grok AI detects and responds in customer&apos;s preferred language automatically.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="bg-white rounded-3xl shadow-2xl p-6 max-w-sm mx-auto border">
+                <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gray-100">
+                  <div className="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center text-white">🤖</div>
+                  <div>
+                    <p className="font-semibold">CafeGrok AI</p>
+                    <p className="text-xs text-green-500">Online</p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="bg-gray-100 rounded-2xl rounded-tl-sm p-3 max-w-[85%]">
+                    <p className="text-sm">Welcome to Sunrise Cafe! ☀️ How can I help you today?</p>
+                  </div>
+                  <div className="bg-amber-600 text-white rounded-2xl rounded-tr-sm p-3 max-w-[85%] ml-auto">
+                    <p className="text-sm">I&apos;d like a custom iced coffee with oat milk</p>
+                  </div>
+                  <div className="bg-gray-100 rounded-2xl rounded-tl-sm p-3 max-w-[85%]">
+                    <p className="text-sm">Great choice! 🧊 I can make that with our premium oat milk. Would you like caramel or vanilla syrup? Today&apos;s special: Add a croissant!</p>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -top-4 -right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                ✓ No app download
+              </div>
+              <div className="absolute -bottom-4 -left-4 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                🌍 50+ languages
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -99,306 +292,392 @@ export default function ProCafeAI() {
       {/* Key Features */}
       <section className="bg-gray-50 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-            Core Features
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* QR Code Ordering */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">AI Ordering via QR Code</h3>
-                  <p className="text-gray-600">
-                    Customers scan a QR code at their table to access an intelligent AI ordering assistant. Conversational interface makes ordering natural and intuitive—just like talking to a staff member.
-                  </p>
-                </div>
-              </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Everything Your Cafe Needs. <span className="text-amber-600">All in One Platform.</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              From customer ordering to kitchen management to owner reports – powered by Grok AI
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-amber-300 hover:shadow-xl transition-all duration-300">
+              <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center text-3xl mb-4">📱</div>
+              <h3 className="text-xl font-semibold mb-2">QR Code System</h3>
+              <p className="text-gray-600 text-sm">Table-specific QR codes for ordering, plus entrance QR for promotional engagement and reservations.</p>
             </div>
-
-            {/* No App Required */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">No App Download Required</h3>
-                  <p className="text-gray-600">
-                    Remove friction from the ordering process. Customers don&apos;t need to download, install, or create accounts in yet another app. Works instantly via web browser on any device.
-                  </p>
-                </div>
-              </div>
+            <div className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-amber-300 hover:shadow-xl transition-all duration-300">
+              <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center text-3xl mb-4">🤖</div>
+              <h3 className="text-xl font-semibold mb-2">AI Chat Ordering</h3>
+              <p className="text-gray-600 text-sm">Natural conversation ordering with Grok AI. Understands context, handles customizations, and upsells intelligently.</p>
             </div>
-
-            {/* AI Upselling */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Intelligent Upselling & Revenue Optimization</h3>
-                  <p className="text-gray-600">
-                    AI analyzes customer preferences, order history, and context to make personalized recommendations. Increase average order value through natural, non-pushy suggestions.
-                  </p>
-                </div>
-              </div>
+            <div className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-amber-300 hover:shadow-xl transition-all duration-300">
+              <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center text-3xl mb-4">👨‍🍳</div>
+              <h3 className="text-xl font-semibold mb-2">Kitchen Display</h3>
+              <p className="text-gray-600 text-sm">Real-time order display with priority management and prep time tracking.</p>
             </div>
-
-            {/* Order Automation */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Complete Order Automation</h3>
-                  <p className="text-gray-600">
-                    Orders flow directly to kitchen and service staff. Real-time order tracking, automatic notifications, and seamless payment processing reduce errors and wait times.
-                  </p>
-                </div>
-              </div>
+            <div className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-amber-300 hover:shadow-xl transition-all duration-300">
+              <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center text-3xl mb-4">💳</div>
+              <h3 className="text-xl font-semibold mb-2">Integrated POS</h3>
+              <p className="text-gray-600 text-sm">Complete point of sale with cash, card, and digital payments.</p>
             </div>
-
-            {/* Inventory Management */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Inventory & Order Management</h3>
-                  <p className="text-gray-600">
-                    Real-time inventory tracking, automated stock alerts, and comprehensive order analytics. Know what&apos;s selling, what&apos;s not, and when to restock.
-                  </p>
-                </div>
-              </div>
+            <div className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-amber-300 hover:shadow-xl transition-all duration-300">
+              <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center text-3xl mb-4">📊</div>
+              <h3 className="text-xl font-semibold mb-2">Smart Analytics</h3>
+              <p className="text-gray-600 text-sm">AI-powered insights on sales, inventory, and customer behavior.</p>
             </div>
-
-            {/* Multi-Language */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">50+ Languages Support</h3>
-                  <p className="text-gray-600">
-                    Serve international customers in their native language. Automatic language detection and translation ensure everyone can order comfortably and accurately.
-                  </p>
-                </div>
-              </div>
+            <div className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-amber-300 hover:shadow-xl transition-all duration-300">
+              <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center text-3xl mb-4">📦</div>
+              <h3 className="text-xl font-semibold mb-2">Inventory Management</h3>
+              <p className="text-gray-600 text-sm">Track stock levels, get low-stock alerts, and automate reordering.</p>
             </div>
+          </div>
 
-            {/* Multi-Branch */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Multi-Branch Support</h3>
-                  <p className="text-gray-600">
-                    Perfect for café and restaurant chains. Centralized management with location-specific customization. Deploy and manage multiple locations from a single dashboard.
-                  </p>
-                </div>
+          {/* Grok AI Highlight */}
+          <div className="mt-16 bg-gradient-to-r from-amber-600 to-amber-700 rounded-3xl p-8 md:p-12 text-white max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Powered by Grok AI from xAI</h3>
+                <p className="opacity-90 mb-6">
+                  Grok acts as your intelligent AI assistant specifically trained for cafe operations. It understands context, remembers preferences, handles complex customizations, and provides smart suggestions to both customers and managers.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-white rounded-full"></span>
+                    <span>Natural conversation in 50+ languages</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-white rounded-full"></span>
+                    <span>Smart upselling and recommendations</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-white rounded-full"></span>
+                    <span>Manager insights: pricing, staffing, prep</span>
+                  </li>
+                </ul>
               </div>
-            </div>
-
-            {/* Analytics */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Business Analytics</h3>
-                  <p className="text-gray-600">
-                    Deep insights into customer behavior, popular items, peak hours, and revenue trends. Make data-driven decisions to optimize your menu and operations.
-                  </p>
-                </div>
+              <div className="text-center">
+                <div className="text-8xl mb-4">🤖</div>
+                <p className="text-lg font-medium">&quot;Your smartest employee that never sleeps&quot;</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits */}
+      {/* Pricing Section */}
       <section className="bg-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-            Business Benefits
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Increase Revenue</h3>
-              <p className="text-gray-600">
-                Boost average order value through AI-powered recommendations and upselling. Serve more customers with faster table turnover.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Save Time</h3>
-              <p className="text-gray-600">
-                Reduce staff workload with automated ordering and service. Free your team to focus on food quality and customer experience.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Enhance Experience</h3>
-              <p className="text-gray-600">
-                Give customers control over their ordering experience. Reduce wait times and order errors while supporting multiple languages.
-              </p>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Simple, Transparent <span className="text-amber-600">Pricing</span>
+            </h2>
+            <p className="text-lg text-gray-600">Choose the plan that fits your cafe. Start growing your business today.</p>
           </div>
-        </div>
-      </section>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {/* Basic Plan */}
+            <div className="relative bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:scale-105 transition-all">
+              <h3 className="text-2xl font-bold">Basic</h3>
+              <div className="mt-4 mb-6">
+                <span className="text-5xl font-bold">$200</span>
+                <span className="text-gray-500">/month</span>
+              </div>
+              <p className="text-sm text-gray-500 mb-6">Perfect for small cafes getting started</p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Up to 25 tables
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Single branch
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Basic AI chat
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Order management
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Basic reporting
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Email support
+                </li>
+              </ul>
+              <a
+                href="https://www.procafeai.com/checkout/basic"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center py-4 rounded-xl font-semibold bg-gray-100 hover:bg-gray-200 transition-all"
+              >
+                Start Now
+              </a>
+            </div>
 
-      {/* Target Customers */}
-      <section className="bg-gray-50 py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-            Perfect For
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="bg-white p-6 rounded-lg shadow-md flex items-start">
-              <div className="text-3xl mr-4">☕</div>
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Cafés & Coffee Shops</h3>
-                <p className="text-gray-600">Independent and chain coffee shops seeking operational efficiency</p>
+            {/* Pro Plan - Most Popular */}
+            <div className="relative bg-white p-8 rounded-2xl shadow-xl border-2 border-amber-500 ring-4 ring-amber-500/20 hover:scale-105 transition-all">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-sm font-medium px-4 py-1 rounded-full">
+                Most Popular
               </div>
+              <h3 className="text-2xl font-bold">Pro</h3>
+              <div className="mt-4 mb-6">
+                <span className="text-5xl font-bold">$300</span>
+                <span className="text-gray-500">/month</span>
+              </div>
+              <p className="text-sm text-gray-500 mb-6">Best for growing cafes with multiple locations</p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Up to 50 tables
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Up to 2 branches
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Full AI features
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Multi-branch linking
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Advanced reporting
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Inventory management
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Priority support
+                </li>
+              </ul>
+              <a
+                href="https://www.procafeai.com/checkout/pro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center py-4 rounded-xl font-semibold bg-amber-600 text-white hover:bg-amber-700 transition-all shadow-lg shadow-amber-500/30"
+              >
+                Start Now
+              </a>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md flex items-start">
-              <div className="text-3xl mr-4">🍽️</div>
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Restaurants</h3>
-                <p className="text-gray-600">Full-service and quick-service restaurants of all sizes</p>
+
+            {/* Enterprise Plan */}
+            <div className="relative bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:scale-105 transition-all">
+              <h3 className="text-2xl font-bold">Enterprise</h3>
+              <div className="mt-4 mb-6">
+                <span className="text-5xl font-bold">$500</span>
+                <span className="text-gray-500">/month</span>
               </div>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md flex items-start">
-              <div className="text-3xl mr-4">🏪</div>
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Restaurant Chains</h3>
-                <p className="text-gray-600">Multi-location F&B operators requiring standardized systems</p>
-              </div>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md flex items-start">
-              <div className="text-3xl mr-4">🥐</div>
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Bakeries & Food Courts</h3>
-                <p className="text-gray-600">High-volume establishments needing efficient order management</p>
-              </div>
+              <p className="text-sm text-gray-500 mb-6">For large operations with advanced needs</p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Up to 100 tables
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Up to 5 branches
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  All AI features
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Custom integrations
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Advanced analytics
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  API access
+                </li>
+                <li className="flex items-center text-sm">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Dedicated support
+                </li>
+              </ul>
+              <a
+                href="https://www.procafeai.com/checkout/enterprise"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center py-4 rounded-xl font-semibold bg-gray-100 hover:bg-gray-200 transition-all"
+              >
+                Start Now
+              </a>
             </div>
           </div>
+          <p className="text-center text-sm text-gray-500 mt-8">
+            All plans include: Cancel anytime • 24/7 support • Secure payments via Stripe
+          </p>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-green-600 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-r from-amber-600 to-amber-700 text-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Transform Your Café or Restaurant
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Transform Your Cafe?
           </h2>
-          <p className="text-xl mb-8 text-green-100 max-w-2xl mx-auto">
-            Join forward-thinking F&B businesses using ProCafeAI to increase revenue and delight customers.
+          <p className="text-xl mb-8 text-amber-100 max-w-2xl mx-auto">
+            Join 1,000+ cafes already growing with CafeGrok AI
           </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-green-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-50 transition"
-          >
-            Request a Demo
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://www.procafeai.com/pricing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-amber-700 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-all shadow-xl"
+            >
+              Start Now
+            </a>
+            <a
+              href="https://www.procafeai.com/contact"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-medium hover:bg-white/10 transition-all"
+            >
+              Contact Sales
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* FAQ Section - Critical for AI Discovery */}
+      {/* FAQ Section */}
       <section className="bg-white py-16 md:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                What is ProCafeAI (CafeGrok AI)?
-              </h3>
-              <p className="text-gray-600">
-                ProCafeAI, also known as CafeGrok AI, is an AI-powered operations platform for cafés and restaurants developed by PROINVEST GLOBAL LTD. It enables customers to order via QR codes without mobile apps, provides AI menu recommendations, automates order processing, and manages operations.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                How does QR code ordering work?
-              </h3>
-              <p className="text-gray-600">
-                Customers scan a QR code at their table using their phone camera. This opens a web-based ordering interface (no app download required). The AI assistant helps them browse the menu, asks questions, makes personalized recommendations, and processes orders directly to the kitchen.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Do customers need to download an app?
-              </h3>
-              <p className="text-gray-600">
-                No. ProCafeAI works entirely through web browsers. Customers simply scan a QR code and order immediately without downloading or installing anything.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                What types of restaurants can use ProCafeAI?
-              </h3>
-              <p className="text-gray-600">
-                ProCafeAI works for cafés, coffee shops, quick-service restaurants, casual dining restaurants, restaurant chains, and food courts. It&apos;s ideal for any food service operation that wants to reduce order-taking staff and improve customer experience.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                How many languages does ProCafeAI support?
-              </h3>
-              <p className="text-gray-600">
-                ProCafeAI supports 50+ languages including English, Arabic, French, Spanish, German, Chinese, Hindi, and more. Customers can view menus and order in their preferred language automatically.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                How does AI upselling increase revenue?
-              </h3>
-              <p className="text-gray-600">
-                The AI analyzes customer orders in real-time and suggests relevant add-ons, upgrades, or complementary items. For example, if a customer orders coffee, the AI might recommend pastries or offer a size upgrade. This increases average order value by 15-25%.
-              </p>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Frequently Asked <span className="text-amber-600">Questions</span>
+            </h2>
           </div>
+          <div className="space-y-6">
+            <details className="group bg-gray-50 rounded-xl">
+              <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold">
+                How does CafeGrok AI save staff costs?
+                <span className="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-600">
+                CafeGrok AI automates order taking via QR codes and AI chat, reducing the need for waitstaff by 30-50%. Customers scan, order, and pay directly from their phones.
+              </div>
+            </details>
+            <details className="group bg-gray-50 rounded-xl">
+              <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold">
+                What is Grok AI and how does it help my cafe?
+                <span className="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-600">
+                Grok AI from xAI powers our intelligent chat system. It understands customer requests in any language, suggests menu items, handles customizations, and provides upsell recommendations to boost sales by 20-40%.
+              </div>
+            </details>
+            <details className="group bg-gray-50 rounded-xl">
+              <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold">
+                Can I manage multiple cafe branches?
+                <span className="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-600">
+                Yes! Our Pro and Enterprise plans support multi-branch management with unified dashboards, shared inventory, and cross-branch reporting.
+              </div>
+            </details>
+            <details className="group bg-gray-50 rounded-xl">
+              <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold">
+                Do customers need to download an app?
+                <span className="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-600">
+                No. CafeGrok AI works entirely through web browsers. Customers simply scan a QR code and order immediately without downloading or installing anything.
+              </div>
+            </details>
+            <details className="group bg-gray-50 rounded-xl">
+              <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold">
+                How many languages does CafeGrok AI support?
+                <span className="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-600">
+                CafeGrok AI supports 50+ languages including English, Arabic, French, Spanish, German, Chinese, Hindi, and more. Customers can view menus and order in their preferred language automatically.
+              </div>
+            </details>
+            <details className="group bg-gray-50 rounded-xl">
+              <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold">
+                How do I get started?
+                <span className="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-600">
+                Getting started is easy! Choose your plan (Basic $200/mo, Pro $300/mo, or Enterprise $500/mo), complete checkout, and you&apos;re ready to transform your cafe with AI-powered ordering within minutes.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      {/* Visit Website Banner */}
+      <section className="bg-gray-900 text-white py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-lg mb-4">
+            Visit the official CafeGrok AI website for more features, documentation, and support
+          </p>
+          <a
+            href="https://www.procafeai.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-semibold text-xl"
+          >
+            www.procafeai.com
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+          </a>
         </div>
       </section>
     </div>
