@@ -196,8 +196,7 @@ export default function Solutions() {
             <div className="bg-gradient-to-br from-indigo-50 to-violet-100 p-8 rounded-xl">
               <h3 className="text-3xl font-bold text-gray-900 mb-4">VisaRiskAI</h3>
               <p className="text-lg text-gray-700 mb-6">
-                AI-powered visa risk analysis platform. Helps applicants and advisors evaluate visa
-                case strength, detect risk factors, and improve submission readiness before applying.
+                AI-powered visa risk analysis and case assessment before submission.
               </p>
 
               <div className="space-y-4 mb-8">
@@ -251,7 +250,7 @@ export default function Solutions() {
                 href="/solutions/visariskai"
                 className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
               >
-                Explore VisaRiskAI →
+                Learn More →
               </Link>
             </div>
           </div>
