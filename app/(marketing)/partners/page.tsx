@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'ProInvest Partner Network | Join Our Partner Program',
-  description: 'Join the ProInvest Partner Network and earn lifetime commissions by referring customers to ProHotelAI and ProCafeAI.',
+  description: 'Join the ProInvest Partner Network and earn lifetime commissions by referring customers to VisaRiskAI, ProHotelAI and ProCafeAI.',
 };
 
 export default function PartnersPage() {
@@ -180,20 +180,39 @@ export default function PartnersPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Products You Can Promote</h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Promote industry-leading AI platforms for hospitality
+              Promote industry-leading AI platforms for hospitality and visa risk analysis
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <div className="text-4xl mb-4">🏨</div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3">ProHotelAI</h3>
-              <p className="text-slate-600 mb-4">
-                AI-powered platform for hotels and resorts. 24/7 guest assistance, automated operations, and multilingual support.
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* VisaRiskAI — FIRST */}
+            <div className="bg-white p-8 rounded-2xl shadow-lg border-2 border-indigo-100 relative">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold uppercase tracking-wider mb-5">
+                ✦ Featured
+              </div>
+              {/* VisaRiskAI Logo — SVG matching shield + bars + check design */}
+              <div className="mb-4">
+                <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="VisaRiskAI Logo">
+                  {/* Shield background */}
+                  <path d="M28 4L8 12V28C8 38.5 17 47.5 28 52C39 47.5 48 38.5 48 28V12L28 4Z" fill="#0f1338" />
+                  {/* Upward bar chart — analytics */}
+                  <rect x="15" y="30" width="5" height="12" rx="1" fill="#2dd4bf" />
+                  <rect x="23" y="24" width="5" height="18" rx="1" fill="#2dd4bf" />
+                  <rect x="31" y="18" width="5" height="24" rx="1" fill="#14b8a6" />
+                  {/* Green check circle overlay */}
+                  <circle cx="41" cy="38" r="9" fill="#16a34a" />
+                  <path d="M36.5 38.2L39.5 41.2L45.5 35.2" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-1">VisaRiskAI</h3>
+              <p className="text-xs font-semibold text-indigo-600 uppercase tracking-wider mb-3">Make visa decisions before you apply.</p>
+              <p className="text-slate-600 mb-5">
+                AI-powered visa risk analysis platform that evaluates application strength, detects hidden risks, and helps users improve approval chances before submission.
               </p>
-              <a href="https://prohotelai.com" target="_blank" rel="noopener noreferrer" className="text-teal-600 font-semibold hover:underline">
+              <a href="https://www.visariskai.com/" target="_blank" rel="noopener noreferrer" className="text-teal-600 font-semibold hover:underline">
                 Learn more →
               </a>
             </div>
+            {/* ProCafeAI — SECOND */}
             <div className="bg-white p-8 rounded-2xl shadow-lg">
               <div className="text-4xl mb-4">☕</div>
               <h3 className="text-2xl font-bold text-slate-900 mb-3">ProCafeAI</h3>
@@ -201,6 +220,17 @@ export default function PartnersPage() {
                 AI platform for cafés and restaurants. QR ordering, AI recommendations, and kitchen coordination.
               </p>
               <a href="https://procafeai.com" target="_blank" rel="noopener noreferrer" className="text-teal-600 font-semibold hover:underline">
+                Learn more →
+              </a>
+            </div>
+            {/* ProHotelAI — THIRD */}
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="text-4xl mb-4">🏨</div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">ProHotelAI</h3>
+              <p className="text-slate-600 mb-4">
+                AI-powered platform for hotels and resorts. 24/7 guest assistance, automated operations, and multilingual support.
+              </p>
+              <a href="https://prohotelai.com" target="_blank" rel="noopener noreferrer" className="text-teal-600 font-semibold hover:underline">
                 Learn more →
               </a>
             </div>
