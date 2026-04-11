@@ -78,6 +78,15 @@ export default function Footer() {
                     ProCafeAI
                   </Link>
                 </li>
+                <li>
+                  <Link 
+                    href="/solutions/visariskai" 
+                    className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    VisaRiskAI
+                  </Link>
+                </li>
               </ul>
             </div>
 

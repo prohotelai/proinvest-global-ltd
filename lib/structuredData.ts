@@ -202,6 +202,49 @@ export function generateProCafeAISchema(): WithContext<SoftwareApplication> {
 }
 
 /**
+ * Generate VisaRiskAI Product Schema
+ */
+export function generateVisaRiskAISchema(): WithContext<SoftwareApplication> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    '@id': `${COMPANY_INFO.url}/solutions/visariskai#product`,
+    name: 'VisaRiskAI',
+    applicationCategory: 'BusinessApplication',
+    applicationSubCategory: 'Visa & Immigration Risk Analysis Software',
+    operatingSystem: 'Cloud',
+    description: 'AI-powered visa approval risk analysis platform. Helps applicants and advisors evaluate visa case strength, detect risk factors, and improve submission readiness before applying.',
+    url: 'https://www.visariskai.com/',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock'
+    },
+    provider: {
+      '@type': 'Organization',
+      '@id': `${COMPANY_INFO.url}#organization`,
+      name: COMPANY_INFO.legalName
+    },
+    featureList: [
+      'Visa Case Risk Assessment',
+      'File Readiness Analysis',
+      'Risk Factor Detection',
+      'Decision Confidence Scoring',
+      'Case Preparation Guidance',
+      'Multi-jurisdiction Support',
+      'Real-time Case Review',
+      'Immigration Advisor Dashboard'
+    ],
+    audience: {
+      '@type': 'Audience',
+      audienceType: 'Visa Applicants, Immigration Advisors, Immigration Consultants, Travel Agencies, Visa Service Businesses'
+    },
+    keywords: 'visa risk analysis, visa approval prediction, immigration AI, visa case assessment, visa file readiness, AI visa tool'
+  };
+}
+
+/**
  * Generate FAQ Schema for a page
  */
 export function generateFAQSchema(faqs: Array<{ question: string; answer: string }>): WithContext<FAQPage> {

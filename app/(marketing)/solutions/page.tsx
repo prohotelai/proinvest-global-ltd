@@ -45,7 +45,7 @@ export default function Solutions() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* ProHotelAI */}
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl">
               <h3 className="text-3xl font-bold text-gray-900 mb-4">ProHotelAI</h3>
@@ -189,6 +189,69 @@ export default function Solutions() {
                 className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition"
               >
                 Explore ProCafeAI →
+              </Link>
+            </div>
+
+            {/* VisaRiskAI */}
+            <div className="bg-gradient-to-br from-indigo-50 to-violet-100 p-8 rounded-xl">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">VisaRiskAI</h3>
+              <p className="text-lg text-gray-700 mb-6">
+                AI-powered visa risk analysis platform. Helps applicants and advisors evaluate visa
+                case strength, detect risk factors, and improve submission readiness before applying.
+              </p>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start">
+                  <div className="bg-indigo-600 rounded-full p-1 mr-3 mt-1">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Case Risk Assessment</h4>
+                    <p className="text-gray-600">AI-driven risk scoring against visa approval criteria</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="bg-indigo-600 rounded-full p-1 mr-3 mt-1">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">File Readiness Analysis</h4>
+                    <p className="text-gray-600">Identify missing documents and gaps before submission</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="bg-indigo-600 rounded-full p-1 mr-3 mt-1">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Risk Factor Detection</h4>
+                    <p className="text-gray-600">Surface high-risk signals early in the application process</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="bg-indigo-600 rounded-full p-1 mr-3 mt-1">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Decision Confidence &amp; Guidance</h4>
+                    <p className="text-gray-600">Actionable steps to strengthen your case before applying</p>
+                  </div>
+                </div>
+              </div>
+
+              <Link
+                href="/solutions/visariskai"
+                className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
+              >
+                Explore VisaRiskAI →
               </Link>
             </div>
           </div>
