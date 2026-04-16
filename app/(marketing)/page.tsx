@@ -16,6 +16,10 @@ export default function Home() {
       question: "Who uses ProHotelAI and ProCafeAI?",
       answer: "ProHotelAI is used by 4-star and 5-star hotels, hotel chains, and resorts. ProCafeAI is used by cafés, restaurants, quick-service restaurants, and food service operators. Both platforms serve premium hospitality businesses globally."
     },
+    {
+      question: "What is VisaRiskAI?",
+      answer: "VisaRiskAI is a SaaS platform for pre-submission UK and Schengen visa risk analysis. Users create a case, complete a structured application flow, upload supporting documents, and receive a score, risk level, flags, verdict, and actionable improvement guidance before applying."
+    },
   ]);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -353,6 +357,93 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VisaRiskAI Section */}
+      <section className="py-32 bg-white">
+        <div className="section-container">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 text-amber-700 font-semibold text-sm mb-6">
+                <span>Visa & Immigration SaaS</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-950 mb-6">
+                VisaRiskAI
+              </h2>
+              <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+                A SaaS platform for pre-submission visa risk analysis for UK and Schengen applications.
+                Users register, create a case, complete a structured application flow, upload supporting documents,
+                and receive a score, risk level, flags, verdict, and actionable guidance before applying.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-8 mb-12">
+              <div className="card-bento p-10">
+                <h3 className="text-2xl font-bold text-slate-950 mb-6">What the product actually includes</h3>
+                <div className="space-y-4 text-slate-700">
+                  <p><span className="font-semibold text-slate-950">Full SaaS architecture:</span> user accounts, sessions, verification flows, password reset, case lifecycle, package purchases, uploaded documents, analysis records, and recommendation history.</p>
+                  <p><span className="font-semibold text-slate-950">Structured workflow:</span> application → standard → premium → completed, creating a clear conversion funnel instead of a one-page wizard.</p>
+                  <p><span className="font-semibold text-slate-950">Document intelligence:</span> passport, bank statement, employment letter, invitation letter, and other uploads can be processed, extracted, and flagged.</p>
+                  <p><span className="font-semibold text-slate-950">Commercial readiness:</span> Stripe Checkout, webhook handling, package tiers, revision limits, and affiliate attribution are already part of the product model.</p>
+                </div>
+              </div>
+
+              <div className="card-bento p-10">
+                <h3 className="text-2xl font-bold text-slate-950 mb-6">What it helps users do</h3>
+                <div className="space-y-4 text-slate-700">
+                  <p>Capture a visa case in a structured, auditable format.</p>
+                  <p>Measure case completeness and identify missing evidence.</p>
+                  <p>Detect contradictions, weaknesses, and risk flags before submission.</p>
+                  <p>Assess uploaded documents instead of relying only on self-reported answers.</p>
+                  <p>Determine whether a case is ready now, ready after fixes, or not ready yet.</p>
+                  <p>Generate deeper outputs for selected packages, including PDFs and annotated review artifacts.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              <div className="card-bento p-8 text-center">
+                <div className="text-3xl font-bold text-amber-600 mb-2">3</div>
+                <div className="text-slate-950 font-semibold mb-2">Package Tiers</div>
+                <p className="text-slate-600 text-sm">Basic, Standard, and Premium flows supported through the payment model.</p>
+              </div>
+              <div className="card-bento p-8 text-center">
+                <div className="text-3xl font-bold text-amber-600 mb-2">PDF</div>
+                <div className="text-slate-950 font-semibold mb-2">Report Outputs</div>
+                <p className="text-slate-600 text-sm">Application PDFs and annotated review files are part of the product structure.</p>
+              </div>
+              <div className="card-bento p-8 text-center">
+                <div className="text-3xl font-bold text-amber-600 mb-2">Loop</div>
+                <div className="text-slate-950 font-semibold mb-2">Calibration Layer</div>
+                <p className="text-slate-600 text-sm">Snapshots, outcomes, eval datasets, and calibration records support continuous refinement.</p>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-10 md:p-12">
+              <div className="max-w-4xl">
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-950 mb-4">Why this matters</h3>
+                <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                  VisaRiskAI is not positioned as a vague AI demo. Its strength is in a strong case data model,
+                  a clear pipeline, document workflow, monetization structure, and a foundation for calibration and learning over time.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="https://www.visariskai.com"
+                    className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-slate-950 rounded-2xl hover:bg-slate-800 transition-colors"
+                  >
+                    Visit VisaRiskAI
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-950 border-2 border-slate-300 rounded-2xl hover:bg-slate-100 transition-colors"
+                  >
+                    Discuss Product Access
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
