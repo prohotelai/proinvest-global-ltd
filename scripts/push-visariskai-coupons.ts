@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import 'dotenv/config';
-import { pushVisaRiskAICoupons } from '../lib/partner/push-visariskai-coupons.ts';
+import { pushVisaRiskAICoupons } from '../lib/partner/push-visariskai-coupons';
 
 async function main() {
   const result = await pushVisaRiskAICoupons();
