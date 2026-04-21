@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "postinstall": "prisma generate",
-    "ppn:smoke": "node scripts/ppn-smoke-test.mjs"
+    "ppn:smoke": "node scripts/ppn-smoke-test.mjs",
+    "ppn:push-visariskai-coupons": "jiti scripts/push-visariskai-coupons.ts"
   },
   "dependencies": {
     "@prisma/adapter-libsql": "^7.3.0",
