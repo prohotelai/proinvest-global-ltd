@@ -14,12 +14,10 @@ interface Asset {
   size: string | null;
   language: string;
   product: { name: string; slug: string };
-  widget?: {
-    allowed: boolean;
-    trackedUrl?: string;
-    iframeEmbedCode?: string;
-    warning?: string;
-  };
+  widgetAllowed?: boolean;
+  trackedWidgetUrl?: string;
+  iframeEmbedCode?: string;
+  widgetWarning?: string;
 }
 
 interface AssetsData {
@@ -77,10 +75,10 @@ export default function AssetsPage() {
   };
 
   const handleCopy = async (asset: Asset) => {
-    if (!asset.widget?.iframeEmbedCode) return;
+    if (!asset.iframeEmbedCode) return;
 
     try {
-      await navigator.clipboard.writeText(asset.widget.iframeEmbedCode);
+      await navigator.clipboard.writeText(asset.iframeEmbedCode);
       setCopiedAssetId(asset.id);
       setTimeout(() => setCopiedAssetId(null), 2000);
     } catch {
@@ -174,12 +172,12 @@ export default function AssetsPage() {
                               <p className="text-sm text-slate-700 break-all">{asset.fileUrl}</p>
                             </div>
 
-                            {asset.widget?.allowed && asset.widget.iframeEmbedCode ? (
+                            {asset.widgetAllowed && asset.iframeEmbedCode ? (
                               <>
                                 <div>
                                   <p className="text-xs text-slate-500 mb-1">Personalized iframe embed code</p>
                                   <textarea
-                                    value={asset.widget.iframeEmbedCode}
+                                    value={asset.iframeEmbedCode}
                                     readOnly
                                     className="w-full h-36 text-xs font-mono border rounded p-2 bg-slate-50"
                                   />
@@ -189,12 +187,12 @@ export default function AssetsPage() {
                                     Copy Embed Code
                                   </button>
                                   {copiedAssetId === asset.id && <span className="text-xs text-green-700">Copied!</span>}
-                                  <a href={asset.widget.trackedUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-600 hover:text-teal-700">Open widget</a>
+                                  <a href={asset.trackedWidgetUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-600 hover:text-teal-700">Open Widget</a>
                                 </div>
                               </>
                             ) : (
                               <div className="p-3 bg-amber-50 border border-amber-200 rounded text-sm text-amber-800">
-                                {asset.widget?.warning || 'Widget embed code unavailable for this asset.'}
+                                {asset.widgetWarning || 'Widget embed code unavailable for this asset.'}
                               </div>
                             )}
                           </div>
