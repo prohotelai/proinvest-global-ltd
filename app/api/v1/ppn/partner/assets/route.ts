@@ -60,10 +60,8 @@ export async function GET(request: NextRequest) {
     if (!isAllowedWidgetUrl(asset.fileUrl)) {
       return {
         ...asset,
-        widget: {
-          allowed: false,
-          warning: 'Widget URL is not on the approved VisaRiskAI domain allowlist.',
-        },
+        widgetAllowed: false,
+        widgetWarning: 'Widget URL is not on the approved VisaRiskAI domain allowlist.'
       };
     }
 
@@ -72,11 +70,9 @@ export async function GET(request: NextRequest) {
 
     return {
       ...asset,
-      widget: {
-        allowed: true,
-        trackedUrl,
-        iframeEmbedCode,
-      },
+      widgetAllowed: true,
+      trackedWidgetUrl: trackedUrl,
+      iframeEmbedCode
     };
   });
 
