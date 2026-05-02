@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { buildTrackedWidgetUrl, isAllowedWidgetUrl, buildIframeEmbedCode, buildWidgetEmbedVariants } from './widget-embed.ts';
+import { buildTrackedSocialUrl, buildSocialAssetKits } from './social-assets.ts';
 
 test('buildTrackedWidgetUrl appends ppn_ref/source when no query exists', () => {
   const result = buildTrackedWidgetUrl('https://www.visariskai.com/embed/quick-risk', 'ABC123');
@@ -70,4 +71,55 @@ test('non-widget assets still behave as before with download/open link', () => {
   const source = readFileSync(resolve(process.cwd(), 'app/ppn/assets/page.tsx'), 'utf8');
   assert.match(source, /\{asset\.type === 'widget' \?/);
   assert.match(source, /Download/);
+});
+
+
+test('buildTrackedSocialUrl sets facebook source/theme/ppn_ref', () => {
+  const result = buildTrackedSocialUrl('https://www.visariskai.com/embed/quick-risk', 'ABC123', 'facebook');
+  const parsed = new URL(result);
+  assert.equal(parsed.searchParams.get('source'), 'facebook');
+  assert.equal(parsed.searchParams.get('theme'), 'risk');
+  assert.equal(parsed.searchParams.get('ppn_ref'), 'ABC123');
+});
+
+test('buildTrackedSocialUrl sets instagram source/theme/ppn_ref', () => {
+  const result = buildTrackedSocialUrl('https://www.visariskai.com/embed/quick-risk', 'ABC123', 'instagram');
+  const parsed = new URL(result);
+  assert.equal(parsed.searchParams.get('source'), 'instagram');
+  assert.equal(parsed.searchParams.get('theme'), 'risk');
+  assert.equal(parsed.searchParams.get('ppn_ref'), 'ABC123');
+});
+
+test('buildTrackedSocialUrl sets whatsapp source/theme/ppn_ref', () => {
+  const result = buildTrackedSocialUrl('https://www.visariskai.com/embed/quick-risk', 'ABC123', 'whatsapp');
+  const parsed = new URL(result);
+  assert.equal(parsed.searchParams.get('source'), 'whatsapp');
+  assert.equal(parsed.searchParams.get('theme'), 'light');
+  assert.equal(parsed.searchParams.get('ppn_ref'), 'ABC123');
+});
+
+test('buildTrackedSocialUrl preserves query and replaces existing tracking params', () => {
+  const result = buildTrackedSocialUrl('https://www.visariskai.com/embed/quick-risk?foo=bar&source=old&ppn_ref=OLD&theme=dark', 'ABC123', 'instagram');
+  const parsed = new URL(result);
+  assert.equal(parsed.searchParams.get('foo'), 'bar');
+  assert.equal(parsed.searchParams.getAll('source').length, 1);
+  assert.equal(parsed.searchParams.getAll('ppn_ref').length, 1);
+  assert.equal(parsed.searchParams.getAll('theme').length, 1);
+  assert.equal(parsed.searchParams.get('source'), 'instagram');
+  assert.equal(parsed.searchParams.get('ppn_ref'), 'ABC123');
+  assert.equal(parsed.searchParams.get('theme'), 'risk');
+});
+
+test('buildSocialAssetKits returns empty for blocked domains', () => {
+  assert.deepEqual(buildSocialAssetKits('https://evil.com/embed/quick-risk', 'ABC123'), []);
+});
+
+test('partner assets page renders Social Sharing Assets kits and copy labels', () => {
+  const source = readFileSync(resolve(process.cwd(), 'app/ppn/assets/page.tsx'), 'utf8');
+  assert.match(source, /Social Sharing Assets/);
+  assert.match(source, /kit\.label/);
+  assert.match(source, /kit\.description/);
+  assert.match(source, /kit\.copyContentButtonLabel/);
+  assert.match(source, /kit\.copyLinkButtonLabel/);
+  assert.match(source, /Open Link/);
 });
