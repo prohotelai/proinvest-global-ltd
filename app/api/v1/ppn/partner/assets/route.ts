@@ -2,6 +2,7 @@ import { NextRequest } from 'next/server';
 import { auth } from '@/lib/ppn/auth';
 import { prisma } from '@/lib/ppn/db';
 import { successResponse, errorResponse, ErrorCodes } from '@/lib/ppn/api-response';
+import { buildIframeEmbedCode, buildTrackedWidgetUrl, isAllowedWidgetUrl } from '@/lib/ppn/widget-embed';
 
 export const runtime = 'nodejs';
 
@@ -25,7 +26,7 @@ export async function GET(request: NextRequest) {
   // Check partner status
   const partner = await prisma.partner.findUnique({
     where: { id: partnerId },
-    select: { status: true },
+    select: { status: true, partnerCode: true },
   });
 
   if (!partner || partner.status !== 'approved') {
@@ -52,8 +53,35 @@ export async function GET(request: NextRequest) {
     ],
   });
 
+
+  const assetsWithWidgetEmbed = assets.map((asset) => {
+    if (asset.type !== 'widget') return asset;
+
+    if (!isAllowedWidgetUrl(asset.fileUrl)) {
+      return {
+        ...asset,
+        widget: {
+          allowed: false,
+          warning: 'Widget URL is not on the approved VisaRiskAI domain allowlist.',
+        },
+      };
+    }
+
+    const trackedUrl = buildTrackedWidgetUrl(asset.fileUrl, partner.partnerCode);
+    const iframeEmbedCode = buildIframeEmbedCode(asset.fileUrl, partner.partnerCode);
+
+    return {
+      ...asset,
+      widget: {
+        allowed: true,
+        trackedUrl,
+        iframeEmbedCode,
+      },
+    };
+  });
+
   // Group by product
-  const grouped = assets.reduce((acc, asset) => {
+  const grouped = assetsWithWidgetEmbed.reduce((acc, asset) => {
     const productName = asset.product.name;
     if (!acc[productName]) {
       acc[productName] = [];
@@ -63,7 +91,7 @@ export async function GET(request: NextRequest) {
   }, {} as Record<string, typeof assets>);
 
   return successResponse({
-    assets,
+    assets: assetsWithWidgetEmbed,
     groupedByProduct: grouped,
   });
 }

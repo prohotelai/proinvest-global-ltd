@@ -229,6 +229,9 @@ export default function AssetsPage() {
                       <option key={product.id} value={product.id}>{product.name}</option>
                     ))}
                   </select>
+                  {formData.type === 'widget' && (
+                    <p className="mt-1 text-xs text-slate-500">Use the base embed URL only. Partner-specific ppn_ref will be generated automatically in partner dashboards.</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Type</label>

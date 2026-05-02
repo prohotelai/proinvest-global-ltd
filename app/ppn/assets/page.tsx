@@ -14,6 +14,12 @@ interface Asset {
   size: string | null;
   language: string;
   product: { name: string; slug: string };
+  widget?: {
+    allowed: boolean;
+    trackedUrl?: string;
+    iframeEmbedCode?: string;
+    warning?: string;
+  };
 }
 
 interface AssetsData {
@@ -27,6 +33,7 @@ export default function AssetsPage() {
   const [data, setData] = useState<AssetsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<string>('');
+  const [copiedAssetId, setCopiedAssetId] = useState<string | null>(null);
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -40,7 +47,7 @@ export default function AssetsPage() {
         try {
           const response = await fetch('/api/v1/ppn/partner/assets');
           const result = await response.json();
-          
+
           if (mounted) {
             if (result.ok) {
               setData(result.data);
@@ -52,7 +59,9 @@ export default function AssetsPage() {
         }
       };
       load();
-      return () => { mounted = false; };
+      return () => {
+        mounted = false;
+      };
     }
   }, [status, router]);
 
@@ -67,18 +76,25 @@ export default function AssetsPage() {
     }
   };
 
-  // filteredAssets available for future iteration-based rendering
-  const _filteredAssets = filter
-    ? data?.assets.filter(a => a.type === filter) || []
-    : data?.assets || [];
+  const handleCopy = async (asset: Asset) => {
+    if (!asset.widget?.iframeEmbedCode) return;
+
+    try {
+      await navigator.clipboard.writeText(asset.widget.iframeEmbedCode);
+      setCopiedAssetId(asset.id);
+      setTimeout(() => setCopiedAssetId(null), 2000);
+    } catch {
+      setCopiedAssetId(null);
+    }
+  };
 
   const groupedFiltered = filter
     ? Object.fromEntries(
-        Object.entries(data?.groupedByProduct || {}).map(([product, assets]) => [
-          product,
-          assets.filter(a => a.type === filter),
-        ]).filter(([, assets]) => (assets as Asset[]).length > 0)
-      )
+      Object.entries(data?.groupedByProduct || {}).map(([product, assets]) => [
+        product,
+        assets.filter((a) => a.type === filter),
+      ]).filter(([, assets]) => (assets as Asset[]).length > 0),
+    )
     : data?.groupedByProduct || {};
 
   if (loading || status === 'loading') {
@@ -113,7 +129,6 @@ export default function AssetsPage() {
       </nav>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Filter */}
         <div className="mb-6 flex items-center gap-4">
           <label className="text-sm font-medium text-slate-700">Filter by type:</label>
           <select
@@ -130,7 +145,6 @@ export default function AssetsPage() {
           </select>
         </div>
 
-        {/* Assets by Product */}
         {Object.keys(groupedFiltered).length === 0 ? (
           <div className="text-center py-12 bg-white rounded-xl shadow-sm">
             <p className="text-slate-500">No marketing assets available yet.</p>
@@ -152,17 +166,51 @@ export default function AssetsPage() {
                         </div>
                         <h3 className="font-medium text-slate-900 mb-1">{asset.title}</h3>
                         {asset.size && <p className="text-sm text-slate-500 mb-3">Size: {asset.size}</p>}
-                        <a
-                          href={asset.fileUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-sm text-teal-600 font-medium hover:text-teal-700"
-                        >
-                          Download
-                          <svg className="ml-1 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                          </svg>
-                        </a>
+
+                        {asset.type === 'widget' ? (
+                          <div className="space-y-3">
+                            <div>
+                              <p className="text-xs text-slate-500 mb-1">Base widget URL</p>
+                              <p className="text-sm text-slate-700 break-all">{asset.fileUrl}</p>
+                            </div>
+
+                            {asset.widget?.allowed && asset.widget.iframeEmbedCode ? (
+                              <>
+                                <div>
+                                  <p className="text-xs text-slate-500 mb-1">Personalized iframe embed code</p>
+                                  <textarea
+                                    value={asset.widget.iframeEmbedCode}
+                                    readOnly
+                                    className="w-full h-36 text-xs font-mono border rounded p-2 bg-slate-50"
+                                  />
+                                </div>
+                                <div className="flex items-center gap-3">
+                                  <button onClick={() => handleCopy(asset)} className="px-3 py-2 bg-teal-600 text-white text-sm rounded hover:bg-teal-700">
+                                    Copy Embed Code
+                                  </button>
+                                  {copiedAssetId === asset.id && <span className="text-xs text-green-700">Copied!</span>}
+                                  <a href={asset.widget.trackedUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-600 hover:text-teal-700">Open widget</a>
+                                </div>
+                              </>
+                            ) : (
+                              <div className="p-3 bg-amber-50 border border-amber-200 rounded text-sm text-amber-800">
+                                {asset.widget?.warning || 'Widget embed code unavailable for this asset.'}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <a
+                            href={asset.fileUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center text-sm text-teal-600 font-medium hover:text-teal-700"
+                          >
+                            Download
+                            <svg className="ml-1 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                          </a>
+                        )}
                       </div>
                     ))}
                   </div>
