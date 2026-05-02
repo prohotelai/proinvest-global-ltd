@@ -17,6 +17,13 @@ interface Asset {
   widgetAllowed?: boolean;
   trackedWidgetUrl?: string;
   iframeEmbedCode?: string;
+  widgetVariants?: Array<{
+    theme: 'light' | 'dark' | 'risk';
+    label: string;
+    description: string;
+    trackedWidgetUrl: string;
+    iframeEmbedCode: string;
+  }>;
   widgetWarning?: string;
 }
 
@@ -31,7 +38,7 @@ export default function AssetsPage() {
   const [data, setData] = useState<AssetsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<string>('');
-  const [copiedAssetId, setCopiedAssetId] = useState<string | null>(null);
+  const [copiedCodeKey, setCopiedCodeKey] = useState<string | null>(null);
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -74,15 +81,15 @@ export default function AssetsPage() {
     }
   };
 
-  const handleCopy = async (asset: Asset) => {
-    if (!asset.iframeEmbedCode) return;
+  const handleCopy = async (code: string, key: string) => {
+    if (!code) return;
 
     try {
-      await navigator.clipboard.writeText(asset.iframeEmbedCode);
-      setCopiedAssetId(asset.id);
-      setTimeout(() => setCopiedAssetId(null), 2000);
+      await navigator.clipboard.writeText(code);
+      setCopiedCodeKey(key);
+      setTimeout(() => setCopiedCodeKey(null), 2000);
     } catch {
-      setCopiedAssetId(null);
+      setCopiedCodeKey(null);
     }
   };
 
@@ -172,23 +179,29 @@ export default function AssetsPage() {
                               <p className="text-sm text-slate-700 break-all">{asset.fileUrl}</p>
                             </div>
 
-                            {asset.widgetAllowed && asset.iframeEmbedCode ? (
+                            {asset.widgetAllowed && asset.widgetVariants?.length ? (
                               <>
-                                <div>
-                                  <p className="text-xs text-slate-500 mb-1">Personalized iframe embed code</p>
-                                  <textarea
-                                    value={asset.iframeEmbedCode}
-                                    readOnly
-                                    className="w-full h-36 text-xs font-mono border rounded p-2 bg-slate-50"
-                                  />
-                                </div>
-                                <div className="flex items-center gap-3">
-                                  <button onClick={() => handleCopy(asset)} className="px-3 py-2 bg-teal-600 text-white text-sm rounded hover:bg-teal-700">
-                                    Copy Embed Code
-                                  </button>
-                                  {copiedAssetId === asset.id && <span className="text-xs text-green-700">Copied!</span>}
-                                  <a href={asset.trackedWidgetUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-600 hover:text-teal-700">Open Widget</a>
-                                </div>
+                                {asset.widgetVariants.map((variant) => {
+                                  const copyKey = `${asset.id}-${variant.theme}`;
+                                  return (
+                                    <div key={variant.theme} className="rounded border border-slate-200 p-3 space-y-2 bg-slate-50">
+                                      <h4 className="text-sm font-semibold text-slate-900">{variant.label}</h4>
+                                      <p className="text-xs text-slate-600">{variant.description}</p>
+                                      <textarea
+                                        value={variant.iframeEmbedCode}
+                                        readOnly
+                                        className="w-full h-36 text-xs font-mono border rounded p-2 bg-white"
+                                      />
+                                      <div className="flex items-center gap-3">
+                                        <button onClick={() => handleCopy(variant.iframeEmbedCode, copyKey)} className="px-3 py-2 bg-teal-600 text-white text-sm rounded hover:bg-teal-700">
+                                          Copy {variant.theme.charAt(0).toUpperCase() + variant.theme.slice(1)} Code
+                                        </button>
+                                        {copiedCodeKey === copyKey && <span className="text-xs text-green-700">Copied!</span>}
+                                        <a href={variant.trackedWidgetUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-600 hover:text-teal-700">Open Widget</a>
+                                      </div>
+                                    </div>
+                                  );
+                                })}
                               </>
                             ) : (
                               <div className="p-3 bg-amber-50 border border-amber-200 rounded text-sm text-amber-800">

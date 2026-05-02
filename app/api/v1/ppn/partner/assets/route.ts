@@ -2,7 +2,7 @@ import { NextRequest } from 'next/server';
 import { auth } from '@/lib/ppn/auth';
 import { prisma } from '@/lib/ppn/db';
 import { successResponse, errorResponse, ErrorCodes } from '@/lib/ppn/api-response';
-import { buildIframeEmbedCode, buildTrackedWidgetUrl, isAllowedWidgetUrl } from '@/lib/ppn/widget-embed';
+import { buildIframeEmbedCode, buildTrackedWidgetUrl, buildWidgetEmbedVariants, isAllowedWidgetUrl } from '@/lib/ppn/widget-embed';
 
 export const runtime = 'nodejs';
 
@@ -67,12 +67,14 @@ export async function GET(request: NextRequest) {
 
     const trackedUrl = buildTrackedWidgetUrl(asset.fileUrl, partner.partnerCode);
     const iframeEmbedCode = buildIframeEmbedCode(asset.fileUrl, partner.partnerCode);
+    const widgetVariants = buildWidgetEmbedVariants(asset.fileUrl, partner.partnerCode);
 
     return {
       ...asset,
       widgetAllowed: true,
       trackedWidgetUrl: trackedUrl,
-      iframeEmbedCode
+      iframeEmbedCode,
+      widgetVariants,
     };
   });
 
