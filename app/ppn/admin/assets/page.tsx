@@ -148,7 +148,7 @@ export default function AssetsPage() {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-8">
         <h1 className="text-2xl font-bold text-slate-900">Marketing Assets</h1>
         <button
           onClick={() => { setShowForm(true); setFormData({ productId: products[0]?.id || '', type: 'banner', title: '', fileUrl: '', size: '' }); }}
@@ -162,7 +162,8 @@ export default function AssetsPage() {
       {success && <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700">{success}</div>}
 
       <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-        <table className="w-full">
+        <div className="w-full overflow-x-auto">
+          <table className="w-full min-w-[900px]">
           <thead className="bg-slate-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">Type</th>
@@ -182,7 +183,7 @@ export default function AssetsPage() {
                 </td>
                 <td className="px-6 py-4">
                   <p className="font-medium text-slate-900">{asset.title}</p>
-                  <a href={asset.fileUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-600 hover:underline">View</a>
+                  <a href={asset.fileUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-600 hover:underline break-all">View</a>
                 </td>
                 <td className="px-6 py-4 text-sm text-slate-600">{asset.product.name}</td>
                 <td className="px-6 py-4 text-sm text-slate-500">{asset.size || '-'}</td>
@@ -192,17 +193,18 @@ export default function AssetsPage() {
                   </span>
                 </td>
                 <td className="px-6 py-4">
-                  <div className="flex gap-2">
-                    <button onClick={() => handleToggleActive(asset)} className="text-sm text-slate-600 hover:underline">
+                  <div className="flex flex-wrap gap-2">
+                    <button onClick={() => handleToggleActive(asset)} className="text-sm text-slate-600 hover:underline px-3 py-2 -mx-3">
                       {asset.active ? 'Deactivate' : 'Activate'}
                     </button>
-                    <button onClick={() => handleDelete(asset)} className="text-sm text-red-600 hover:underline">Delete</button>
+                    <button onClick={() => handleDelete(asset)} className="text-sm text-red-600 hover:underline px-3 py-2 -mx-3">Delete</button>
                   </div>
                 </td>
               </tr>
             ))}
           </tbody>
-        </table>
+          </table>
+        </div>
 
         {assets.length === 0 && (
           <div className="text-center py-12 text-slate-500">No assets yet. Add marketing materials for partners.</div>
@@ -212,7 +214,7 @@ export default function AssetsPage() {
       {/* Add Asset Modal */}
       {showForm && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl p-6 w-full max-w-md mx-4">
+          <div className="bg-white rounded-xl p-4 sm:p-6 w-full max-w-md mx-4 max-h-[90vh] overflow-y-auto">
             <h3 className="text-lg font-semibold mb-4">Add Asset</h3>
             <form onSubmit={handleSubmit}>
               <div className="space-y-4">
