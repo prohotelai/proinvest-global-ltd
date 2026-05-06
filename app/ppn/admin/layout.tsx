@@ -22,12 +22,12 @@ export default async function AdminLayout({
       {/* Admin Header */}
       <header className="bg-slate-900 text-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4">
               <Link href="/ppn/admin" className="text-xl font-bold">PPN Admin</Link>
               <span className="text-xs bg-red-500 px-2 py-1 rounded">Admin</span>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4">
               <span className="text-sm text-slate-300">{session.user.email}</span>
               <Link href="/api/auth/signout" className="text-sm text-slate-400 hover:text-white">
                 Sign Out
@@ -39,8 +39,8 @@ export default async function AdminLayout({
 
       {/* Admin Navigation */}
       <nav className="bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex space-x-1">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-auto">
+          <div className="flex gap-1 whitespace-nowrap min-w-max">
             <Link href="/ppn/admin" className="px-4 py-3 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700 rounded-t">
               Overview
             </Link>

@@ -108,7 +108,7 @@ export default function PayoutsPage() {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-8">
         <h1 className="text-2xl font-bold text-slate-900">Payout Requests</h1>
         <select
           value={filter}
@@ -128,7 +128,8 @@ export default function PayoutsPage() {
       {success && <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700">{success}</div>}
 
       <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-        <table className="w-full">
+        <div className="w-full overflow-x-auto">
+        <table className="w-full min-w-[900px]">
           <thead className="bg-slate-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">Partner</th>
@@ -159,31 +160,32 @@ export default function PayoutsPage() {
                 <td className="px-6 py-4 text-sm text-slate-500">{payout.monthKey}</td>
                 <td className="px-6 py-4">
                   {payout.status === 'requested' && (
-                    <div className="flex gap-2">
-                      <button onClick={() => handleUpdateStatus(payout, 'approved')} className="text-sm text-green-600 hover:underline">Approve</button>
-                      <button onClick={() => handleUpdateStatus(payout, 'rejected')} className="text-sm text-red-600 hover:underline">Reject</button>
+                    <div className="flex flex-wrap gap-2">
+                      <button onClick={() => handleUpdateStatus(payout, 'approved')} className="text-sm text-green-600 hover:underline px-2 py-1">Approve</button>
+                      <button onClick={() => handleUpdateStatus(payout, 'rejected')} className="text-sm text-red-600 hover:underline px-2 py-1">Reject</button>
                     </div>
                   )}
                   {payout.status === 'approved' && (
-                    <button onClick={() => handleUpdateStatus(payout, 'processing')} className="text-sm text-blue-600 hover:underline">Processing</button>
+                    <button onClick={() => handleUpdateStatus(payout, 'processing')} className="text-sm text-blue-600 hover:underline px-2 py-1">Processing</button>
                   )}
                   {payout.status === 'processing' && (
-                    <button onClick={() => handleUpdateStatus(payout, 'paid')} className="text-sm text-green-600 hover:underline">Mark Paid</button>
+                    <button onClick={() => handleUpdateStatus(payout, 'paid')} className="text-sm text-green-600 hover:underline px-2 py-1">Mark Paid</button>
                   )}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        </div>
 
         {payouts.length === 0 && (
           <div className="text-center py-12 text-slate-500">No payout requests found.</div>
         )}
 
         {pagination.pages > 1 && (
-          <div className="px-6 py-4 border-t flex justify-between items-center">
+          <div className="px-6 py-4 border-t flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
             <p className="text-sm text-slate-500">Showing page {page} of {pagination.pages}</p>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1} className="px-3 py-1 border rounded text-sm disabled:opacity-50">Previous</button>
               <button onClick={() => setPage(p => Math.min(pagination.pages, p + 1))} disabled={page >= pagination.pages} className="px-3 py-1 border rounded text-sm disabled:opacity-50">Next</button>
             </div>

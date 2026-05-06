@@ -134,12 +134,12 @@ export default function PartnerDashboard() {
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h1 className="text-2xl font-bold text-slate-900">Partner Dashboard</h1>
               <p className="text-sm text-slate-500">Welcome back, {data.partner.name || data.partner.email}</p>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4">
               <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                 data.partner.status === 'approved' ? 'bg-green-100 text-green-800' :
                 data.partner.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
@@ -160,8 +160,8 @@ export default function PartnerDashboard() {
 
       {/* Navigation */}
       <nav className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex space-x-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-auto">
+          <div className="flex gap-6 sm:gap-8 whitespace-nowrap min-w-max">
             <Link href="/ppn/dashboard" className="border-b-2 border-teal-500 py-4 px-1 text-sm font-medium text-teal-600">
               Dashboard
             </Link>
@@ -192,7 +192,7 @@ export default function PartnerDashboard() {
           </div>
         )}
 
-        <div className="mb-8 p-4 bg-slate-50 rounded-lg flex items-center justify-between">
+        <div className="mb-8 p-4 bg-slate-50 rounded-lg flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-sm text-slate-500">Your Partner Code</p>
             <p className="text-2xl font-mono font-bold text-slate-900">{data.partner.partnerCode}</p>
@@ -211,15 +211,15 @@ export default function PartnerDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-sm p-6">
             <p className="text-sm text-slate-500 mb-1">Available Balance</p>
-            <p className="text-3xl font-bold text-green-600">{formatCurrency(data.balance.available)}</p>
+            <p className="text-2xl sm:text-3xl font-bold text-green-600">{formatCurrency(data.balance.available)}</p>
           </div>
           <div className="bg-white rounded-xl shadow-sm p-6">
             <p className="text-sm text-slate-500 mb-1">Pending</p>
-            <p className="text-3xl font-bold text-yellow-600">{formatCurrency(data.balance.pending)}</p>
+            <p className="text-2xl sm:text-3xl font-bold text-yellow-600">{formatCurrency(data.balance.pending)}</p>
           </div>
           <div className="bg-white rounded-xl shadow-sm p-6">
             <p className="text-sm text-slate-500 mb-1">Total Paid</p>
-            <p className="text-3xl font-bold text-slate-900">{formatCurrency(data.balance.paid)}</p>
+            <p className="text-2xl sm:text-3xl font-bold text-slate-900">{formatCurrency(data.balance.paid)}</p>
           </div>
           <div className="bg-white rounded-xl shadow-sm p-6">
             <p className="text-sm text-slate-500 mb-1">This Month</p>
@@ -268,7 +268,8 @@ export default function PartnerDashboard() {
           {data.recentCommissions.length === 0 ? (
             <p className="text-slate-500 text-center py-8">No commissions yet. Start promoting to earn!</p>
           ) : (
-            <table className="w-full">
+            <div className="w-full overflow-x-auto">
+            <table className="w-full min-w-[640px]">
               <thead>
                 <tr className="text-left text-sm text-slate-500 border-b">
                   <th className="pb-3">Product</th>
@@ -299,6 +300,7 @@ export default function PartnerDashboard() {
                 ))}
               </tbody>
             </table>
+            </div>
           )}
         </div>
       </main>
