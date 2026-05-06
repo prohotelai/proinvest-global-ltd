@@ -220,7 +220,7 @@ export default function PayoutsPage() {
     <div className="min-h-screen bg-slate-100 isolate relative">
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <h1 className="text-2xl font-bold text-slate-900">Payouts</h1>
             <button onClick={() => signOut({ callbackUrl: '/ppn/login' })} className="text-slate-600 hover:text-slate-900">Sign Out</button>
           </div>
@@ -228,8 +228,8 @@ export default function PayoutsPage() {
       </header>
 
       <nav className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex space-x-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-auto">
+          <div className="flex gap-6 sm:gap-8 whitespace-nowrap min-w-max">
             <Link href="/ppn/dashboard" className="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:text-slate-700">Dashboard</Link>
             <Link href="/ppn/links" className="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:text-slate-700">Links</Link>
             <Link href="/ppn/commissions" className="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:text-slate-700">Commissions</Link>
@@ -275,7 +275,7 @@ export default function PayoutsPage() {
 
             {/* Payout Methods */}
             <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
-              <div className="flex justify-between items-center mb-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
                 <h2 className="text-lg font-semibold text-slate-900">Payout Methods</h2>
                 <button
                   onClick={() => setShowMethodForm(true)}
@@ -298,7 +298,7 @@ export default function PayoutsPage() {
               ) : (
                 <div className="space-y-3">
                   {methods.map((method) => (
-                    <div key={method.id} className="flex justify-between items-center p-3 bg-slate-50 rounded-lg">
+                    <div key={method.id} className="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center p-3 bg-slate-50 rounded-lg">
                       <div>
                         <span className="font-medium text-slate-900 capitalize">{method.method}</span>
                         {method.isActive && <span className="ml-2 text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">Active</span>}
@@ -317,7 +317,8 @@ export default function PayoutsPage() {
               <div className="px-6 py-4 border-b">
                 <h2 className="text-lg font-semibold text-slate-900">Payout History</h2>
               </div>
-              <table className="w-full">
+              <div className="w-full overflow-x-auto">
+              <table className="w-full min-w-[760px]">
                 <thead className="bg-slate-50">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">Amount</th>
@@ -341,6 +342,7 @@ export default function PayoutsPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
               {data.payouts.length === 0 && (
                 <div className="text-center py-12">
                   <p className="text-slate-500">No payout requests yet.</p>
@@ -353,7 +355,7 @@ export default function PayoutsPage() {
         {/* Request Payout Modal */}
         {showRequestForm && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-xl p-6 w-full max-w-md mx-4">
+            <div className="bg-white rounded-xl p-4 sm:p-6 w-full max-w-md mx-4 max-h-[90vh] overflow-y-auto">
               <h3 className="text-lg font-semibold mb-4">Request Payout</h3>
               <form onSubmit={handleRequestPayout}>
                 <div className="mb-4">

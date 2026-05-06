@@ -79,7 +79,7 @@ export default function LinksPage() {
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <h1 className="text-2xl font-bold text-slate-900">Referral Links</h1>
             <button
               onClick={() => signOut({ callbackUrl: '/ppn/login' })}
@@ -93,8 +93,8 @@ export default function LinksPage() {
 
       {/* Navigation */}
       <nav className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex space-x-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-auto">
+          <div className="flex gap-6 sm:gap-8 whitespace-nowrap min-w-max">
             <Link href="/ppn/dashboard" className="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:text-slate-700">
               Dashboard
             </Link>
@@ -134,7 +134,7 @@ export default function LinksPage() {
             <div className="space-y-6">
               {data.products.map((product) => (
                 <div key={product.id} className="bg-white rounded-xl shadow-sm p-6">
-                  <div className="flex justify-between items-start mb-4">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between mb-4">
                     <div>
                       <h2 className="text-xl font-bold text-slate-900">{product.name}</h2>
                       <p className="text-slate-500">{product.domain}</p>
@@ -147,7 +147,7 @@ export default function LinksPage() {
 
                   <div className="space-y-4">
                     <div className="p-4 bg-slate-50 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
+                      <div className="flex flex-wrap justify-between items-center gap-2 mb-2">
                         <span className="text-sm font-medium text-slate-700">Home Page Link</span>
                         <button
                           onClick={() => copyToClipboard(product.links.home, `${product.id}-home`)}
@@ -160,7 +160,7 @@ export default function LinksPage() {
                     </div>
 
                     <div className="p-4 bg-slate-50 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
+                      <div className="flex flex-wrap justify-between items-center gap-2 mb-2">
                         <span className="text-sm font-medium text-slate-700">Pricing Page Link</span>
                         <button
                           onClick={() => copyToClipboard(product.links.pricing, `${product.id}-pricing`)}
@@ -173,7 +173,7 @@ export default function LinksPage() {
                     </div>
 
                     <div className="p-4 bg-slate-50 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
+                      <div className="flex flex-wrap justify-between items-center gap-2 mb-2">
                         <span className="text-sm font-medium text-slate-700">Redirect Link (Tracked)</span>
                         <button
                           onClick={() => copyToClipboard(`${window.location.origin}${product.links.redirect}`, `${product.id}-redirect`)}

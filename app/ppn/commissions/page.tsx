@@ -92,7 +92,7 @@ export default function CommissionsPage() {
     <div className="min-h-screen bg-slate-100 isolate relative">
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <h1 className="text-2xl font-bold text-slate-900">Commissions</h1>
             <button onClick={() => signOut({ callbackUrl: '/ppn/login' })} className="text-slate-600 hover:text-slate-900">
               Sign Out
@@ -102,8 +102,8 @@ export default function CommissionsPage() {
       </header>
 
       <nav className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex space-x-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-auto">
+          <div className="flex gap-6 sm:gap-8 whitespace-nowrap min-w-max">
             <Link href="/ppn/dashboard" className="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:text-slate-700">Dashboard</Link>
             <Link href="/ppn/links" className="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:text-slate-700">Links</Link>
             <Link href="/ppn/commissions" className="border-b-2 border-teal-500 py-4 px-1 text-sm font-medium text-teal-600">Commissions</Link>
@@ -141,7 +141,7 @@ export default function CommissionsPage() {
             </div>
 
             {/* Filter */}
-            <div className="mb-6 flex items-center gap-4">
+            <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
               <label className="text-sm font-medium text-slate-700">Filter by status:</label>
               <select
                 value={filter}
@@ -158,7 +158,8 @@ export default function CommissionsPage() {
 
             {/* Table */}
             <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-              <table className="w-full">
+              <div className="w-full overflow-x-auto">
+              <table className="w-full min-w-[760px]">
                 <thead className="bg-slate-50">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Product</th>
@@ -191,6 +192,7 @@ export default function CommissionsPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
 
               {data.commissions.length === 0 && (
                 <div className="text-center py-12">
@@ -200,7 +202,7 @@ export default function CommissionsPage() {
 
               {/* Pagination */}
               {data.pagination.pages > 1 && (
-                <div className="px-6 py-4 border-t flex justify-between items-center">
+                <div className="px-6 py-4 border-t flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
                   <p className="text-sm text-slate-500">
                     Showing {((page - 1) * data.pagination.limit) + 1} to {Math.min(page * data.pagination.limit, data.pagination.total)} of {data.pagination.total}
                   </p>

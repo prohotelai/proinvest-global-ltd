@@ -114,7 +114,7 @@ export default function AssetsPage() {
     <div className="min-h-screen bg-slate-100 isolate relative">
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <h1 className="text-2xl font-bold text-slate-900">Marketing Assets</h1>
             <button onClick={() => signOut({ callbackUrl: '/ppn/login' })} className="text-slate-600 hover:text-slate-900">Sign Out</button>
           </div>
@@ -122,8 +122,8 @@ export default function AssetsPage() {
       </header>
 
       <nav className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex space-x-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-auto">
+          <div className="flex gap-6 sm:gap-8 whitespace-nowrap min-w-max">
             <Link href="/ppn/dashboard" className="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:text-slate-700">Dashboard</Link>
             <Link href="/ppn/links" className="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:text-slate-700">Links</Link>
             <Link href="/ppn/commissions" className="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:text-slate-700">Commissions</Link>
@@ -134,7 +134,7 @@ export default function AssetsPage() {
       </nav>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-6 flex items-center gap-4">
+        <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
           <label className="text-sm font-medium text-slate-700">Filter by type:</label>
           <select
             value={filter}
@@ -190,9 +190,9 @@ export default function AssetsPage() {
                                       <textarea
                                         value={variant.iframeEmbedCode}
                                         readOnly
-                                        className="w-full h-36 text-xs font-mono border rounded p-2 bg-white"
+                                        className="w-full h-36 text-xs font-mono border rounded p-2 bg-white overflow-x-auto"
                                       />
-                                      <div className="flex items-center gap-3">
+                                      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                                         <button onClick={() => handleCopy(variant.iframeEmbedCode, copyKey)} className="px-3 py-2 bg-teal-600 text-white text-sm rounded hover:bg-teal-700">
                                           Copy {variant.theme.charAt(0).toUpperCase() + variant.theme.slice(1)} Code
                                         </button>

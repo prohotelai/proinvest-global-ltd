@@ -113,7 +113,7 @@ export default function SettingsPage() {
 
       {/* Partner Tiers */}
       <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-4">
           <h2 className="text-lg font-semibold text-slate-900">Partner Tiers</h2>
           <button
             onClick={() => { setShowTierForm(true); setEditingTier(null); setTierData({ name: '', description: '', sortOrder: tiers.length }); }}
@@ -124,7 +124,8 @@ export default function SettingsPage() {
         </div>
         <p className="text-sm text-slate-500 mb-4">Manage partner tiers and their commission rates.</p>
 
-        <table className="w-full">
+        <div className="w-full overflow-x-auto">
+          <table className="w-full min-w-[760px]">
           <thead>
             <tr className="text-left text-sm text-slate-500 border-b">
               <th className="pb-2">Order</th>
@@ -142,20 +143,21 @@ export default function SettingsPage() {
                 <td className="py-3 text-slate-600">{tier.description || '-'}</td>
                 <td className="py-3 text-slate-500">{tier._count.partners}</td>
                 <td className="py-3">
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2">
                     <button
                       onClick={() => { setEditingTier(tier); setTierData({ name: tier.name, description: tier.description || '', sortOrder: tier.sortOrder }); setShowTierForm(true); }}
-                      className="text-sm text-teal-600 hover:underline"
+                      className="text-sm text-teal-600 hover:underline px-3 py-2 -mx-3"
                     >
                       Edit
                     </button>
-                    <button onClick={() => handleDeleteTier(tier)} className="text-sm text-red-600 hover:underline">Delete</button>
+                    <button onClick={() => handleDeleteTier(tier)} className="text-sm text-red-600 hover:underline px-3 py-2 -mx-3">Delete</button>
                   </div>
                 </td>
               </tr>
             ))}
           </tbody>
-        </table>
+          </table>
+        </div>
 
         {tiers.length === 0 && (
           <div className="text-center py-8 text-slate-500">No tiers configured. Add the default tiers to get started.</div>
@@ -166,35 +168,35 @@ export default function SettingsPage() {
       <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
         <h2 className="text-lg font-semibold text-slate-900 mb-4">System Settings</h2>
         <div className="space-y-4">
-          <div className="flex justify-between items-center py-3 border-b">
+          <div className="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center py-3 border-b">
             <div>
               <p className="font-medium text-slate-900">Cookie Duration</p>
               <p className="text-sm text-slate-500">Attribution window for referral tracking</p>
             </div>
             <span className="text-lg font-mono text-slate-700">90 days</span>
           </div>
-          <div className="flex justify-between items-center py-3 border-b">
+          <div className="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center py-3 border-b">
             <div>
               <p className="font-medium text-slate-900">Commission Eligibility</p>
               <p className="text-sm text-slate-500">Days after payment before commission is available</p>
             </div>
             <span className="text-lg font-mono text-slate-700">60 days</span>
           </div>
-          <div className="flex justify-between items-center py-3 border-b">
+          <div className="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center py-3 border-b">
             <div>
               <p className="font-medium text-slate-900">Minimum Payout</p>
               <p className="text-sm text-slate-500">Minimum balance required to request payout</p>
             </div>
             <span className="text-lg font-mono text-slate-700">$100.00</span>
           </div>
-          <div className="flex justify-between items-center py-3 border-b">
+          <div className="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center py-3 border-b">
             <div>
               <p className="font-medium text-slate-900">Commission Rate Range</p>
               <p className="text-sm text-slate-500">Allowed commission percentage range</p>
             </div>
             <span className="text-lg font-mono text-slate-700">5% - 30%</span>
           </div>
-          <div className="flex justify-between items-center py-3">
+          <div className="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center py-3">
             <div>
               <p className="font-medium text-slate-900">Payout Frequency</p>
               <p className="text-sm text-slate-500">How often partners can request payouts</p>
@@ -210,7 +212,7 @@ export default function SettingsPage() {
         <div className="space-y-4">
           <div>
             <p className="font-medium text-slate-700 mb-2">Events Endpoint Base URL</p>
-            <code className="block p-3 bg-slate-100 rounded text-sm">{typeof window !== 'undefined' ? window.location.origin : ''}/api/v1/ppn/events</code>
+            <code className="block p-3 bg-slate-100 rounded text-sm break-all">{typeof window !== 'undefined' ? window.location.origin : ''}/api/v1/ppn/events</code>
           </div>
           <div>
             <p className="font-medium text-slate-700 mb-2">Available Event Types</p>
@@ -233,7 +235,7 @@ export default function SettingsPage() {
       {/* Tier Form Modal */}
       {showTierForm && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl p-6 w-full max-w-md mx-4">
+          <div className="bg-white rounded-xl p-4 sm:p-6 w-full max-w-md mx-4 max-h-[90vh] overflow-y-auto">
             <h3 className="text-lg font-semibold mb-4">{editingTier ? 'Edit Tier' : 'Add Tier'}</h3>
             <form onSubmit={handleSubmitTier}>
               <div className="space-y-4">
@@ -269,7 +271,7 @@ export default function SettingsPage() {
                   />
                 </div>
               </div>
-              <div className="flex gap-3 mt-6">
+              <div className="flex flex-col sm:flex-row gap-3 mt-6">
                 <button type="button" onClick={() => { setShowTierForm(false); setEditingTier(null); }} className="flex-1 py-2 border rounded-lg">Cancel</button>
                 <button type="submit" disabled={submitting} className="flex-1 py-2 bg-teal-600 text-white rounded-lg disabled:opacity-50">
                   {submitting ? 'Saving...' : (editingTier ? 'Update' : 'Create')}

@@ -103,7 +103,7 @@ export default function CommissionsPage() {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-8">
         <h1 className="text-2xl font-bold text-slate-900">Commissions</h1>
         <select
           value={filter}
@@ -122,7 +122,8 @@ export default function CommissionsPage() {
       {success && <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700">{success}</div>}
 
       <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-        <table className="w-full">
+        <div className="w-full overflow-x-auto">
+        <table className="w-full min-w-[1024px]">
           <thead className="bg-slate-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">Partner</th>
@@ -158,23 +159,24 @@ export default function CommissionsPage() {
                 <td className="px-6 py-4 text-sm text-slate-500">{new Date(commission.eligibleAt).toLocaleDateString()}</td>
                 <td className="px-6 py-4">
                   {(commission.status === 'pending' || commission.status === 'available') && (
-                    <button onClick={() => handleVoid(commission)} className="text-sm text-red-600 hover:underline">Void</button>
+                    <button onClick={() => handleVoid(commission)} className="text-sm text-red-600 hover:underline px-3 py-2 -mx-3">Void</button>
                   )}
                   {commission.status === 'paid' && (
-                    <button onClick={() => handleVoid(commission)} className="text-sm text-red-600 hover:underline">Clawback</button>
+                    <button onClick={() => handleVoid(commission)} className="text-sm text-red-600 hover:underline px-3 py-2 -mx-3">Clawback</button>
                   )}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        </div>
 
         {commissions.length === 0 && (
           <div className="text-center py-12 text-slate-500">No commissions found.</div>
         )}
 
         {pagination.pages > 1 && (
-          <div className="px-6 py-4 border-t flex justify-between items-center">
+          <div className="px-6 py-4 border-t flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
             <p className="text-sm text-slate-500">Showing page {page} of {pagination.pages}</p>
             <div className="flex gap-2">
               <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1} className="px-3 py-1 border rounded text-sm disabled:opacity-50">Previous</button>

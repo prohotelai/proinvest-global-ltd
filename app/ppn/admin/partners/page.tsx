@@ -175,7 +175,7 @@ export default function PartnersPage() {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-8">
         <h1 className="text-2xl font-bold text-slate-900">Partners</h1>
         <select
           value={filter}
@@ -195,7 +195,8 @@ export default function PartnersPage() {
 
       {/* Partners Table */}
       <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-        <table className="w-full">
+        <div className="w-full overflow-x-auto">
+        <table className="w-full min-w-[1024px]">
           <thead className="bg-slate-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">Partner</th>
@@ -299,6 +300,7 @@ export default function PartnersPage() {
             ))}
           </tbody>
         </table>
+      </div>
         {partners.length === 0 && (
           <div className="text-center py-12 text-slate-500">No partners found.</div>
         )}
@@ -307,7 +309,7 @@ export default function PartnersPage() {
       {/* Set Commission Modal */}
       {showCommissionForm && selectedPartner && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl p-6 w-full max-w-md mx-4">
+          <div className="bg-white rounded-xl p-4 sm:p-6 w-full max-w-md mx-4 max-h-[90vh] overflow-y-auto">
             <h3 className="text-lg font-semibold mb-4">Set Commission Rate</h3>
             <p className="text-sm text-slate-500 mb-4">Partner: {selectedPartner.user.email}</p>
             <form onSubmit={handleSetCommission}>
@@ -339,7 +341,7 @@ export default function PartnersPage() {
                   />
                 </div>
               </div>
-              <div className="flex gap-3 mt-6">
+              <div className="flex flex-col sm:flex-row gap-3 mt-6">
                 <button type="button" onClick={() => setShowCommissionForm(false)} className="flex-1 py-2 border rounded-lg">Cancel</button>
                 <button type="submit" disabled={submitting} className="flex-1 py-2 bg-teal-600 text-white rounded-lg disabled:opacity-50">
                   {submitting ? 'Saving...' : 'Set Commission'}
