@@ -13,34 +13,26 @@ export default function ProHotelAI() {
   const faqSchema = generateFAQSchema([
     {
       question: "What is ProHotelAI?",
-      answer: "ProHotelAI is an AI-powered hotel operations platform developed by PROINVEST GLOBAL LTD. It automates guest interactions, front desk operations, service requests, and provides operational analytics. The platform includes a 24/7 AI guest assistant, automated check-in/check-out, and multilingual support."
+      answer: "ProHotelAI is an AI-native hotel operations platform developed by PROINVEST GLOBAL LTD around a governed Hotel Digital Brain. It connects guest concierge, hotel knowledge, operational workflows, service fulfilment, commerce, reporting and hotel data."
     },
     {
       question: "Which hotels can use ProHotelAI?",
-      answer: "ProHotelAI is designed for 4-star and 5-star hotels, luxury resorts, boutique hotels, and hotel chains. It works for properties of all sizes, from independent hotels to large multi-property management companies."
+      answer: "ProHotelAI is designed for hotels, resorts, hotel groups and hospitality operators. Deployment scope depends on each property's systems, workflows and integration requirements."
     },
     {
-      question: "How does the AI guest assistant work?",
-      answer: "The AI guest assistant communicates with guests via chat and voice interfaces in multiple languages. It answers questions about hotel services, processes service requests (room service, housekeeping, concierge), handles complaints, and escalates complex issues to human staff when needed. It operates 24/7 without breaks."
+      question: "How does the guest concierge work?",
+      answer: "ProHotelAI supports governed public and verified guest concierge journeys. Responses and actions use hotel-authorized knowledge and operational context, with workflows designed to hand off to hotel teams when human action is required."
     },
     {
-      question: "Does ProHotelAI replace hotel staff?",
-      answer: "No. ProHotelAI automates repetitive tasks and routine inquiries, allowing staff to focus on high-value guest interactions and complex problem-solving. It reduces staff workload by 40-60% but does not eliminate the need for human hotel employees."
-    },
-    {
-      question: "How does ProHotelAI integrate with hotel systems?",
-      answer: "ProHotelAI integrates with existing Property Management Systems (PMS), Point of Sale (POS) systems, and housekeeping management systems via standard APIs. Integration typically takes 2-4 weeks depending on system complexity."
-    },
-    {
-      question: "What languages does ProHotelAI support?",
-      answer: "ProHotelAI supports 50+ languages including English, Arabic, French, Spanish, German, Chinese, Japanese, and more. The AI can automatically detect guest language preferences and switch languages mid-conversation."
+      question: "How does ProHotelAI connect with hotel systems?",
+      answer: "ProHotelAI is designed to integrate hotel operational data and external systems through governed integrations. The exact integration path depends on the property's PMS, partner systems and deployment architecture."
     }
   ]);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://proinvest-global.com" },
-    { name: "Solutions", url: "https://proinvest-global.com/solutions" },
-    { name: "ProHotelAI", url: "https://proinvest-global.com/solutions/prohotelai" }
+    { name: "Home", url: "https://proinvest.global" },
+    { name: "Solutions", url: "https://proinvest.global/solutions" },
+    { name: "ProHotelAI", url: "https://proinvest.global/solutions/prohotelai" }
   ]);
 
   return (
@@ -67,10 +59,10 @@ export default function ProHotelAI() {
               ProHotelAI
             </h1>
             <p className="text-2xl mb-6 text-blue-100">
-              AI-Powered Hotel Operations Platform
+              Hotel Digital Brain & AI Operations Platform
             </p>
             <p className="text-xl text-blue-100 mb-8">
-              Transform guest experiences and streamline operations with our comprehensive AI platform designed specifically for hotels and resorts.
+              Connect hotel knowledge, guest concierge, operations, commerce and intelligence through one governed AI operating layer.
             </p>
             <Link
               href="/contact"
@@ -87,10 +79,10 @@ export default function ProHotelAI() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Revolutionize Hotel Operations
+              One Governed Intelligence Layer for Hotel Operations
             </h2>
             <p className="text-lg text-gray-600">
-              ProHotelAI is a production-ready AI platform that automates guest interactions, optimizes operations, and delivers exceptional experiences at scale. Built for 4 & 5 star hotels, resorts, and hotel chains.
+              ProHotelAI is built around a governed Hotel Digital Brain that turns hotel-authorized knowledge and operational context into useful guest and staff workflows. It is designed for hotels, resorts and multi-property hospitality operators.
             </p>
           </div>
         </div>
@@ -345,7 +337,7 @@ export default function ProHotelAI() {
                 Does ProHotelAI replace hotel staff?
               </h3>
               <p className="text-gray-600">
-                No. ProHotelAI automates repetitive tasks and routine inquiries, allowing staff to focus on high-value guest interactions and complex problem-solving. It reduces staff workload by 40-60% but does not eliminate the need for human hotel employees.
+                No. ProHotelAI automates repetitive tasks and routine inquiries, allowing staff to focus on high-value guest interactions and complex problem-solving. It reduces staff workload by meaningfully but does not eliminate the need for human hotel employees.
               </p>
             </div>
             <div>
@@ -353,7 +345,7 @@ export default function ProHotelAI() {
                 How does ProHotelAI integrate with hotel systems?
               </h3>
               <p className="text-gray-600">
-                ProHotelAI integrates with existing Property Management Systems (PMS), Point of Sale (POS) systems, and housekeeping management systems via standard APIs. Integration typically takes 2-4 weeks depending on system complexity.
+                ProHotelAI integrates with existing Property Management Systems (PMS), Point of Sale (POS) systems, and housekeeping management systems via standard APIs. Integration typically takes a property-specific implementation period depending on system complexity.
               </p>
             </div>
             <div>
@@ -361,7 +353,7 @@ export default function ProHotelAI() {
                 What languages does ProHotelAI support?
               </h3>
               <p className="text-gray-600">
-                ProHotelAI supports 50+ languages including English, Arabic, French, Spanish, German, Chinese, Japanese, and more. The AI can automatically detect guest language preferences and switch languages mid-conversation.
+                ProHotelAI supports multiple languages including English, Arabic, French, Spanish, German, Chinese, Japanese, and more. The AI can automatically detect guest language preferences and switch languages mid-conversation.
               </p>
             </div>
           </div>

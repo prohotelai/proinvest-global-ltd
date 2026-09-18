@@ -11,35 +11,23 @@ export default function ProCafeAI() {
   // FAQ Schema
   const faqSchema = generateFAQSchema([
     {
-      question: "How does CafeGrok AI save staff costs?",
-      answer: "CafeGrok AI automates order taking via QR codes and AI chat, reducing the need for waitstaff by 30-50%. Customers scan, order, and pay directly from their phones."
-    },
-    {
-      question: "What is Grok AI and how does it help my cafe?",
-      answer: "Grok AI from xAI powers our intelligent chat system. It understands customer requests in any language, suggests menu items, handles customizations, and provides upsell recommendations to boost sales by 20-40%."
-    },
-    {
-      question: "Can I manage multiple cafe branches?",
-      answer: "Yes! Our Pro and Enterprise plans support multi-branch management with unified dashboards, shared inventory, and cross-branch reporting."
-    },
-    {
-      question: "How do I get started?",
-      answer: "Getting started is easy! Choose your plan (Basic $200/mo, Pro $300/mo, or Enterprise $500/mo), complete checkout, and you're ready to transform your cafe with AI-powered ordering within minutes."
+      question: "What is ProCafeAI?",
+      answer: "ProCafeAI is an AI-native operations platform for cafés and restaurants, connecting digital ordering, menu intelligence, customer interaction and operational workflows."
     },
     {
       question: "Do customers need to download an app?",
-      answer: "No. CafeGrok AI works entirely through web browsers. Customers simply scan a QR code and order immediately without downloading or installing anything."
+      answer: "ProCafeAI is designed around web-based customer journeys, allowing guests to interact with digital ordering experiences without requiring a dedicated consumer app."
     },
     {
-      question: "How many languages does CafeGrok AI support?",
-      answer: "CafeGrok AI supports 50+ languages including English, Arabic, French, Spanish, German, Chinese, Hindi, and more. Customers can view menus and order in their preferred language automatically."
+      question: "Can ProCafeAI support multi-location operators?",
+      answer: "ProCafeAI is designed for café and restaurant operations, including businesses that need centralized digital workflows across locations. Exact capabilities should be confirmed against the current ProCafeAI product."
     }
   ]);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Home", url: "https://proinvest.global" },
     { name: "Solutions", url: "https://proinvest.global/solutions" },
-    { name: "CafeGrok AI", url: "https://proinvest.global/solutions/procafeai" }
+    { name: "ProCafeAI", url: "https://proinvest.global/solutions/procafeai" }
   ]);
 
   return (
@@ -67,37 +55,17 @@ export default function ProCafeAI() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
               </span>
-              Powered by Grok AI from xAI
+              AI-native café & restaurant operations
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              ☕ CafeGrok AI
+              ☕ ProCafeAI
             </h1>
             <p className="text-2xl mb-6 text-amber-100">
               AI-Powered SaaS for Cafes & Restaurants
             </p>
             <p className="text-xl text-amber-100 mb-8">
-              From QR Code Arrival to Smart Reports – Your AI Assistant for Smarter, Profitable Cafes. Save 30-50% on staff costs, increase sales 20-40%.
+              Connect digital ordering, menu intelligence and operational workflows in one cloud platform for cafés and restaurants.
             </p>
-            <div className="flex flex-wrap gap-4 mb-8">
-              <div className="flex items-center gap-2 text-sm">
-                <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span><strong>30-50%</strong> staff cost savings</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span><strong>20-40%</strong> sales increase</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span><strong>50+</strong> languages supported</span>
-              </div>
-            </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="https://www.procafeai.com/pricing"
@@ -116,7 +84,7 @@ export default function ProCafeAI() {
                 Contact Sales
               </a>
             </div>
-            <p className="text-sm text-amber-200 mt-4">Credit card required • 7-day refund guarantee • Cancel anytime</p>
+            <p className="text-sm text-amber-200 mt-4">Credit card required • 7-day refund promise • Cancel anytime</p>
           </div>
         </div>
       </section>
@@ -131,11 +99,11 @@ export default function ProCafeAI() {
               <p className="text-sm text-gray-500 mt-1">Active Cafes</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-amber-600">50+</p>
+              <p className="text-3xl md:text-4xl font-bold text-amber-600">Multilingual</p>
               <p className="text-sm text-gray-500 mt-1">Languages</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-amber-600">99.9%</p>
+              <p className="text-3xl md:text-4xl font-bold text-amber-600">Cloud</p>
               <p className="text-sm text-gray-500 mt-1">Uptime</p>
             </div>
             <div className="text-center">
@@ -154,7 +122,7 @@ export default function ProCafeAI() {
               Save Costs. Boost Profits. <span className="text-amber-600">Automatically.</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              CafeGrok AI transforms your operations with measurable results
+              ProCafeAI transforms your operations with measurable results
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -163,7 +131,7 @@ export default function ProCafeAI() {
                 <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg">💰</div>
                 <div>
                   <p className="text-sm text-green-600 font-medium">LABOR SAVINGS</p>
-                  <p className="text-4xl font-bold text-green-700">30-50%</p>
+                  <p className="text-4xl font-bold text-green-700">operational</p>
                 </div>
               </div>
               <h3 className="text-xl font-bold mb-3">Reduce Staff Costs Dramatically</h3>
@@ -193,7 +161,7 @@ export default function ProCafeAI() {
                 <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg">📈</div>
                 <div>
                   <p className="text-sm text-blue-600 font-medium">REVENUE INCREASE</p>
-                  <p className="text-4xl font-bold text-blue-700">20-40%</p>
+                  <p className="text-4xl font-bold text-blue-700">commercial</p>
                 </div>
               </div>
               <h3 className="text-xl font-bold mb-3">Boost Sales with AI Intelligence</h3>
@@ -262,7 +230,7 @@ export default function ProCafeAI() {
                 <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gray-100">
                   <div className="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center text-white">🤖</div>
                   <div>
-                    <p className="font-semibold">CafeGrok AI</p>
+                    <p className="font-semibold">ProCafeAI</p>
                     <p className="text-xs text-green-500">Online</p>
                   </div>
                 </div>
@@ -282,7 +250,7 @@ export default function ProCafeAI() {
                 ✓ No app download
               </div>
               <div className="absolute -bottom-4 -left-4 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
-                🌍 50+ languages
+                🌍 multiple languages
               </div>
             </div>
           </div>
@@ -337,14 +305,14 @@ export default function ProCafeAI() {
           <div className="mt-16 bg-gradient-to-r from-amber-600 to-amber-700 rounded-3xl p-8 md:p-12 text-white max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4">Powered by Grok AI from xAI</h3>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">AI-native café & restaurant operations</h3>
                 <p className="opacity-90 mb-6">
                   Grok acts as your intelligent AI assistant specifically trained for cafe operations. It understands context, remembers preferences, handles complex customizations, and provides smart suggestions to both customers and managers.
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-white rounded-full"></span>
-                    <span>Natural conversation in 50+ languages</span>
+                    <span>Natural conversation in multiple languages</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-white rounded-full"></span>
@@ -571,7 +539,7 @@ export default function ProCafeAI() {
             Ready to Transform Your Cafe?
           </h2>
           <p className="text-xl mb-8 text-amber-100 max-w-2xl mx-auto">
-            Join 1,000+ cafes already growing with CafeGrok AI
+            Join 1,000+ cafes already growing with ProCafeAI
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -605,11 +573,11 @@ export default function ProCafeAI() {
           <div className="space-y-6">
             <details className="group bg-gray-50 rounded-xl">
               <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold">
-                How does CafeGrok AI save staff costs?
+                How does ProCafeAI save staff costs?
                 <span className="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <div className="px-6 pb-6 text-gray-600">
-                CafeGrok AI automates order taking via QR codes and AI chat, reducing the need for waitstaff by 30-50%. Customers scan, order, and pay directly from their phones.
+                ProCafeAI automates order taking via QR codes and AI chat, reducing the need for waitstaff by operational. Customers scan, order, and pay directly from their phones.
               </div>
             </details>
             <details className="group bg-gray-50 rounded-xl">
@@ -618,7 +586,7 @@ export default function ProCafeAI() {
                 <span className="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <div className="px-6 pb-6 text-gray-600">
-                Grok AI from xAI powers our intelligent chat system. It understands customer requests in any language, suggests menu items, handles customizations, and provides upsell recommendations to boost sales by 20-40%.
+                Grok AI from xAI powers our intelligent chat system. It understands customer requests in any language, suggests menu items, handles customizations, and provides upsell recommendations to boost sales by commercial.
               </div>
             </details>
             <details className="group bg-gray-50 rounded-xl">
@@ -636,16 +604,16 @@ export default function ProCafeAI() {
                 <span className="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <div className="px-6 pb-6 text-gray-600">
-                No. CafeGrok AI works entirely through web browsers. Customers simply scan a QR code and order immediately without downloading or installing anything.
+                No. ProCafeAI works entirely through web browsers. Customers simply scan a QR code and order immediately without downloading or installing anything.
               </div>
             </details>
             <details className="group bg-gray-50 rounded-xl">
               <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold">
-                How many languages does CafeGrok AI support?
+                How many languages does ProCafeAI support?
                 <span className="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <div className="px-6 pb-6 text-gray-600">
-                CafeGrok AI supports 50+ languages including English, Arabic, French, Spanish, German, Chinese, Hindi, and more. Customers can view menus and order in their preferred language automatically.
+                ProCafeAI supports multiple languages including English, Arabic, French, Spanish, German, Chinese, Hindi, and more. Customers can view menus and order in their preferred language automatically.
               </div>
             </details>
             <details className="group bg-gray-50 rounded-xl">
@@ -665,7 +633,7 @@ export default function ProCafeAI() {
       <section className="bg-gray-900 text-white py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-lg mb-4">
-            Visit the official CafeGrok AI website for more features, documentation, and support
+            Visit the official ProCafeAI website for more features, documentation, and support
           </p>
           <a
             href="https://www.procafeai.com"

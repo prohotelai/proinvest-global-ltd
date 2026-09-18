@@ -7,8 +7,8 @@ export const metadata: Metadata = aboutMetadata('en');
 
 export default function About() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://proinvest-global.com" },
-    { name: "About", url: "https://proinvest-global.com/about" }
+    { name: "Home", url: "https://proinvest.global" },
+    { name: "About", url: "https://proinvest.global/about" }
   ]);
 
   return (
@@ -27,7 +27,7 @@ export default function About() {
               About Proinvest Global Ltd
             </h1>
             <p className="text-xl text-gray-300">
-              UK-based technology and investment company pioneering Applied Artificial Intelligence for hospitality.
+              UK-based technology and investment company building applied AI products for real operational workflows.
             </p>
           </div>
         </div>
@@ -42,7 +42,7 @@ export default function About() {
             </h2>
             <div className="prose prose-lg text-gray-600 space-y-4">
               <p>
-                <strong>PROINVEST GLOBAL LTD</strong> is a United Kingdom-based technology company (UK Company Number: <strong>16851428</strong>) specializing in Applied Artificial Intelligence solutions for the hospitality and food & beverage sectors.
+                <strong>PROINVEST GLOBAL LTD</strong> is a United Kingdom-based technology company (UK Company Number: <strong>16851428</strong>) building applied artificial intelligence products across hospitality operations and decision-support workflows.
               </p>
               <p>
                 We develop AI-driven operational platforms that automate guest and customer interactions, optimize daily operations, reduce operating costs, and increase revenue for hotels, cafés, and restaurants.
@@ -51,7 +51,7 @@ export default function About() {
                 Operating under a <strong>SaaS (Software as a Service)</strong> model, we deliver scalable, cloud-based systems designed to run inside real operational environments—not experiments.
               </p>
               <p>
-                Our products include <strong>ProHotelAI</strong> for hotels and resorts, and <strong>ProCafeAI (CafeGrok AI)</strong> for cafés and restaurants.
+                Our product portfolio includes <strong>ProHotelAI</strong> for hotels and resorts, <strong>ProCafeAI</strong> for cafés and restaurants, and <strong>VisaRiskAI</strong> for structured visa risk and application-readiness analysis.
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@ export default function About() {
               <div className="bg-gray-900 text-white p-8 rounded-lg h-full">
                 <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
                 <p className="text-gray-300">
-                  To be the global leader in Applied AI for hospitality, empowering hotels, cafés, and restaurants worldwide to deliver exceptional experiences while optimizing operations and maximizing profitability.
+                  To build a focused portfolio of applied AI products that turn complex operational information into governed, useful actions for businesses and their customers.
                 </p>
               </div>
             </div>

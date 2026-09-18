@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Industries We Serve | Hotels, Cafés & Restaurants | Proinvest Global',
-  description: 'Proinvest Global serves premium hospitality industries including 4 & 5 star hotels, resorts, cafés, and restaurants across MENA, Europe, and globally.',
+  title: 'Industries & Use Cases | PROINVEST GLOBAL LTD',
+  description: 'PROINVEST GLOBAL LTD builds applied AI products for hotel and resort operations, cafés and restaurants, and visa application risk and readiness workflows.',
   openGraph: {
     title: 'Industries We Serve',
     description: 'AI solutions for hotels, resorts, cafés, and restaurants worldwide.',
@@ -21,7 +21,7 @@ export default function Industries() {
               Industries We Serve
             </h1>
             <p className="text-xl text-gray-300">
-              Delivering AI-powered solutions to premium hospitality businesses worldwide.
+              Applied AI products for hospitality operations and structured decision-support workflows.
             </p>
           </div>
         </div>
@@ -35,7 +35,7 @@ export default function Industries() {
               Our Focus Industries
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We specialize in providing Applied AI solutions for the hospitality and food & beverage sectors.
+              Our current product portfolio focuses on hotel and resort operations, café and restaurant workflows, and visa application risk and readiness analysis.
             </p>
           </div>
 
@@ -52,7 +52,7 @@ export default function Industries() {
                   <svg className="w-6 h-6 text-blue-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-700">4 & 5 Star Hotels</span>
+                  <span className="text-gray-700">Hotels & Resorts</span>
                 </li>
                 <li className="flex items-start">
                   <svg className="w-6 h-6 text-blue-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">

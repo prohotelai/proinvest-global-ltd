@@ -9,8 +9,6 @@ export default function Contact() {
     email: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -19,21 +17,13 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission (in production, this would call an API)
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', company: '', email: '', message: '' });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
-    }, 1000);
+    const subject = encodeURIComponent(`Website enquiry from ${formData.name} — ${formData.company}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nCompany: ${formData.company}\nEmail: ${formData.email}\n\n${formData.message}`
+    );
+    window.location.href = `mailto:info@proinvest.global?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -46,7 +36,7 @@ export default function Contact() {
               Contact Us
             </h1>
             <p className="text-xl text-blue-100">
-              Ready to transform your hospitality operations? Get in touch with our team.
+              Want to discuss one of our AI products, partnerships, or a business opportunity? Get in touch with our team.
             </p>
           </div>
         </div>
@@ -60,14 +50,8 @@ export default function Contact() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form below and our team will get back to you within 24 hours.
+                Fill out the form below to prepare an email to our team, or contact us directly at info@proinvest.global.
               </p>
-
-              {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                  Thank you for your message! We&apos;ll be in touch soon.
-                </div>
-              )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -136,10 +120,9 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  Prepare Email
                 </button>
               </form>
             </div>
