@@ -23,7 +23,7 @@ This is the official corporate website for Proinvest Global Ltd, a UK-based tech
 - **Framework:** Next.js 16 (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS 4
-- **Database:** SQLite (via Prisma + LibSQL)
+- **Database:** Prisma-backed application data layer (see `prisma/schema.prisma` and deployment environment for the active provider)
 - **Auth:** NextAuth.js v5
 - **Deployment:** Vercel-ready
 
@@ -63,7 +63,7 @@ Create a `.env.local` file with:
 
 ```env
 # Database
-DATABASE_URL="file:./dev.db"
+DATABASE_URL="<environment-specific database URL>"
 
 # NextAuth
 NEXTAUTH_SECRET="your-secure-secret-key"
@@ -279,10 +279,7 @@ This project is ready to deploy on Vercel:
 
 ### Production Database
 
-For production, consider using:
-- **Turso** (LibSQL cloud) - Recommended for SQLite
-- **PostgreSQL** - Update schema provider to `postgresql`
-- **PlanetScale** - MySQL-compatible
+Production database configuration is environment-specific. Treat the repository Prisma schema, migrations, and the deployment environment as the source of truth; do not infer the production provider from old setup examples.
 
 ## License
 
