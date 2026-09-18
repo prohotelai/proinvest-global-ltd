@@ -15,14 +15,14 @@ export const COMPANY_INFO = {
   url: 'https://proinvest.global',
   email: 'info@proinvest.global',
   address: {
-    streetAddress: '',
+    streetAddress: '2 Frederick Street',
     addressLocality: 'London',
     addressRegion: 'England',
-    postalCode: '',
+    postalCode: 'WC1X 0ND',
     addressCountry: 'GB'
   },
-  description: 'Applied AI platforms that run real hospitality and F&B operations — not experiments. UK-based technology company specializing in operational artificial intelligence for hotels, cafés, and restaurants.',
-  industry: ['Hospitality Technology', 'Artificial Intelligence', 'SaaS', 'Hotel Technology', 'Restaurant Technology'],
+  description: 'UK technology and investment company building applied AI products for real operational workflows. Its product portfolio includes ProHotelAI for hotels and resorts, ProCafeAI for cafés and restaurants, and VisaRiskAI for visa risk and application-readiness analysis.',
+  industry: ['Artificial Intelligence', 'SaaS', 'Hospitality Technology', 'Hotel Technology', 'Restaurant Technology', 'Travel Technology'],
   keywords: [
     'AI hospitality operations',
     'AI hotel management system',
@@ -83,12 +83,7 @@ export function generateOrganizationSchema(): WithContext<Organization> {
           '@type': 'SoftwareApplication',
           name: 'ProHotelAI',
           applicationCategory: 'BusinessApplication',
-          operatingSystem: 'Cloud',
-          offers: {
-            '@type': 'Offer',
-            price: '0',
-            priceCurrency: 'USD'
-          }
+          operatingSystem: 'Cloud'
         }
       },
       {
@@ -98,12 +93,7 @@ export function generateOrganizationSchema(): WithContext<Organization> {
           name: 'ProCafeAI',
           alternateName: 'CafeGrok AI',
           applicationCategory: 'BusinessApplication',
-          operatingSystem: 'Cloud',
-          offers: {
-            '@type': 'Offer',
-            price: '0',
-            priceCurrency: 'USD'
-          }
+          operatingSystem: 'Cloud'
         }
       }
     ],
@@ -126,32 +116,26 @@ export function generateProHotelAISchema(): WithContext<SoftwareApplication> {
     applicationCategory: 'BusinessApplication',
     applicationSubCategory: 'Hotel Management Software',
     operatingSystem: 'Cloud',
-    description: 'AI-powered hotel operations platform for 4 & 5 star hotels. Automates guest interactions, front desk operations, service requests, and operational analytics. Features 24/7 AI guest assistant, automated check-in/check-out, and real-time operational intelligence.',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock'
-    },
+    description: 'AI-native hotel operations platform built around a governed Hotel Digital Brain, connecting guest concierge, hotel knowledge, operational workflows, service fulfilment, commerce, reporting and hotel data.',
     provider: {
       '@type': 'Organization',
       '@id': `${COMPANY_INFO.url}#organization`,
       name: COMPANY_INFO.legalName
     },
     featureList: [
-      '24/7 AI Guest Assistant',
-      'Automated Check-in/Check-out',
-      'Guest Service Request Automation',
-      'Front Desk Automation',
-      'Housekeeping Coordination',
-      'Multilingual Guest Support',
-      'Real-time Operational Analytics',
-      'Revenue Optimization',
-      'Guest Sentiment Analysis'
+      'Governed Hotel Digital Brain',
+      'Public and Verified Guest Concierge',
+      'Hotel Knowledge Governance',
+      'Guest Service Request Workflows',
+      'Operational Fulfilment',
+      'Hotel Commerce',
+      'AI Reports and Operational Intelligence',
+      'PMS and Hotel Data Integration',
+      'Partner Ecosystem Integration'
     ],
     audience: {
       '@type': 'BusinessAudience',
-      audienceType: '4-Star Hotels, 5-Star Hotels, Hotel Chains, Resorts'
+      audienceType: 'Hotels, Resorts, Hotel Groups and Hospitality Operators'
     },
     keywords: 'AI hotel management, hotel automation, AI guest assistant, hotel operations platform, hospitality AI, hotel technology'
   };
@@ -171,12 +155,6 @@ export function generateProCafeAISchema(): WithContext<SoftwareApplication> {
     applicationSubCategory: 'Restaurant Management Software',
     operatingSystem: 'Cloud',
     description: 'AI-powered operations platform for cafés and restaurants. Automates customer ordering via QR codes, kitchen operations, inventory management, and customer service. Features AI-driven menu recommendations, automated order processing, and real-time operational analytics.',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock'
-    },
     provider: {
       '@type': 'Organization',
       '@id': `${COMPANY_INFO.url}#organization`,
@@ -215,12 +193,6 @@ export function generateVisaRiskAISchema(): WithContext<SoftwareApplication> {
     operatingSystem: 'Cloud',
     description: 'AI-powered visa approval risk analysis platform. Helps applicants and advisors evaluate visa case strength, detect risk factors, and improve submission readiness before applying.',
     url: 'https://www.visariskai.com/',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock'
-    },
     provider: {
       '@type': 'Organization',
       '@id': `${COMPANY_INFO.url}#organization`,
