@@ -82,6 +82,7 @@ export function generateOrganizationSchema(): WithContext<Organization> {
         itemOffered: {
           '@type': 'SoftwareApplication',
           name: 'ProHotelAI',
+          url: 'https://prohotelai.com',
           applicationCategory: 'BusinessApplication',
           operatingSystem: 'Cloud'
         }
@@ -91,9 +92,19 @@ export function generateOrganizationSchema(): WithContext<Organization> {
         itemOffered: {
           '@type': 'SoftwareApplication',
           name: 'ProCafeAI',
-          alternateName: 'CafeGrok AI',
           applicationCategory: 'BusinessApplication',
-          operatingSystem: 'Cloud'
+          operatingSystem: 'Cloud',
+          url: 'https://www.procafeai.com'
+        }
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'SoftwareApplication',
+          name: 'VisaRiskAI',
+          applicationCategory: 'BusinessApplication',
+          operatingSystem: 'Cloud',
+          url: 'https://www.visariskai.com'
         }
       }
     ],
