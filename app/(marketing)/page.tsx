@@ -6,7 +6,7 @@ export default function Home() {
   const faqSchema = generateFAQSchema([
     {
       question: "What does PROINVEST GLOBAL LTD do?",
-      answer: "PROINVEST GLOBAL LTD is a United Kingdom-based Applied AI company (Company Number: 16851428) that develops operational artificial intelligence platforms for the hospitality and food & beverage industries. We create ProHotelAI for hotels and ProCafeAI for restaurants and cafés."
+      answer: "PROINVEST GLOBAL LTD is a United Kingdom-based Applied AI company (Company Number: 16851428) that builds applied AI products for real operational workflows. Its portfolio includes ProHotelAI for hotels and resorts, ProCafeAI for cafés and restaurants, and VisaRiskAI for visa risk and application-readiness analysis."
     },
     {
       question: "What is Applied AI for hospitality operations?",
@@ -14,7 +14,7 @@ export default function Home() {
     },
     {
       question: "Who uses ProHotelAI and ProCafeAI?",
-      answer: "ProHotelAI is used by 4-star and 5-star hotels, hotel chains, and resorts. ProCafeAI is used by cafés, restaurants, quick-service restaurants, and food service operators. Both platforms serve premium hospitality businesses globally."
+      answer: "ProHotelAI is designed for hotels, resorts and hospitality operators. ProCafeAI is designed for cafés, restaurants and food-service operators. VisaRiskAI serves visa applicants and professional advisors who need structured pre-submission risk and readiness analysis."
     },
     {
       question: "What is VisaRiskAI?",
@@ -23,7 +23,7 @@ export default function Home() {
   ]);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://proinvest-global.com" }
+    { name: "Home", url: "https://proinvest.global" }
   ]);
 
   return (
@@ -70,9 +70,9 @@ export default function Home() {
               </h1>
               
               <p className="text-xl md:text-2xl lg:text-3xl text-slate-300 max-w-4xl mx-auto mb-6 leading-relaxed font-light">
-                Applied Artificial Intelligence for hotels, cafés, and restaurants.
+                Applied AI products for real operational workflows.
                 <span className="block mt-2 text-slate-400 text-lg md:text-xl">
-                  Not experiments. Real operations. Real results.
+                  Hospitality intelligence, operational automation and decision-support systems built for production use.
                 </span>
               </p>
             </div>
@@ -102,20 +102,20 @@ export default function Home() {
             {/* Stats Bar */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-navy-400 bg-clip-text text-transparent mb-2">2</div>
-                <div className="text-slate-400 font-medium">AI Platforms</div>
+                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-navy-400 bg-clip-text text-transparent mb-2">3</div>
+                <div className="text-slate-400 font-medium">AI Products</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-navy-400 bg-clip-text text-transparent mb-2">24/7</div>
                 <div className="text-slate-400 font-medium">AI Operations</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-navy-400 bg-clip-text text-transparent mb-2">50+</div>
-                <div className="text-slate-400 font-medium">Languages</div>
+                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-navy-400 bg-clip-text text-transparent mb-2">UK</div>
+                <div className="text-slate-400 font-medium">Registered Company</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-navy-400 bg-clip-text text-transparent mb-2">100%</div>
-                <div className="text-slate-400 font-medium">Cloud-Based</div>
+                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-navy-400 bg-clip-text text-transparent mb-2">3</div>
+                <div className="text-slate-400 font-medium">Vertical AI Products</div>
               </div>
             </div>
           </div>
