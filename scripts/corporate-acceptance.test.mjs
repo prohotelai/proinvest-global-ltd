@@ -34,5 +34,6 @@ test('contact uses validated server delivery', () => {
   const route = read('app/api/contact/route.ts');
   assert.match(route, /ContactSchema/);
   assert.match(route, /CONTACT_FORM_WEBHOOK_ORIGIN/);
+  assert.match(route, /CONTACT_FORM_WEBHOOK_SECRET/);
   assert.match(route, /target\.origin !== allowed\.origin/);
 });
