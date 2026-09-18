@@ -21,7 +21,7 @@ export default function Insights() {
               Insights & Resources
             </h1>
             <p className="text-xl text-purple-100">
-              Expert perspectives on AI, hospitality technology, and digital transformation.
+              Research themes across applied AI, hospitality intelligence and operational systems.
             </p>
           </div>
         </div>
@@ -35,7 +35,7 @@ export default function Insights() {
               Stay Informed
             </h2>
             <p className="text-lg text-gray-600">
-              Explore the latest trends, insights, and best practices in Applied AI for hospitality. Learn how leading businesses are leveraging technology to transform their operations.
+              This section maps the research themes behind our products. We avoid presenting placeholder articles as published research.
             </p>
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function Insights() {
                 <p className="text-gray-600 mb-4">
                   Exploring how AI is transforming guest experiences and operational efficiency in the hospitality industry.
                 </p>
-                <div className="text-sm text-gray-500">Coming Soon</div>
+                <div className="text-sm text-gray-500">Research area</div>
               </div>
             </div>
 
@@ -122,7 +122,7 @@ export default function Insights() {
                 <p className="text-gray-600 mb-4">
                   Understanding the advantages of app-free ordering systems for cafés and restaurants.
                 </p>
-                <div className="text-sm text-gray-500">Coming Soon</div>
+                <div className="text-sm text-gray-500">Research area</div>
               </div>
             </div>
 
@@ -139,7 +139,7 @@ export default function Insights() {
                 <p className="text-gray-600 mb-4">
                   Data-driven approaches to increasing average order value in F&B operations.
                 </p>
-                <div className="text-sm text-gray-500">Coming Soon</div>
+                <div className="text-sm text-gray-500">Research area</div>
               </div>
             </div>
           </div>
