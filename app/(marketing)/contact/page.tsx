@@ -17,13 +17,23 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Website enquiry from ${formData.name} — ${formData.company}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nCompany: ${formData.company}\nEmail: ${formData.email}\n\n${formData.message}`
-    );
-    window.location.href = `mailto:info@proinvest.global?subject=${subject}&body=${body}`;
+    setStatus('sending');
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) throw new Error('Contact request failed');
+      setFormData({ name: '', company: '', email: '', message: '' });
+      setStatus('sent');
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -50,9 +60,11 @@ export default function Contact() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form below to prepare an email to our team, or contact us directly at info@proinvest.global.
+                Send your enquiry directly to our team, or email info@proinvest.global.
               </p>
 
+              {status === 'sent' && <div role="status" className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">Your enquiry has been received.</div>}
+              {status === 'error' && <div role="alert" className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">We could not send your enquiry. Please email info@proinvest.global.</div>}
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -120,9 +132,10 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
+                  disabled={status === 'sending'}
+                  className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition disabled:opacity-60"
                 >
-                  Prepare Email
+                  {status === 'sending' ? 'Sending…' : 'Send Message'}
                 </button>
               </form>
             </div>
