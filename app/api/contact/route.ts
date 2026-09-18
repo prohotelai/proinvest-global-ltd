@@ -15,17 +15,20 @@ export async function POST(request: Request) {
   }
 
   const webhookUrl = process.env.CONTACT_FORM_WEBHOOK_URL;
-  if (!webhookUrl) {
+  const allowedOrigin = process.env.CONTACT_FORM_WEBHOOK_ORIGIN;
+  if (!webhookUrl || !allowedOrigin) {
     return NextResponse.json({ ok: false, error: 'CONTACT_DELIVERY_NOT_CONFIGURED' }, { status: 503 });
   }
 
   let target: URL;
+  let allowed: URL;
   try {
     target = new URL(webhookUrl);
+    allowed = new URL(allowedOrigin);
   } catch {
     return NextResponse.json({ ok: false, error: 'CONTACT_DELIVERY_NOT_CONFIGURED' }, { status: 503 });
   }
-  if (target.protocol !== 'https:') {
+  if (target.protocol !== 'https:' || allowed.protocol !== 'https:' || target.origin !== allowed.origin) {
     return NextResponse.json({ ok: false, error: 'CONTACT_DELIVERY_NOT_CONFIGURED' }, { status: 503 });
   }
 
