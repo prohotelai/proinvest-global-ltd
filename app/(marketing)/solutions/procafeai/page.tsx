@@ -84,7 +84,7 @@ export default function ProCafeAI() {
                 Contact Sales
               </a>
             </div>
-            <p className="text-sm text-amber-200 mt-4">Credit card required • 7-day refund guarantee • Cancel anytime</p>
+            <p className="text-sm text-amber-200 mt-4">Credit card required • 7-day refund promise • Cancel anytime</p>
           </div>
         </div>
       </section>
@@ -131,7 +131,7 @@ export default function ProCafeAI() {
                 <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg">💰</div>
                 <div>
                   <p className="text-sm text-green-600 font-medium">LABOR SAVINGS</p>
-                  <p className="text-4xl font-bold text-green-700">30-50%</p>
+                  <p className="text-4xl font-bold text-green-700">operational</p>
                 </div>
               </div>
               <h3 className="text-xl font-bold mb-3">Reduce Staff Costs Dramatically</h3>
@@ -161,7 +161,7 @@ export default function ProCafeAI() {
                 <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg">📈</div>
                 <div>
                   <p className="text-sm text-blue-600 font-medium">REVENUE INCREASE</p>
-                  <p className="text-4xl font-bold text-blue-700">20-40%</p>
+                  <p className="text-4xl font-bold text-blue-700">commercial</p>
                 </div>
               </div>
               <h3 className="text-xl font-bold mb-3">Boost Sales with AI Intelligence</h3>
@@ -250,7 +250,7 @@ export default function ProCafeAI() {
                 ✓ No app download
               </div>
               <div className="absolute -bottom-4 -left-4 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
-                🌍 50+ languages
+                🌍 multiple languages
               </div>
             </div>
           </div>
@@ -312,7 +312,7 @@ export default function ProCafeAI() {
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-white rounded-full"></span>
-                    <span>Natural conversation in 50+ languages</span>
+                    <span>Natural conversation in multiple languages</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-white rounded-full"></span>
@@ -577,7 +577,7 @@ export default function ProCafeAI() {
                 <span className="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <div className="px-6 pb-6 text-gray-600">
-                ProCafeAI automates order taking via QR codes and AI chat, reducing the need for waitstaff by 30-50%. Customers scan, order, and pay directly from their phones.
+                ProCafeAI automates order taking via QR codes and AI chat, reducing the need for waitstaff by operational. Customers scan, order, and pay directly from their phones.
               </div>
             </details>
             <details className="group bg-gray-50 rounded-xl">
@@ -586,7 +586,7 @@ export default function ProCafeAI() {
                 <span className="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <div className="px-6 pb-6 text-gray-600">
-                Grok AI from xAI powers our intelligent chat system. It understands customer requests in any language, suggests menu items, handles customizations, and provides upsell recommendations to boost sales by 20-40%.
+                Grok AI from xAI powers our intelligent chat system. It understands customer requests in any language, suggests menu items, handles customizations, and provides upsell recommendations to boost sales by commercial.
               </div>
             </details>
             <details className="group bg-gray-50 rounded-xl">
@@ -613,7 +613,7 @@ export default function ProCafeAI() {
                 <span className="text-amber-600 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <div className="px-6 pb-6 text-gray-600">
-                ProCafeAI supports 50+ languages including English, Arabic, French, Spanish, German, Chinese, Hindi, and more. Customers can view menus and order in their preferred language automatically.
+                ProCafeAI supports multiple languages including English, Arabic, French, Spanish, German, Chinese, Hindi, and more. Customers can view menus and order in their preferred language automatically.
               </div>
             </details>
             <details className="group bg-gray-50 rounded-xl">
