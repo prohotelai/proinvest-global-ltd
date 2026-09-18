@@ -159,11 +159,11 @@ export default function Home() {
                 </div>
                 <div className="mt-8 grid grid-cols-2 gap-4">
                   <div className="px-4 py-3 bg-teal-50 rounded-xl">
-                    <div className="text-2xl font-bold text-teal-600">99.9%</div>
+                    <div className="text-2xl font-bold text-teal-600">Production</div>
                     <div className="text-sm text-slate-600">Uptime SLA</div>
                   </div>
                   <div className="px-4 py-3 bg-navy-50 rounded-xl">
-                    <div className="text-2xl font-bold text-navy-600">SOC 2</div>
+                    <div className="text-2xl font-bold text-navy-600">Governed</div>
                     <div className="text-sm text-slate-600">Compliant</div>
                   </div>
                 </div>
@@ -190,7 +190,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-slate-950 mb-3">50+ Languages</h3>
+              <h3 className="text-xl font-bold text-slate-950 mb-3">Multilingual Experiences</h3>
               <p className="text-slate-600">
                 Serve global customers in their native language with AI-powered multilingual support.
               </p>
