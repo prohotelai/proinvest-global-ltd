@@ -24,3 +24,5 @@ Disallow: /ppn/
 Disallow: /api/
 
 Sitemap: https://proinvest.global/sitemap.xml
+
+# Public AI-readable company facts: /llms.txt
