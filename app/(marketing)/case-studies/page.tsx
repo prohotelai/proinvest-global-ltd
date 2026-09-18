@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Case Studies | Success Stories | Proinvest Global',
-  description: 'Explore how hotels, cafés, and restaurants are transforming their operations with ProHotelAI and ProCafeAI solutions.',
+  description: 'Documented implementation areas and operational use cases across PROINVEST GLOBAL products.',
   openGraph: {
     title: 'Case Studies & Success Stories',
-    description: 'Real-world examples of AI-driven transformation in hospitality.',
+    description: 'Documented implementation areas for applied AI products.',
   },
 };
 
@@ -21,7 +21,7 @@ export default function CaseStudies() {
               Case Studies
             </h1>
             <p className="text-xl text-blue-100">
-              Real-world examples of how our AI solutions are transforming hospitality operations.
+              Implementation areas and product capabilities that can be verified from our current systems.
             </p>
           </div>
         </div>
@@ -35,7 +35,7 @@ export default function CaseStudies() {
               Transforming Hospitality Operations
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              Our AI solutions are being deployed in premium hotels, resorts, cafés, and restaurants across MENA and Europe, delivering measurable improvements in guest satisfaction, operational efficiency, and revenue.
+              We publish implementation evidence conservatively. This page describes product workflows and deployment areas without inventing customer results or unsupported performance metrics.
             </p>
           </div>
         </div>
@@ -45,7 +45,7 @@ export default function CaseStudies() {
       <section className="bg-gray-50 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-            Proven Impact
+            Operational Capabilities
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
@@ -56,18 +56,14 @@ export default function CaseStudies() {
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <div className="text-green-600 text-5xl font-bold mb-2">↑30%</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Revenue Growth</h3>
-              <p className="text-gray-600">
-                Average increase in revenue through intelligent upselling and optimization.
-              </p>
+              <div className="text-green-600 text-3xl font-bold mb-2">Governed</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Knowledge & Workflows</h3>
+              <p className="text-gray-600">Operational AI grounded in governed business knowledge and workflows.</p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <div className="text-purple-600 text-5xl font-bold mb-2">↓40%</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Cost Reduction</h3>
-              <p className="text-gray-600">
-                Operational cost savings through automation and efficiency improvements.
-              </p>
+              <div className="text-purple-600 text-3xl font-bold mb-2">Connected</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Operational Context</h3>
+              <p className="text-gray-600">Products designed to connect relevant business context with useful actions.</p>
             </div>
           </div>
         </div>
@@ -100,13 +96,13 @@ export default function CaseStudies() {
                   <svg className="w-6 h-6 text-blue-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span>Reduced front desk workload by 50%+</span>
+                  <span>Governed guest-service and operational workflows</span>
                 </li>
                 <li className="flex items-start">
                   <svg className="w-6 h-6 text-blue-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span>Improved guest satisfaction scores significantly</span>
+                  <span>Hotel knowledge, reporting and operational intelligence</span>
                 </li>
               </ul>
             </div>
