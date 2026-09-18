@@ -23,7 +23,7 @@ Public marketing pages may be indexed. `/ppn/` and `/api/` are excluded from cra
 
 ## Contact delivery
 
-`POST /api/contact` validates input and forwards accepted enquiries to a configured HTTPS delivery endpoint pinned by `CONTACT_FORM_WEBHOOK_ORIGIN`. Production must configure both `CONTACT_FORM_WEBHOOK_URL` and `CONTACT_FORM_WEBHOOK_ORIGIN`. The browser only displays success after the server confirms delivery acceptance.
+`POST /api/contact` validates input and forwards accepted enquiries to a configured HTTPS delivery endpoint pinned by `CONTACT_FORM_WEBHOOK_ORIGIN`. Production must configure `CONTACT_FORM_WEBHOOK_URL`, `CONTACT_FORM_WEBHOOK_ORIGIN` and `CONTACT_FORM_WEBHOOK_SECRET`. The delivery request uses the secret as a bearer credential. The browser only displays success after the server confirms delivery acceptance.
 
 ## Acceptance gates
 
