@@ -539,7 +539,7 @@ export default function ProCafeAI() {
             Ready to Transform Your Cafe?
           </h2>
           <p className="text-xl mb-8 text-amber-100 max-w-2xl mx-auto">
-            Join 1,000+ cafes already growing with ProCafeAI
+            Explore ProCafeAI for your café or restaurant
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
