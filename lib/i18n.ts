@@ -73,8 +73,8 @@ export const translations = {
       contact: 'Contact'
     },
     seo: {
-      defaultTitle: 'PROINVEST GLOBAL LTD - Applied AI for Hospitality Operations',
-      defaultDescription: 'Applied AI platforms that run real hospitality and F&B operations. AI hotel management systems, AI guest assistants, and AI restaurant ordering platforms for operational excellence.',
+      defaultTitle: 'PROINVEST GLOBAL LTD — Applied AI Products for Real Operations',
+      defaultDescription: 'PROINVEST GLOBAL LTD is a UK technology and investment company building applied AI products including ProHotelAI, ProCafeAI and VisaRiskAI.',
       keywords: 'AI hospitality operations, AI hotel management system, AI guest assistant, AI restaurant ordering system, Applied AI SaaS, Hospitality automation software'
     }
   },
