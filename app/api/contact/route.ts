@@ -16,7 +16,8 @@ export async function POST(request: Request) {
 
   const webhookUrl = process.env.CONTACT_FORM_WEBHOOK_URL;
   const allowedOrigin = process.env.CONTACT_FORM_WEBHOOK_ORIGIN;
-  if (!webhookUrl || !allowedOrigin) {
+  const deliverySecret = process.env.CONTACT_FORM_WEBHOOK_SECRET;
+  if (!webhookUrl || !allowedOrigin || !deliverySecret) {
     return NextResponse.json({ ok: false, error: 'CONTACT_DELIVERY_NOT_CONFIGURED' }, { status: 503 });
   }
 
@@ -34,7 +35,7 @@ export async function POST(request: Request) {
 
   const response = await fetch(target, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${deliverySecret}` },
     body: JSON.stringify({
       source: 'proinvest.global',
       recipient: 'info@proinvest.global',
