@@ -16,7 +16,7 @@ interface SEOConfig {
   images?: Array<{ url: string; width: number; height: number; alt: string }>;
 }
 
-const baseUrl = 'https://proinvest-global.com';
+export const baseUrl = 'https://proinvest.global';
 const companyName = 'PROINVEST GLOBAL LTD';
 
 /**
@@ -24,7 +24,6 @@ const companyName = 'PROINVEST GLOBAL LTD';
  */
 export function generateMetadata(config: SEOConfig): Metadata {
   const locale = config.locale || 'en';
-  const t = getTranslation(locale);
   const lang = languages[locale];
   
   const title = `${config.title} | ${companyName}`;
@@ -74,11 +73,11 @@ export function generateMetadata(config: SEOConfig): Metadata {
         }
       ]
     },
+    metadataBase: new URL(baseUrl),
     twitter: {
       card: 'summary_large_image',
       title: config.title,
       description: config.description,
-      creator: '@proinvestglobal', // Placeholder for future
       images: config.images?.[0]?.url || `${baseUrl}/og-image.jpg`
     },
     other: {
@@ -132,9 +131,9 @@ export const proHotelAIMetadata = (locale: Locale = 'en'): Metadata => {
       ? 'ProHotelAI - AI Hotel Management System & Guest Assistant'
       : 'بروهوتل إيه آي - نظام إدارة فنادق ذكي ومساعد ضيوف',
     description: locale === 'en'
-      ? 'ProHotelAI: AI-powered hotel operations platform for 4 & 5 star hotels. 24/7 AI guest assistant, automated check-in/check-out, front desk automation, service request handling, operational analytics. Applied AI that runs real hotel operations.'
+      ? 'ProHotelAI: ProHotelAI is an AI-native hotel operations platform built around a governed Hotel Digital Brain. It connects guest concierge, hotel knowledge, operational workflows, service fulfilment, commerce, reporting and hotel data into one governed operating layer for hotels and resorts.'
       : 'بروهوتل إيه آي: منصة عمليات فندقية تعمل بالذكاء الاصطناعي للفنادق من فئة 4 و 5 نجوم. مساعد ضيوف ذكي على مدار الساعة، تسجيل دخول وخروج آلي، أتمتة مكتب الاستقبال، معالجة طلبات الخدمة، تحليلات تشغيلية.',
-    keywords: 'AI hotel management system, AI guest assistant, hotel automation software, hotel operations platform, ProHotelAI, hospitality AI, hotel technology, automated check-in, front desk automation',
+    keywords: 'hotel digital brain, AI hotel operations platform, AI guest concierge, hotel knowledge governance, hotel automation, ProHotelAI, hospitality AI, hotel commerce, hotel operational intelligence',
     path: '/solutions/prohotelai',
     locale
   });
@@ -149,7 +148,7 @@ export const proCafeAIMetadata = (locale: Locale = 'en'): Metadata => {
       ? 'ProCafeAI - AI Restaurant Ordering System & Operations Platform'
       : 'بروكافيه إيه آي - نظام طلب مطاعم ذكي ومنصة عمليات',
     description: locale === 'en'
-      ? 'ProCafeAI (CafeGrok AI): AI-powered operations platform for cafés and restaurants. QR code ordering, AI menu recommendations, automated order processing, kitchen coordination, inventory management. Applied AI for real F&B operations.'
+      ? 'ProCafeAI is an AI-native operations platform for cafés and restaurants, connecting digital ordering, menu intelligence, customer interaction and operational workflows in one cloud platform.'
       : 'بروكافيه إيه آي (كافي جروك إيه آي): منصة عمليات تعمل بالذكاء الاصطناعي للمقاهي والمطاعم. طلب عبر رمز الاستجابة السريعة، توصيات قائمة ذكية، معالجة طلبات آلية، تنسيق المطبخ، إدارة المخزون.',
     keywords: 'AI restaurant ordering system, QR code ordering, café automation, restaurant AI platform, ProCafeAI, CafeGrok AI, F&B technology, restaurant operations software, menu AI',
     path: '/solutions/procafeai',
