@@ -84,7 +84,7 @@ export function generateMetadata(config: SEOConfig): Metadata {
       'company-registration': '16851428',
       'company-country': 'United Kingdom',
       'company-type': 'Applied AI SaaS',
-      'industries-served': 'Hospitality, Hotels, Restaurants, Cafes, F&B',
+      'industries-served': 'Hospitality, Hotels, Resorts, Restaurants, Cafes, F&B, Visa and Immigration Decision Support',
       'ai-category': 'Applied Artificial Intelligence, Operational AI'
     }
   };
@@ -131,7 +131,7 @@ export const proHotelAIMetadata = (locale: Locale = 'en'): Metadata => {
       ? 'ProHotelAI - AI Hotel Management System & Guest Assistant'
       : 'بروهوتل إيه آي - نظام إدارة فنادق ذكي ومساعد ضيوف',
     description: locale === 'en'
-      ? 'ProHotelAI: ProHotelAI is an AI-native hotel operations platform built around a governed Hotel Digital Brain. It connects guest concierge, hotel knowledge, operational workflows, service fulfilment, commerce, reporting and hotel data into one governed operating layer for hotels and resorts.'
+      ? 'ProHotelAI is an AI-native hotel operations platform built around a governed Hotel Digital Brain. It connects guest concierge, hotel knowledge, operational workflows, service fulfilment, commerce, reporting and hotel data into one governed operating layer for hotels and resorts.'
       : 'بروهوتل إيه آي: منصة عمليات فندقية تعمل بالذكاء الاصطناعي للفنادق من فئة 4 و 5 نجوم. مساعد ضيوف ذكي على مدار الساعة، تسجيل دخول وخروج آلي، أتمتة مكتب الاستقبال، معالجة طلبات الخدمة، تحليلات تشغيلية.',
     keywords: 'hotel digital brain, AI hotel operations platform, AI guest concierge, hotel knowledge governance, hotel automation, ProHotelAI, hospitality AI, hotel commerce, hotel operational intelligence',
     path: '/solutions/prohotelai',
