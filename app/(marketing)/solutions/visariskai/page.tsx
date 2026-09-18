@@ -5,17 +5,17 @@ import { generateVisaRiskAISchema, generateBreadcrumbSchema, generateFAQSchema }
 export const metadata: Metadata = {
   title: 'VisaRiskAI | AI-Powered Visa Risk Analysis Platform | ProInvest Global',
   description:
-    'AI-powered visa risk analysis, case assessment, risk detection, and pre-submission readiness. Know your approval probability before you apply.',
+    'AI-powered visa risk analysis, case assessment, risk detection, and pre-submission readiness. Identify case risks and strengthen application readiness before submission.',
   keywords:
     'visa risk analysis, visa approval AI, immigration risk assessment, visa case strength, file readiness, decision confidence, AI immigration tool, VisaRiskAI',
   alternates: {
-    canonical: 'https://proinvest-global.com/solutions/visariskai',
+    canonical: 'https://proinvest.global/solutions/visariskai',
   },
   openGraph: {
     title: 'VisaRiskAI | AI-Powered Visa Risk Analysis Platform',
     description:
-      'AI-powered visa risk analysis, case assessment, risk detection, and pre-submission readiness. Know your approval probability before you apply.',
-    url: 'https://proinvest-global.com/solutions/visariskai',
+      'AI-powered visa risk analysis, case assessment, risk detection, and pre-submission readiness. Know your case risk before you apply.',
+    url: 'https://proinvest.global/solutions/visariskai',
     siteName: 'PROINVEST GLOBAL LTD',
     type: 'website',
   },
@@ -34,7 +34,7 @@ export default function VisaRiskAIPage() {
     {
       question: 'What is VisaRiskAI?',
       answer:
-        'VisaRiskAI is an AI-powered visa risk analysis platform developed under PROINVEST GLOBAL LTD. It analyzes your profile, documents, and application factors to estimate approval probability, highlight weak points, and guide you toward a stronger submission.',
+        'VisaRiskAI is an AI-powered visa risk analysis platform developed under PROINVEST GLOBAL LTD. It analyzes your profile, documents, and application factors to assess case risk, highlight weak points, and guide you toward a stronger submission.',
     },
     {
       question: 'Who is VisaRiskAI for?',
@@ -59,9 +59,9 @@ export default function VisaRiskAIPage() {
   ]);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://proinvest-global.com' },
-    { name: 'Solutions', url: 'https://proinvest-global.com/solutions' },
-    { name: 'VisaRiskAI', url: 'https://proinvest-global.com/solutions/visariskai' },
+    { name: 'Home', url: 'https://proinvest.global' },
+    { name: 'Solutions', url: 'https://proinvest.global/solutions' },
+    { name: 'VisaRiskAI', url: 'https://proinvest.global/solutions/visariskai' },
   ]);
 
   return (
@@ -93,17 +93,15 @@ export default function VisaRiskAIPage() {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Make visa decisions before you apply — not after rejection
+              Understand visa application risk before submission
             </h1>
 
             <p className="text-xl md:text-2xl text-indigo-100 mb-4 leading-relaxed">
-              AI-powered visa risk analysis that evaluates your case, detects hidden risks, and
-              helps you submit stronger applications with confidence.
+              AI-assisted visa risk analysis that reviews case information, highlights risk factors and supports stronger application preparation.
             </p>
 
             <p className="text-lg text-indigo-200 mb-10">
-              VisaRiskAI analyzes your profile, documents, and application factors to estimate
-              approval probability, highlight weak points, and guide you toward a safer submission.
+              VisaRiskAI structures profile and document information to surface potential weaknesses and provide application-readiness guidance. It does not determine or guarantee an immigration authority's decision.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -189,7 +187,7 @@ export default function VisaRiskAIPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Case Risk Analysis</h3>
               <p className="text-gray-600">
-                Understand your approval probability before applying. Get a clear breakdown of
+                Understand your case risk before applying. Get a clear breakdown of
                 strengths vs risks in your case.
               </p>
             </div>
@@ -398,7 +396,7 @@ export default function VisaRiskAIPage() {
                 <p className="text-gray-600 text-sm">
                   VisaRiskAI is an AI-powered visa risk analysis platform developed under
                   PROINVEST GLOBAL LTD. It analyzes your profile, documents, and application
-                  factors to estimate approval probability and guide you toward a stronger
+                  factors to assess case risk and guide you toward a stronger
                   submission.
                 </p>
               </div>
