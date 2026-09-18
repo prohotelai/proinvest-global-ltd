@@ -36,7 +36,7 @@ export default function Contact() {
               Contact Us
             </h1>
             <p className="text-xl text-blue-100">
-              Ready to transform your hospitality operations? Get in touch with our team.
+              Want to discuss one of our AI products, partnerships, or a business opportunity? Get in touch with our team.
             </p>
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function Contact() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
               <p className="text-gray-600 mb-8">
-Fill out the form below to prepare an email to our team, or contact us directly at info@proinvest.global.
+                Fill out the form below to prepare an email to our team, or contact us directly at info@proinvest.global.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
