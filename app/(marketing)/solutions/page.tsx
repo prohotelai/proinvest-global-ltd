@@ -179,7 +179,7 @@ export default function Solutions() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Multi-Language Support</h4>
-                    <p className="text-gray-600">Support for 50+ languages for global reach</p>
+                    <p className="text-gray-600">Multilingual customer and operational experiences</p>
                   </div>
                 </div>
               </div>
