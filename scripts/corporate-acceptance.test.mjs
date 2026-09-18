@@ -37,3 +37,17 @@ test('contact uses validated server delivery', () => {
   assert.match(route, /CONTACT_FORM_WEBHOOK_SECRET/);
   assert.match(route, /target\.origin !== allowed\.origin/);
 });
+
+test('public marketing pages do not retain known unsupported metrics', () => {
+  const paths = [
+    'app/(marketing)/page.tsx',
+    'app/(marketing)/case-studies/page.tsx',
+    'app/(marketing)/solutions/procafeai/page.tsx',
+    'app/(marketing)/solutions/prohotelai/page.tsx',
+  ];
+  const forbidden = ['1,000+', '30-50%', '20-40%', '40-60%', '99.9%', 'SOC 2'];
+  for (const path of paths) {
+    const source = read(path);
+    for (const claim of forbidden) assert.equal(source.includes(claim), false, path + ': ' + claim);
+  }
+});
