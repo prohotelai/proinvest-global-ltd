@@ -1,8 +1,8 @@
 # Proinvest Global Ltd - Corporate Website
 
-**AI that runs real hospitality operations — not experiments.**
+**Applied AI products for real operational workflows.**
 
-This is the official corporate website for Proinvest Global Ltd, a UK-based technology and investment company specializing in Applied Artificial Intelligence solutions for the hospitality and food & beverage sectors.
+This is the official corporate website for Proinvest Global Ltd, a UK-based technology and investment company building Applied AI products for production operational workflows, with products spanning hospitality operations and visa risk analysis.
 
 ## Company Information
 
@@ -14,8 +14,9 @@ This is the official corporate website for Proinvest Global Ltd, a UK-based tech
 
 ## Products
 
-- **ProHotelAI** - AI-powered hotel operations platform
-- **ProCafeAI (CafeGrok AI)** - AI-powered café & restaurant operations platform
+- **ProHotelAI** — AI-native hotel operations platform built around a governed Hotel Digital Brain
+- **ProCafeAI** — AI-native café and restaurant operations platform
+- **VisaRiskAI** — AI-assisted visa risk and application-readiness analysis platform
 
 ## Tech Stack
 
@@ -285,5 +286,5 @@ For production, consider using:
 
 ## License
 
-Copyright © 2025 Proinvest Global Ltd. All rights reserved.
+Copyright © 2026 Proinvest Global Ltd. All rights reserved.
 
