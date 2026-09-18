@@ -67,6 +67,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }
     },
     {
+      url: `${baseUrl}/solutions/visariskai`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/partners`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/industries`,
       lastModified,
       changeFrequency: 'monthly' as const,
