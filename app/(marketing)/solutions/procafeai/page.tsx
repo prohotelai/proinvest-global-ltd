@@ -99,11 +99,11 @@ export default function ProCafeAI() {
               <p className="text-sm text-gray-500 mt-1">Active Cafes</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-amber-600">50+</p>
+              <p className="text-3xl md:text-4xl font-bold text-amber-600">Multilingual</p>
               <p className="text-sm text-gray-500 mt-1">Languages</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-amber-600">99.9%</p>
+              <p className="text-3xl md:text-4xl font-bold text-amber-600">Cloud</p>
               <p className="text-sm text-gray-500 mt-1">Uptime</p>
             </div>
             <div className="text-center">
