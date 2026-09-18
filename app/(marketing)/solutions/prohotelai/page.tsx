@@ -337,7 +337,7 @@ export default function ProHotelAI() {
                 Does ProHotelAI replace hotel staff?
               </h3>
               <p className="text-gray-600">
-                No. ProHotelAI automates repetitive tasks and routine inquiries, allowing staff to focus on high-value guest interactions and complex problem-solving. It reduces staff workload by 40-60% but does not eliminate the need for human hotel employees.
+                No. ProHotelAI automates repetitive tasks and routine inquiries, allowing staff to focus on high-value guest interactions and complex problem-solving. It reduces staff workload by meaningfully but does not eliminate the need for human hotel employees.
               </p>
             </div>
             <div>
@@ -345,7 +345,7 @@ export default function ProHotelAI() {
                 How does ProHotelAI integrate with hotel systems?
               </h3>
               <p className="text-gray-600">
-                ProHotelAI integrates with existing Property Management Systems (PMS), Point of Sale (POS) systems, and housekeeping management systems via standard APIs. Integration typically takes 2-4 weeks depending on system complexity.
+                ProHotelAI integrates with existing Property Management Systems (PMS), Point of Sale (POS) systems, and housekeeping management systems via standard APIs. Integration typically takes a property-specific implementation period depending on system complexity.
               </p>
             </div>
             <div>
@@ -353,7 +353,7 @@ export default function ProHotelAI() {
                 What languages does ProHotelAI support?
               </h3>
               <p className="text-gray-600">
-                ProHotelAI supports 50+ languages including English, Arabic, French, Spanish, German, Chinese, Japanese, and more. The AI can automatically detect guest language preferences and switch languages mid-conversation.
+                ProHotelAI supports multiple languages including English, Arabic, French, Spanish, German, Chinese, Japanese, and more. The AI can automatically detect guest language preferences and switch languages mid-conversation.
               </p>
             </div>
           </div>
