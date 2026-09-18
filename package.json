@@ -10,7 +10,9 @@
     "postinstall": "prisma generate",
     "ppn:smoke": "node scripts/ppn-smoke-test.mjs",
     "ppn:push-visariskai-coupons": "jiti scripts/push-visariskai-coupons.ts",
-    "test:ppn-widget": "node --test --experimental-strip-types lib/ppn/widget-embed.test.ts"
+    "test:ppn-widget": "node --test --experimental-strip-types lib/ppn/widget-embed.test.ts",
+    "typecheck": "tsc --noEmit",
+    "test:corporate": "node --test scripts/corporate-acceptance.test.mjs"
   },
   "dependencies": {
     "@prisma/adapter-libsql": "^7.3.0",
