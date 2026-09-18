@@ -7,8 +7,8 @@ export const metadata: Metadata = solutionsMetadata('en');
 
 export default function Solutions() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://proinvest-global.com" },
-    { name: "Solutions", url: "https://proinvest-global.com/solutions" }
+    { name: "Home", url: "https://proinvest.global" },
+    { name: "Solutions", url: "https://proinvest.global/solutions" }
   ]);
 
   return (
@@ -24,10 +24,10 @@ export default function Solutions() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              AI Solutions for Modern Hospitality
+              Applied AI Products for Real Operations
             </h1>
             <p className="text-xl text-blue-100">
-              Production-ready AI platforms designed to automate operations, enhance guest experiences, and drive profitability.
+              A focused portfolio spanning hotel operations, café and restaurant workflows, and visa application risk and readiness analysis.
             </p>
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function Solutions() {
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl">
               <h3 className="text-3xl font-bold text-gray-900 mb-4">ProHotelAI</h3>
               <p className="text-lg text-gray-700 mb-6">
-                Comprehensive AI-powered platform for hotel operations, delivering 24/7 guest assistance and operational automation.
+                AI-native hotel operations platform built around a governed Hotel Digital Brain.
               </p>
               
               <div className="space-y-4 mb-8">
@@ -62,7 +62,7 @@ export default function Solutions() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">AI Guest Assistant</h4>
-                    <p className="text-gray-600">Chat & voice support available 24/7 in multiple languages</p>
+                    <p className="text-gray-600">Governed public and verified guest concierge journeys</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -83,8 +83,8 @@ export default function Solutions() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Front Desk Automation</h4>
-                    <p className="text-gray-600">Optimize check-in, check-out, and support operations</p>
+                    <h4 className="font-semibold text-gray-900">Hotel Digital Brain</h4>
+                    <p className="text-gray-600">Connect hotel knowledge, operational context and governed workflows</p>
                   </div>
                 </div>
                 <div className="flex items-start">
