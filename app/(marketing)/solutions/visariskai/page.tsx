@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'AI-powered visa risk analysis, case assessment, risk detection, and pre-submission readiness. Identify case risks and strengthen application readiness before submission.',
   keywords:
-    'visa risk analysis, visa approval AI, immigration risk assessment, visa case strength, file readiness, decision confidence, AI immigration tool, VisaRiskAI',
+    'visa risk analysis, visa risk AI, immigration risk assessment, visa case strength, file readiness, decision confidence, AI immigration tool, VisaRiskAI',
   alternates: {
     canonical: 'https://proinvest.global/solutions/visariskai',
   },
@@ -49,7 +49,7 @@ export default function VisaRiskAIPage() {
     {
       question: 'How does the risk analysis work?',
       answer:
-        'VisaRiskAI evaluates your profile against real approval patterns, detects inconsistencies and hidden risks, highlights missing or weak supporting factors, and provides structured guidance before you submit your application.',
+        'VisaRiskAI evaluates structured case information using its configured risk rules, detects inconsistencies and risk factors, highlights missing or weak supporting information, and provides pre-submission guidance.',
     },
     {
       question: 'How do I get access?',
@@ -145,7 +145,7 @@ export default function VisaRiskAIPage() {
 
             <ul className="space-y-3 mb-8">
               {[
-                'Evaluate your profile against real approval patterns',
+                'Evaluate structured case information against configured risk rules',
                 'Detect inconsistencies and hidden risks',
                 'Highlight missing or weak supporting factors',
                 'Provide actionable guidance before submission',
@@ -162,7 +162,7 @@ export default function VisaRiskAIPage() {
             </ul>
 
             <p className="text-lg text-gray-700 italic border-l-4 border-indigo-500 pl-4">
-              Instead of guessing your chances, you understand them.
+              Instead of relying on a single prediction, you receive structured risk signals and improvement guidance.
             </p>
           </div>
         </div>

@@ -56,8 +56,8 @@ Implemented on all major pages for navigation clarity.
 - Language-specific metadata
 
 **URL Structure**:
-- English: `https://proinvest-global.com/about`
-- Arabic: `https://proinvest-global.com/ar/about`
+- English: `https://proinvest.global/about`
+- Arabic: `https://proinvest.global/ar/about`
 - x-default: English version
 
 ---
@@ -120,7 +120,7 @@ Implemented on all major pages for navigation clarity.
 
 #### Sitemap (`app/sitemap.ts`)
 - Multi-language support
-- Correct base URL: `https://proinvest-global.com`
+- Correct base URL: `https://proinvest.global`
 - Priority and change frequency optimized
 - hreflang alternates in sitemap
 
@@ -285,7 +285,7 @@ Implemented on all major pages for navigation clarity.
 
 ## 🌐 Domain Configuration
 
-**Current Domain**: `proinvest-global.com` (configured in all files)
+**Current Domain**: `proinvest.global` (configured in all files)
 
 **Required DNS/Hosting Setup**:
 1. Ensure domain points to Vercel deployment

@@ -84,7 +84,7 @@ export default function ProCafeAI() {
                 Contact Sales
               </a>
             </div>
-            <p className="text-sm text-amber-200 mt-4">Credit card required • 7-day refund promise • Cancel anytime</p>
+            
           </div>
         </div>
       </section>
@@ -92,11 +92,11 @@ export default function ProCafeAI() {
       {/* Stats Section */}
       <section className="bg-white py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm text-gray-500 mb-6">Trusted by 1,000+ cafes and restaurants worldwide</p>
+          
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-amber-600">1,000+</p>
-              <p className="text-sm text-gray-500 mt-1">Active Cafes</p>
+              <p className="text-3xl md:text-4xl font-bold text-amber-600">Multi-location</p>
+              <p className="text-sm text-gray-500 mt-1">Operations</p>
             </div>
             <div className="text-center">
               <p className="text-3xl md:text-4xl font-bold text-amber-600">Multilingual</p>
@@ -107,8 +107,8 @@ export default function ProCafeAI() {
               <p className="text-sm text-gray-500 mt-1">Uptime</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-amber-600">24/7</p>
-              <p className="text-sm text-gray-500 mt-1">Support</p>
+              <p className="text-3xl md:text-4xl font-bold text-amber-600">Web</p>
+              <p className="text-sm text-gray-500 mt-1">Customer Journey</p>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@ export default function ProCafeAI() {
               Save Costs. Boost Profits. <span className="text-amber-600">Automatically.</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              ProCafeAI transforms your operations with measurable results
+              ProCafeAI connects customer ordering and operational workflows in one platform
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -134,7 +134,7 @@ export default function ProCafeAI() {
                   <p className="text-4xl font-bold text-green-700">operational</p>
                 </div>
               </div>
-              <h3 className="text-xl font-bold mb-3">Reduce Staff Costs Dramatically</h3>
+              <h3 className="text-xl font-bold mb-3">Reduce repetitive order-taking work</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start gap-2">
                   <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -170,7 +170,7 @@ export default function ProCafeAI() {
                   <svg className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span>AI upsells and cross-sells every order</span>
+                  <span>AI-assisted recommendations can support upsell and cross-sell workflows</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <svg className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -199,14 +199,14 @@ export default function ProCafeAI() {
                 Simple Setup. <span className="text-amber-600">Zero Apps Needed.</span>
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                Customers scan the QR code on their table and start chatting with AI instantly. No downloads, no logins, no friction. Works on any device, in any language.
+                Customers scan the QR code on their table and start chatting with AI instantly. No downloads, no logins, no friction. Designed for browser-based customer journeys with multilingual support.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-4 bg-gray-50 rounded-xl p-4">
                   <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center text-xl flex-shrink-0">📱</div>
                   <div>
                     <h4 className="font-semibold">Scan QR, Start Ordering</h4>
-                    <p className="text-sm text-gray-600">No apps to download. Works on any smartphone browser instantly.</p>
+                    <p className="text-sm text-gray-600">No apps to download. Browser-based ordering without a dedicated consumer app.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 bg-gray-50 rounded-xl p-4">
@@ -539,7 +539,7 @@ export default function ProCafeAI() {
             Ready to Transform Your Cafe?
           </h2>
           <p className="text-xl mb-8 text-amber-100 max-w-2xl mx-auto">
-            Join 1,000+ cafes already growing with ProCafeAI
+            Explore ProCafeAI for your café or restaurant
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
