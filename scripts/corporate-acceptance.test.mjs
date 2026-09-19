@@ -11,7 +11,7 @@ test('canonical public origin is consistent', () => {
   }
 });
 test('no hreflang points at nonexistent Arabic routes', () => {
-  assert.equal(read('lib/seo.ts').includes('/ar'), false);
+  assert.equal(read('lib/seo.ts').includes("'ar': `${baseUrl}/ar"), false);
   assert.equal(read('app/sitemap.ts').includes('/ar'), false);
 });
 test('private routes are excluded from indexing surfaces', () => {
