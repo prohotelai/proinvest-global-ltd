@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,21 +17,18 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
             {/* Company Info - Wider Column */}
             <div className="lg:col-span-5">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-navy-600 to-purple-600 flex items-center justify-center shadow-glow">
-                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold tracking-tight">PROINVEST GLOBAL</h3>
-                  <p className="text-xs text-slate-400 uppercase tracking-widest">Applied AI SaaS</p>
-                </div>
+              <div className="mb-6">
+                <Image
+                  src="/brand/proinvest-logo-dark.svg"
+                  alt="PROINVEST GLOBAL LTD"
+                  width={260}
+                  height={54}
+                  className="h-[54px] w-auto"
+                />
               </div>
               
               <p className="text-slate-300 leading-relaxed mb-6 max-w-md">
-                Applied Artificial Intelligence for the hospitality and food & beverage industries. 
-                We build AI that runs real operations, not experiments.
+                Applied AI products for real operational workflows across hospitality operations and decision-support systems.
               </p>
 
               {/* Trust Badges */}
