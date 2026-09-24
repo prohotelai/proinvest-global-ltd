@@ -25,7 +25,19 @@ interface Asset {
     iframeEmbedCode: string;
   }>;
   widgetWarning?: string;
+
+  socialAssetKits?: Array<{
+    channel: 'facebook' | 'instagram' | 'whatsapp';
+    label: string;
+    description: string;
+    trackedUrl: string;
+    content: string;
+    contentLabel: 'Caption' | 'Message';
+    copyContentButtonLabel: string;
+    copyLinkButtonLabel: string;
+  }>;
 }
+
 
 interface AssetsData {
   assets: Asset[];
@@ -202,6 +214,33 @@ export default function AssetsPage() {
                                     </div>
                                   );
                                 })}
+
+                                {asset.socialAssetKits?.length ? (
+                                  <div className="rounded border border-slate-200 p-3 space-y-3 bg-white">
+                                    <h4 className="text-sm font-semibold text-slate-900">Social Sharing Assets</h4>
+                                    <p className="text-xs text-slate-600">Copy ready-made posts with your partner tracking link.</p>
+                                    <div className="space-y-3">
+                                      {asset.socialAssetKits.map((kit) => {
+                                        const copyContentKey = `${asset.id}-${kit.channel}-content`;
+                                        const copyLinkKey = `${asset.id}-${kit.channel}-link`;
+                                        return (
+                                          <div key={kit.channel} className="rounded border border-slate-200 p-3 bg-slate-50 space-y-2">
+                                            <h5 className="text-sm font-semibold text-slate-900">{kit.label}</h5>
+                                            <p className="text-xs text-slate-600">{kit.description}</p>
+                                            <p className="text-xs text-slate-500 break-all">{kit.trackedUrl}</p>
+                                            <textarea value={kit.content} readOnly className="w-full h-32 text-xs border rounded p-2 bg-white" />
+                                            <div className="flex items-center flex-wrap gap-2">
+                                              <button onClick={() => handleCopy(kit.content, copyContentKey)} className="px-3 py-2 bg-teal-600 text-white text-sm rounded hover:bg-teal-700">{kit.copyContentButtonLabel}</button>
+                                              <button onClick={() => handleCopy(kit.trackedUrl, copyLinkKey)} className="px-3 py-2 bg-slate-700 text-white text-sm rounded hover:bg-slate-800">{kit.copyLinkButtonLabel}</button>
+                                              <a href={kit.trackedUrl} target="_blank" rel="noreferrer" className="text-sm text-teal-600 hover:text-teal-700">Open Link</a>
+                                              {(copiedCodeKey === copyContentKey || copiedCodeKey === copyLinkKey) && <span className="text-xs text-green-700">Copied!</span>}
+                                            </div>
+                                          </div>
+                                        );
+                                      })}
+                                    </div>
+                                  </div>
+                                ) : null}
                               </>
                             ) : (
                               <div className="p-3 bg-amber-50 border border-amber-200 rounded text-sm text-amber-800">
