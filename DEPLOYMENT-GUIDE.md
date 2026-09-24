@@ -121,12 +121,12 @@ git push origin main
 3. Verify all schemas validate without errors
 
 #### B. Test Sitemap
-1. Visit: `https://proinvest-global.com/sitemap.xml`
+1. Visit: `https://proinvest.global/sitemap.xml`
 2. Verify all URLs are correct
 3. Check hreflang alternates present
 
 #### C. Test robots.txt
-1. Visit: `https://proinvest-global.com/robots.txt`
+1. Visit: `https://proinvest.global/robots.txt`
 2. Verify AI crawlers are allowed
 3. Confirm sitemap reference
 
@@ -141,14 +141,14 @@ git push origin main
 
 ### Google Search Console
 1. Go to: https://search.google.com/search-console
-2. Add property: `https://proinvest-global.com`
+2. Add property: `https://proinvest.global`
 3. Verify ownership (DNS or meta tag)
-4. Submit sitemap: `https://proinvest-global.com/sitemap.xml`
+4. Submit sitemap: `https://proinvest.global/sitemap.xml`
 5. Request indexing for key pages
 
 ### Bing Webmaster Tools
 1. Go to: https://www.bing.com/webmasters
-2. Add site: `https://proinvest-global.com`
+2. Add site: `https://proinvest.global`
 3. Verify ownership
 4. Submit sitemap
 5. Enable AI crawler (if available)
@@ -311,7 +311,7 @@ Monitor traffic sources:
 - [x] Metadata optimized for AI systems
 - [x] Content is factual and declarative
 - [x] Company information accurate
-- [ ] Domain configured (proinvest-global.com)
+- [ ] Domain configured (proinvest.global)
 - [ ] SSL certificate active
 - [ ] Search Console verified
 - [ ] Analytics installed

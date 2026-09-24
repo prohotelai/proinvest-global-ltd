@@ -3,7 +3,7 @@
  * Supports multi-language SEO with hreflang tags
  */
 
-export const locales = ['en', 'ar'] as const;
+export const locales = ['en'] as const;
 export type Locale = (typeof locales)[number];
 
 export const defaultLocale: Locale = 'en';
@@ -14,12 +14,6 @@ export const languages = {
     name: 'English',
     direction: 'ltr',
     locale: 'en_GB'
-  },
-  ar: {
-    code: 'ar',
-    name: 'العربية',
-    direction: 'rtl',
-    locale: 'ar_SA'
   }
 } as const;
 
@@ -27,7 +21,7 @@ export const languages = {
  * Generate hreflang tags for a page
  */
 export function generateHreflangTags(basePath: string, currentLocale: Locale) {
-  const baseUrl = 'https://proinvest-global.com';
+  const baseUrl = 'https://proinvest.global';
   
   return locales.map(locale => ({
     rel: 'alternate',
@@ -56,7 +50,7 @@ export const translations = {
   en: {
     common: {
       companyName: 'PROINVEST GLOBAL LTD',
-      companyTagline: 'AI that runs real hospitality operations — not experiments.',
+      companyTagline: 'Applied AI products for real operational workflows.',
       getStarted: 'Get Started',
       learnMore: 'Learn More',
       requestDemo: 'Request a Demo',

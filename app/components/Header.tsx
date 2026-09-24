@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export default function Header() {
@@ -25,24 +26,16 @@ export default function Header() {
     >
       <nav className="section-container">
         <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="group flex items-center gap-3">
-            <div className="relative">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-navy-600 to-purple-600 flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-teal-500 rounded-full animate-glow-pulse" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-slate-950 tracking-tight group-hover:text-navy-600 transition-colors">
-                PROINVEST GLOBAL
-              </span>
-              <span className="text-[10px] text-slate-500 font-medium uppercase tracking-widest">
-                Applied AI SaaS
-              </span>
-            </div>
+          {/* Corporate logo */}
+          <Link href="/" className="group flex items-center" aria-label="PROINVEST GLOBAL LTD — Home">
+            <Image
+              src="/brand/proinvest-logo.svg"
+              alt="PROINVEST GLOBAL LTD"
+              width={213}
+              height={44}
+              priority
+              className="h-11 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

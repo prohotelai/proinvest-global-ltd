@@ -53,7 +53,6 @@ export function generateMetadata(config: SEOConfig): Metadata {
       canonical: url,
       languages: {
         'en': `${baseUrl}${config.path}`,
-        'ar': `${baseUrl}/ar${config.path}`,
         'x-default': `${baseUrl}${config.path}`
       }
     },

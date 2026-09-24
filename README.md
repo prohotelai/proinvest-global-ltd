@@ -281,6 +281,10 @@ This project is ready to deploy on Vercel:
 
 Production database configuration is environment-specific. Treat the repository Prisma schema, migrations, and the deployment environment as the source of truth; do not infer the production provider from old setup examples.
 
+## Corporate website acceptance
+
+See [docs/corporate-current-state-acceptance.md](./docs/corporate-current-state-acceptance.md) for canonical identity, product-source authority, search/agent policy, contact delivery configuration and final acceptance gates.
+
 ## License
 
 Copyright © 2026 Proinvest Global Ltd. All rights reserved.

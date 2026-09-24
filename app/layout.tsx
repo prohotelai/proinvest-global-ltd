@@ -3,7 +3,14 @@ import "./globals.css";
 import { homeMetadata } from "@/lib/seo";
 import { generateOrganizationSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = homeMetadata('en');
+export const metadata: Metadata = {
+  ...homeMetadata('en'),
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/brand/proinvest-mark.svg',
+  },
+};
 
 export default function RootLayout({
   children,
