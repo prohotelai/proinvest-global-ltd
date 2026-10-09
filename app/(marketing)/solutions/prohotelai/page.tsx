@@ -4,7 +4,7 @@ import { generateProHotelAISchema } from '@/lib/structuredData';
 export const metadata = proHotelAIMetadata();
 export default function ProHotelAI() { return <>
   <Breadcrumb title="ProHotelAI" path="/solutions/prohotelai" /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html:JSON.stringify(generateProHotelAISchema()) }} />
-  <Hero eyebrow="Our flagship platform / ProHotelAI" title={<>The Digital Brain for the <em>AI-Native Hotel.</em></>} copy="A governed intelligence layer connects guests, staff, management and partners through shared hotel knowledge and accountable execution." scene="brain" variant="home" motion><Actions href="https://prohotelai.com/product" secondary="Request a demonstration" secondaryHref="https://prohotelai.com/contact" /></Hero>
+  <Hero eyebrow="Our flagship platform / ProHotelAI" title={<>The Digital Brain for the <em><span className="no-break">AI-Native</span> Hotel.</em></>} copy="A governed intelligence layer connects guests, staff, management and partners through shared hotel knowledge and accountable execution." scene="brain" variant="home" motion><Actions href="https://prohotelai.com/product" secondary="Request a demonstration" secondaryHref="https://prohotelai.com/contact" /></Hero>
   <Section eyebrow="One brain. Four relationships." title="One hotel context. The right view for each person."><Relationships /></Section>
   <Section eyebrow="The operating cycle" title="Understand → Decide → Act → Learn" dark><Cycle /></Section>
   <Section eyebrow="Current platform capabilities" title="Intelligence connected to the work."><EditorialRows items={[
