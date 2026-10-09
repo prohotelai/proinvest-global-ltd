@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Actions, Hero, Section, Relationships, Cycle, Pipeline, Closing, Breadcrumb, EditorialRows, trustClaims } from '@/app/components/Corporate';
+import { Actions, Section, Relationships, Cycle, Pipeline, Closing, Breadcrumb, EditorialRows, trustClaims } from '@/app/components/Corporate';
+import HomepageHero from '@/app/components/HomepageHero';
 import { homeMetadata } from '@/lib/seo';
 export const metadata = homeMetadata();
 export default function Home() { return <>
   <Breadcrumb title="Home" path="/" />
-  <Hero eyebrow="PROINVEST GLOBAL / Applied AI Technology" title={<>Engineering the future of <em>intelligent operations.</em></>} copy="PROINVEST GLOBAL LTD is a UK technology company developing AI-native platforms, led by ProHotelAI — the Hotel Digital Brain for modern hospitality." variant="home" motion><Actions /><p className="hero-footnote">UK Company 16851428 · Technology with operational purpose</p></Hero>
+  <HomepageHero />
   <Section number="01" eyebrow="Who we are" title="A UK technology company building applied AI systems."><div className="company-intro"><div><p className="section-lead">Intelligence becomes useful when it connects knowledge, people and accountable action. We build around that principle.</p><Link className="text-link" href="/about">Meet PROINVEST GLOBAL <span aria-hidden="true">→</span></Link></div><div className="company-fact"><strong>One clear commercial focus.</strong><p>Our flagship platform serves modern hospitality. Emerging platforms extend our research into other operational environments.</p></div></div></Section>
   <Section number="02" eyebrow="Flagship platform" title="ProHotelAI. The Hotel Digital Brain." dark><div className="flagship-layout"><div className="flagship-copy"><p className="flagship-name">ProHotelAI</p><h3>The Digital Brain for the AI-Native Hotel.</h3><p>One governed intelligence layer connects approved hotel knowledge, guest context, staff execution, commerce and management insight. It works above and alongside existing hotel systems.</p><Actions href="https://prohotelai.com/product" secondary="Our flagship platform" secondaryHref="/solutions/prohotelai" /></div><div className="flagship-visual"><Image src="/images/hotel-digital-brain-hero.webp" alt="Existing blue intelligence connections integrated into a hotel atrium around a gold core." fill sizes="(max-width: 700px) 100vw, 45vw" /></div></div></Section>
   <Section number="03" eyebrow="One brain. Four relationships." title="Shared intelligence. Different responsibilities."><Relationships /></Section>
-  <Section number="04" eyebrow="From conversation to execution" title="Understand → Decide → Act → Learn" dark><Cycle /><p className="corporate-note">Learning means reviewed, authorised knowledge improvements. Staff remain accountable for operational decisions.</p></Section>
+  <Section id="how-it-works" number="04" eyebrow="From conversation to execution" title="Understand → Decide → Act → Learn" dark><Cycle /><p className="corporate-note">Learning means reviewed, authorised knowledge improvements. Staff remain accountable for operational decisions.</p></Section>
   <Section number="05" eyebrow="Applied AI in real operations" title="A connected view of service, work and opportunity."><EditorialRows items={[
     { title:'Operational intelligence', copy:'Guest requests connect to staff workflows, department ownership and visible fulfilment.', href:'https://prohotelai.com/hotel-operations',link:'Hotel operations' },
     { title:'Commercial intelligence', copy:'Configured hotel services, dining and approved partner experiences become relevant choices in the guest conversation.',href:'https://prohotelai.com/revenue-intelligence',link:'Commerce & revenue' },

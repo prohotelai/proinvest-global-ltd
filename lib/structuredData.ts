@@ -2,7 +2,7 @@ import type { Organization, WithContext, SoftwareApplication, FAQPage, Breadcrum
 export const COMPANY_INFO = {
   legalName:'PROINVEST GLOBAL LTD', brandName:'PROINVEST GLOBAL',companyNumber:'16851428',country:'United Kingdom',foundingDate:'2025',url:'https://proinvest.global',email:'info@proinvest.global',
   address:{streetAddress:'2 Frederick Street, Kings Cross',addressLocality:'London',addressRegion:'England',postalCode:'WC1X 0ND',addressCountry:'GB'},
-  description:'A UK technology company developing applied AI systems for real operational environments, led by ProHotelAI — the Hotel Digital Brain. ProCafeAI and VisaRiskAI are under development in the Innovation Pipeline.',
+  description:'A UK technology company developing applied AI systems for real hospitality operations, led by ProHotelAI — the Hotel Digital Brain. ProCafeAI and VisaRiskAI are under development in the Innovation Pipeline.',
   industry:['Applied Artificial Intelligence','Hospitality Technology','Hotel Operations'],
 };
 const provider = {'@type':'Organization' as const,'@id':`${COMPANY_INFO.url}#organization`,name:COMPANY_INFO.legalName};
