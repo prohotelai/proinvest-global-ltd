@@ -20,6 +20,8 @@ Final HEAD is reported in the PR; this document deliberately does not embed its 
 
 ## Validation
 
+Focused content-preservation follow-up from exact remote HEAD `1630da8ed5f5fe8c07887eb29d889b9a2aa3791e`: PPN explanation/CTAs, corporate pillars/mission and five ProHotelAI implementation-evidence areas restored within the approved design; Organization/product semantics, contextual metadata and llms.txt enriched. See `corporate-content-preservation.md` and `corporate-content-preservation-acceptance.json` for current evidence. Fresh lint/typecheck/build and corporate tests 7/7 passed, plus nine responsive content checks and focused discovery/schema checks. All protected implementation paths and each modified-page Hero subtree are byte-identical to that starting state. Earlier broad Hero/Contact acceptance below remains historical; no broad visual rerun was needed.
+
 Successful commands:
 
 - `npm run lint` — clean.

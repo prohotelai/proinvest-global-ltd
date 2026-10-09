@@ -10,14 +10,15 @@ export function generateOrganizationSchema():WithContext<Organization> { return 
   '@context':'https://schema.org','@type':'Organization','@id':provider['@id'],name:COMPANY_INFO.legalName,legalName:COMPANY_INFO.legalName,alternateName:COMPANY_INFO.brandName,
   description:COMPANY_INFO.description,url:COMPANY_INFO.url,logo:`${COMPANY_INFO.url}/brand/proinvest-logo.svg`,foundingDate:COMPANY_INFO.foundingDate,
   identifier:{'@type':'PropertyValue',propertyID:'UK Company Number',value:COMPANY_INFO.companyNumber},
-  address:{'@type':'PostalAddress',...COMPANY_INFO.address},contactPoint:{'@type':'ContactPoint',email:COMPANY_INFO.email,contactType:'Corporate enquiries',availableLanguage:['en']},knowsAbout:COMPANY_INFO.industry,
+  address:{'@type':'PostalAddress',...COMPANY_INFO.address},contactPoint:{'@type':'ContactPoint',email:COMPANY_INFO.email,contactType:'Corporate enquiries',availableLanguage:['en']},
+  knowsAbout:[...COMPANY_INFO.industry,'Hotel Digital Brain','Hospitality AI','Operational Intelligence','Guest AI Concierge','Hotel Commerce'],
   brand:[{'@type':'Brand',name:'ProHotelAI',url:'https://prohotelai.com',description:'Flagship platform — The Hotel Digital Brain.'},{'@type':'Brand',name:'ProCafeAI',url:`${COMPANY_INFO.url}/solutions/procafeai`,description:'Under Development — AI-native café and restaurant operations.'},{'@type':'Brand',name:'VisaRiskAI',url:`${COMPANY_INFO.url}/solutions/visariskai`,description:'Under Development — AI-assisted visa risk and application-readiness intelligence.'}],
   makesOffer:{'@type':'Offer',itemOffered:{'@type':'SoftwareApplication','@id':'https://prohotelai.com/#software',name:'ProHotelAI',url:'https://prohotelai.com/product',applicationCategory:'BusinessApplication',operatingSystem:'Web browser'}}
 }; }
 export function generateProHotelAISchema():WithContext<SoftwareApplication> { return {
-  '@context':'https://schema.org','@type':'SoftwareApplication','@id':'https://prohotelai.com/#software',name:'ProHotelAI',url:'https://prohotelai.com/product',applicationCategory:'BusinessApplication',operatingSystem:'Web browser',
-  description:'The Digital Brain for the AI-Native Hotel. A governed intelligence layer connecting guests, staff, management and partners through approved knowledge, operational execution, commerce and evidence.',provider,
-  featureList:['Governed Hotel Digital Brain','Guest AI Concierge','Hotel Knowledge Governance','Staff and Operational Execution','Hotel Commerce','Management Intelligence and AI Reports','Hotel-approved Partner Ecosystem','PMS-neutral Hotel-data Integration','Tenant and Hotel Isolation'],
+  '@context':'https://schema.org','@type':'SoftwareApplication','@id':'https://prohotelai.com/#software',name:'ProHotelAI',url:'https://prohotelai.com/product',applicationCategory:'BusinessApplication',applicationSubCategory:'Hospitality Operations Software',operatingSystem:'Web browser',
+  description:'Our flagship hospitality AI platform — the Hotel Digital Brain for the AI-Native Hotel. Governed intelligence connects guests, staff, management and partners through approved hotel knowledge, operational execution, commerce and evidence.',provider,
+  featureList:['Governed Hotel Digital Brain','Guest AI Concierge','Hotel Knowledge Governance','Operational Intelligence and Staff Execution','Hotel Commerce','Management Intelligence and AI Reports','Hotel-approved Partner Ecosystem','PMS-neutral Hotel-data Integration','Tenant and Hotel Isolation'],
   audience:{'@type':'BusinessAudience',audienceType:'Hotels, resorts and hospitality operators'}
 }; }
 function emergingPlatform(name:string,path:string,description:string,officialUrl:string):WithContext<SoftwareApplication> { return {

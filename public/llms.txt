@@ -2,7 +2,7 @@
 
 > Applied AI for Hospitality. We’re Building the Digital Brain for Hospitality.
 
-PROINVEST GLOBAL LTD is a UK technology company building applied AI systems for real hospitality operations, with scope to expand into future operational verticals.
+PROINVEST GLOBAL LTD is the UK parent applied AI technology company behind ProHotelAI. Hospitality is the current commercial focus; other operational directions remain in development.
 UK Company Number: 16851428.
 Registered address: 2 Frederick Street, Kings Cross, London WC1X 0ND, United Kingdom.
 Corporate authority: https://proinvest.global
@@ -10,17 +10,19 @@ Corporate email: info@proinvest.global
 
 ## Flagship platform — ProHotelAI
 
-ProHotelAI is our PRIMARY commercial platform: The Digital Brain for the AI-Native Hotel.
+ProHotelAI is our current FLAGSHIP commercial platform: The Hotel Digital Brain for the AI-Native Hotel.
 Product authority: https://prohotelai.com
 One Brain. Four Relationships: Guests / Staff / Management / Partners.
 Operating cycle: Understand → Decide → Act → Learn.
-Current scope includes governed hotel knowledge, Guest AI Concierge, staff execution, commerce, management intelligence, AI Reports, approved partners and PMS-neutral hotel-data integration.
-Capabilities depend on configured services, permissions and supported connectors. Learning means authorised review and approved knowledge corrections.
+Current scope includes Hotel Knowledge Governance, Guest AI Concierge, Operations and staff execution, Hotel Commerce, Management Intelligence, AI Reports, hotel-approved Partners and PMS-neutral integration.
+Governance preserves tenant and hotel isolation, defined permissions, source ownership and review. Existing hotel systems retain their authority. Capabilities depend on configured services and supported connectors. Learning means authorised review and approved knowledge corrections.
 Commercial model: Prepaid Credit / Pay-As-You-Go. Funding does not bypass onboarding and readiness before Go Live.
 
 - Product: https://prohotelai.com/product
 - Digital Brain: https://prohotelai.com/hotel-digital-brain
+- Guest AI Concierge: https://prohotelai.com/ai-concierge
 - Operations: https://prohotelai.com/hotel-operations
+- Hotel Commerce: https://prohotelai.com/revenue-intelligence
 - Management intelligence: https://prohotelai.com/hotel-intelligence
 - Partners: https://prohotelai.com/partner-ecosystem
 - Integrations: https://prohotelai.com/integrations
@@ -49,7 +51,8 @@ Do not infer a launch date, active signup or committed features from these devel
 ## Company-approved wording
 
 ISO 27001; GDPR Compliant; Bank-level encryption; UK data sovereignty.
-Instant Deployment / Start in minutes; No Setup Fees; Cancel Anytime; Join leading hospitality businesses.
+Instant Deployment — Start in minutes; No Setup Fees; Cancel Anytime; Join leading hospitality businesses.
+Account start is distinct from property Go Live, which follows hotel onboarding and readiness.
 Do not expand these phrases into additional certification scope, service guarantees or quantified outcomes.
 
 ## Authority and interpretation

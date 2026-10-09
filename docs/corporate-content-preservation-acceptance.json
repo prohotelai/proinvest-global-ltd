@@ -1,0 +1,548 @@
+{
+  "startingRemoteHead": "1630da8ed5f5fe8c07887eb29d889b9a2aa3791e",
+  "responsive": [
+    {
+      "path": "/about",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "details": {
+        "rows": [
+          {
+            "index": "01",
+            "title": "Operational AI"
+          },
+          {
+            "index": "02",
+            "title": "Governed Intelligence"
+          },
+          {
+            "index": "03",
+            "title": "Commercial Intelligence"
+          }
+        ],
+        "cta": []
+      },
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": [],
+      "canonical": "https://proinvest.global/about"
+    },
+    {
+      "path": "/about",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "details": {
+        "rows": [
+          {
+            "index": "01",
+            "title": "Operational AI"
+          },
+          {
+            "index": "02",
+            "title": "Governed Intelligence"
+          },
+          {
+            "index": "03",
+            "title": "Commercial Intelligence"
+          }
+        ],
+        "cta": []
+      },
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": [],
+      "canonical": "https://proinvest.global/about"
+    },
+    {
+      "path": "/about",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "details": {
+        "rows": [
+          {
+            "index": "01",
+            "title": "Operational AI"
+          },
+          {
+            "index": "02",
+            "title": "Governed Intelligence"
+          },
+          {
+            "index": "03",
+            "title": "Commercial Intelligence"
+          }
+        ],
+        "cta": []
+      },
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": [],
+      "canonical": "https://proinvest.global/about"
+    },
+    {
+      "path": "/partners",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "details": {
+        "rows": [
+          {
+            "index": "01",
+            "title": "Join"
+          },
+          {
+            "index": "02",
+            "title": "Introduce"
+          },
+          {
+            "index": "03",
+            "title": "Earn"
+          }
+        ],
+        "cta": [
+          {
+            "text": "Apply to the Partner Network \u2192",
+            "href": "/ppn/signup",
+            "height": 51.5,
+            "width": 295
+          },
+          {
+            "text": "Partner Login \u2192",
+            "href": "/ppn/login",
+            "height": 51.5,
+            "width": 180
+          }
+        ]
+      },
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": [],
+      "canonical": "https://proinvest.global/partners"
+    },
+    {
+      "path": "/partners",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "details": {
+        "rows": [
+          {
+            "index": "01",
+            "title": "Join"
+          },
+          {
+            "index": "02",
+            "title": "Introduce"
+          },
+          {
+            "index": "03",
+            "title": "Earn"
+          }
+        ],
+        "cta": [
+          {
+            "text": "Apply to the Partner Network \u2192",
+            "href": "/ppn/signup",
+            "height": 51.5,
+            "width": 295
+          },
+          {
+            "text": "Partner Login \u2192",
+            "href": "/ppn/login",
+            "height": 51.5,
+            "width": 180
+          }
+        ]
+      },
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": [],
+      "canonical": "https://proinvest.global/partners"
+    },
+    {
+      "path": "/partners",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "details": {
+        "rows": [
+          {
+            "index": "01",
+            "title": "Join"
+          },
+          {
+            "index": "02",
+            "title": "Introduce"
+          },
+          {
+            "index": "03",
+            "title": "Earn"
+          }
+        ],
+        "cta": [
+          {
+            "text": "Apply to the Partner Network \u2192",
+            "href": "/ppn/signup",
+            "height": 50,
+            "width": 350
+          },
+          {
+            "text": "Partner Login \u2192",
+            "href": "/ppn/login",
+            "height": 51.5,
+            "width": 350
+          }
+        ]
+      },
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": [],
+      "canonical": "https://proinvest.global/partners"
+    },
+    {
+      "path": "/case-studies",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "details": {
+        "rows": [
+          {
+            "index": "01",
+            "title": "Hotel Digital Brain"
+          },
+          {
+            "index": "02",
+            "title": "Guest \u2192 Operations"
+          },
+          {
+            "index": "03",
+            "title": "Commerce"
+          },
+          {
+            "index": "04",
+            "title": "Management Intelligence"
+          },
+          {
+            "index": "05",
+            "title": "PMS & Integration Boundary"
+          }
+        ],
+        "cta": []
+      },
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": [],
+      "canonical": "https://proinvest.global/case-studies"
+    },
+    {
+      "path": "/case-studies",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "details": {
+        "rows": [
+          {
+            "index": "01",
+            "title": "Hotel Digital Brain"
+          },
+          {
+            "index": "02",
+            "title": "Guest \u2192 Operations"
+          },
+          {
+            "index": "03",
+            "title": "Commerce"
+          },
+          {
+            "index": "04",
+            "title": "Management Intelligence"
+          },
+          {
+            "index": "05",
+            "title": "PMS & Integration Boundary"
+          }
+        ],
+        "cta": []
+      },
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": [],
+      "canonical": "https://proinvest.global/case-studies"
+    },
+    {
+      "path": "/case-studies",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "details": {
+        "rows": [
+          {
+            "index": "01",
+            "title": "Hotel Digital Brain"
+          },
+          {
+            "index": "02",
+            "title": "Guest \u2192 Operations"
+          },
+          {
+            "index": "03",
+            "title": "Commerce"
+          },
+          {
+            "index": "04",
+            "title": "Management Intelligence"
+          },
+          {
+            "index": "05",
+            "title": "PMS & Integration Boundary"
+          }
+        ],
+        "cta": []
+      },
+      "overflow": false,
+      "h1": 1,
+      "brokenImages": [],
+      "canonical": "https://proinvest.global/case-studies"
+    }
+  ],
+  "discovery": [
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "title": "Applied AI for Hospitality | PROINVEST GLOBAL LTD",
+      "description": "PROINVEST GLOBAL develops AI-native technology for real hospitality operations. Our flagship platform, ProHotelAI, connects guests, staff, management and partners through one governed Hotel Digital Brain.",
+      "canonical": "https://proinvest.global/",
+      "alternates": [
+        {
+          "lang": "en",
+          "href": "https://proinvest.global/"
+        },
+        {
+          "lang": "x-default",
+          "href": "https://proinvest.global/"
+        }
+      ]
+    },
+    {
+      "path": "/solutions",
+      "status": 200,
+      "h1": 1,
+      "title": "Platforms & Innovation | ProHotelAI Flagship | PROINVEST GLOBAL LTD",
+      "description": "ProHotelAI, the Hotel Digital Brain, leads our commercial portfolio. ProCafeAI and VisaRiskAI form our Innovation Pipeline, with both platforms under development.",
+      "canonical": "https://proinvest.global/solutions",
+      "alternates": [
+        {
+          "lang": "en",
+          "href": "https://proinvest.global/solutions"
+        },
+        {
+          "lang": "x-default",
+          "href": "https://proinvest.global/solutions"
+        }
+      ]
+    },
+    {
+      "path": "/solutions/prohotelai",
+      "status": 200,
+      "h1": 1,
+      "title": "ProHotelAI | The Digital Brain for the AI-Native Hotel | PROINVEST GLOBAL LTD",
+      "description": "ProHotelAI, our flagship Hotel Digital Brain: Guest AI Concierge, AI hotel operations, governed knowledge, Hotel Commerce, management intelligence and AI Reports.",
+      "canonical": "https://proinvest.global/solutions/prohotelai",
+      "alternates": [
+        {
+          "lang": "en",
+          "href": "https://proinvest.global/solutions/prohotelai"
+        },
+        {
+          "lang": "x-default",
+          "href": "https://proinvest.global/solutions/prohotelai"
+        }
+      ]
+    },
+    {
+      "path": "/solutions/procafeai",
+      "status": 200,
+      "h1": 1,
+      "title": "ProCafeAI | Under Development | PROINVEST GLOBAL LTD",
+      "description": "AI-native caf\u00e9 & restaurant operations. An emerging PROINVEST GLOBAL platform in the Innovation Pipeline, under development.",
+      "canonical": "https://proinvest.global/solutions/procafeai",
+      "alternates": [
+        {
+          "lang": "en",
+          "href": "https://proinvest.global/solutions/procafeai"
+        },
+        {
+          "lang": "x-default",
+          "href": "https://proinvest.global/solutions/procafeai"
+        }
+      ]
+    },
+    {
+      "path": "/solutions/visariskai",
+      "status": 200,
+      "h1": 1,
+      "title": "VisaRiskAI | Under Development | PROINVEST GLOBAL LTD",
+      "description": "AI-assisted visa risk and application-readiness intelligence. An emerging PROINVEST GLOBAL platform in the Innovation Pipeline, under development.",
+      "canonical": "https://proinvest.global/solutions/visariskai",
+      "alternates": [
+        {
+          "lang": "en",
+          "href": "https://proinvest.global/solutions/visariskai"
+        },
+        {
+          "lang": "x-default",
+          "href": "https://proinvest.global/solutions/visariskai"
+        }
+      ]
+    }
+  ],
+  "organization": {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://proinvest.global#organization",
+    "name": "PROINVEST GLOBAL LTD",
+    "legalName": "PROINVEST GLOBAL LTD",
+    "alternateName": "PROINVEST GLOBAL",
+    "description": "A UK technology company developing applied AI systems for real hospitality operations, led by ProHotelAI \u2014 the Hotel Digital Brain. ProCafeAI and VisaRiskAI are under development in the Innovation Pipeline.",
+    "url": "https://proinvest.global",
+    "logo": "https://proinvest.global/brand/proinvest-logo.svg",
+    "foundingDate": "2025",
+    "identifier": {
+      "@type": "PropertyValue",
+      "propertyID": "UK Company Number",
+      "value": "16851428"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2 Frederick Street, Kings Cross",
+      "addressLocality": "London",
+      "addressRegion": "England",
+      "postalCode": "WC1X 0ND",
+      "addressCountry": "GB"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@proinvest.global",
+      "contactType": "Corporate enquiries",
+      "availableLanguage": [
+        "en"
+      ]
+    },
+    "knowsAbout": [
+      "Applied Artificial Intelligence",
+      "Hospitality Technology",
+      "Hotel Operations",
+      "Hotel Digital Brain",
+      "Hospitality AI",
+      "Operational Intelligence",
+      "Guest AI Concierge",
+      "Hotel Commerce"
+    ],
+    "brand": [
+      {
+        "@type": "Brand",
+        "name": "ProHotelAI",
+        "url": "https://prohotelai.com",
+        "description": "Flagship platform \u2014 The Hotel Digital Brain."
+      },
+      {
+        "@type": "Brand",
+        "name": "ProCafeAI",
+        "url": "https://proinvest.global/solutions/procafeai",
+        "description": "Under Development \u2014 AI-native caf\u00e9 and restaurant operations."
+      },
+      {
+        "@type": "Brand",
+        "name": "VisaRiskAI",
+        "url": "https://proinvest.global/solutions/visariskai",
+        "description": "Under Development \u2014 AI-assisted visa risk and application-readiness intelligence."
+      }
+    ],
+    "makesOffer": {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "SoftwareApplication",
+        "@id": "https://prohotelai.com/#software",
+        "name": "ProHotelAI",
+        "url": "https://prohotelai.com/product",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web browser"
+      }
+    }
+  },
+  "products": [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "@id": "https://prohotelai.com/#software",
+      "name": "ProHotelAI",
+      "url": "https://prohotelai.com/product",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Hospitality Operations Software",
+      "operatingSystem": "Web browser",
+      "description": "Our flagship hospitality AI platform \u2014 the Hotel Digital Brain for the AI-Native Hotel. Governed intelligence connects guests, staff, management and partners through approved hotel knowledge, operational execution, commerce and evidence.",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://proinvest.global#organization",
+        "name": "PROINVEST GLOBAL LTD"
+      },
+      "featureList": [
+        "Governed Hotel Digital Brain",
+        "Guest AI Concierge",
+        "Hotel Knowledge Governance",
+        "Operational Intelligence and Staff Execution",
+        "Hotel Commerce",
+        "Management Intelligence and AI Reports",
+        "Hotel-approved Partner Ecosystem",
+        "PMS-neutral Hotel-data Integration",
+        "Tenant and Hotel Isolation"
+      ],
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Hotels, resorts and hospitality operators"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "@id": "https://proinvest.global/solutions/procafeai#product",
+      "name": "ProCafeAI",
+      "url": "https://proinvest.global/solutions/procafeai",
+      "sameAs": "https://www.procafeai.com",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Cloud",
+      "description": "Under Development \u2014 AI-native caf\u00e9 and restaurant operations.",
+      "creativeWorkStatus": "Under Development",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://proinvest.global#organization",
+        "name": "PROINVEST GLOBAL LTD"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "@id": "https://proinvest.global/solutions/visariskai#product",
+      "name": "VisaRiskAI",
+      "url": "https://proinvest.global/solutions/visariskai",
+      "sameAs": "https://www.visariskai.com",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Cloud",
+      "description": "Under Development \u2014 AI-assisted visa risk and application-readiness intelligence.",
+      "creativeWorkStatus": "Under Development",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://proinvest.global#organization",
+        "name": "PROINVEST GLOBAL LTD"
+      }
+    }
+  ],
+  "llms": {
+    "status": 200,
+    "content": "# PROINVEST GLOBAL LTD\n\n> Applied AI for Hospitality. We\u2019re Building the Digital Brain for Hospitality.\n\nPROINVEST GLOBAL LTD is the UK parent applied AI technology company behind ProHotelAI. Hospitality is the current commercial focus; other operational directions remain in development.\nUK Company Number: 16851428.\nRegistered address: 2 Frederick Street, Kings Cross, London WC1X 0ND, United Kingdom.\nCorporate authority: https://proinvest.global\nCorporate email: info@proinvest.global\n\n## Flagship platform \u2014 ProHotelAI\n\nProHotelAI is our current FLAGSHIP commercial platform: The Hotel Digital Brain for the AI-Native Hotel.\nProduct authority: https://prohotelai.com\nOne Brain. Four Relationships: Guests / Staff / Management / Partners.\nOperating cycle: Understand \u2192 Decide \u2192 Act \u2192 Learn.\nCurrent scope includes Hotel Knowledge Governance, Guest AI Concierge, Operations and staff execution, Hotel Commerce, Management Intelligence, AI Reports, hotel-approved Partners and PMS-neutral integration.\nGovernance preserves tenant and hotel isolation, defined permissions, source ownership and review. Existing hotel systems retain their authority. Capabilities depend on configured services and supported connectors. Learning means authorised review and approved knowledge corrections.\nCommercial model: Prepaid Credit / Pay-As-You-Go. Funding does not bypass onboarding and readiness before Go Live.\n\n- Product: https://prohotelai.com/product\n- Digital Brain: https://prohotelai.com/hotel-digital-brain\n- Guest AI Concierge: https://prohotelai.com/ai-concierge\n- Operations: https://prohotelai.com/hotel-operations\n- Hotel Commerce: https://prohotelai.com/revenue-intelligence\n- Management intelligence: https://prohotelai.com/hotel-intelligence\n- Partners: https://prohotelai.com/partner-ecosystem\n- Integrations: https://prohotelai.com/integrations\n- Governance: https://prohotelai.com/security\n- Pricing: https://prohotelai.com/pricing\n- Product fact sheet: https://prohotelai.com/fact-sheet\n\n## Innovation Pipeline \u2014 Under Development\n\nThese emerging platforms do not have equal commercial priority to ProHotelAI.\n- ProCafeAI \u2014 Under Development. AI-native caf\u00e9 & restaurant operations. Corporate status: https://proinvest.global/solutions/procafeai. Product entity: https://www.procafeai.com\n- VisaRiskAI \u2014 Under Development. AI-assisted visa risk and application-readiness intelligence. Corporate status: https://proinvest.global/solutions/visariskai. Product entity: https://www.visariskai.com\nDo not infer a launch date, active signup or committed features from these development directions.\n\n## Public corporate pages\n\n- Company: https://proinvest.global/about\n- Platforms and innovation: https://proinvest.global/solutions\n- Flagship: https://proinvest.global/solutions/prohotelai\n- Industries: https://proinvest.global/industries\n- Implementation evidence: https://proinvest.global/case-studies\n- Insights and research themes: https://proinvest.global/insights\n- Partnerships: https://proinvest.global/partners\n- Contact: https://proinvest.global/contact\n\n## Company-approved wording\n\nISO 27001; GDPR Compliant; Bank-level encryption; UK data sovereignty.\nInstant Deployment \u2014 Start in minutes; No Setup Fees; Cancel Anytime; Join leading hospitality businesses.\nAccount start is distinct from property Go Live, which follows hotel onboarding and readiness.\nDo not expand these phrases into additional certification scope, service guarantees or quantified outcomes.\n\n## Authority and interpretation\n\nPROINVEST GLOBAL is corporate authority; ProHotelAI is product authority.\nDo not infer certifications beyond the company-approved wording above, customer counts, uptime guarantees, language counts, pricing or performance metrics.\nNo named customer case studies or quantified customer results are published here yet.\nPrivate partner and API surfaces are excluded from public discovery.\n"
+  }
+}
