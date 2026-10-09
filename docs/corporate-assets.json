@@ -1,0 +1,52 @@
+[
+  {
+    "asset": "public/images/partner-ecosystem-hero.webp",
+    "sha256": "41d014c218573356ca5f63b813fefe806a78c9ddb6e8e5f569baa39aca59cb2b",
+    "source": "Existing ProHotelAI Higgsfield marketing asset; reused unchanged"
+  },
+  {
+    "asset": "public/images/hotel-operations-hero.webp",
+    "sha256": "aa7d05fd8af362820ce85c71a38284a2b96bc73a99b713feea8e52adf0cae96e",
+    "source": "Existing ProHotelAI Higgsfield marketing asset; reused unchanged"
+  },
+  {
+    "asset": "public/images/security-hero.webp",
+    "sha256": "3ba1e118dc61bfc04e1e9534a97f0c1d775874a6358579f3fcd0f8d6082b24ba",
+    "source": "Existing ProHotelAI Higgsfield marketing asset; reused unchanged"
+  },
+  {
+    "asset": "public/images/marketing-hotel-blue-hour.webp",
+    "sha256": "46fe689ae85457d589685e62a7d9c783074f78810a3f92b08562f58fa4af7fe0",
+    "source": "Existing ProHotelAI Higgsfield marketing asset; reused unchanged"
+  },
+  {
+    "asset": "public/images/hotel-intelligence-hero.webp",
+    "sha256": "f6702c7f5700ca3b4a2740a8ad34645746699c382809a2c237b2790e1621f555",
+    "source": "Existing ProHotelAI Higgsfield marketing asset; reused unchanged"
+  },
+  {
+    "asset": "public/images/hotel-digital-brain-hero.webp",
+    "sha256": "12b3abdb70ae7ea30dffbcb9996dbd6533c2f24fc58853169572ff59d0069651",
+    "source": "Existing ProHotelAI Higgsfield marketing asset; reused unchanged"
+  },
+  {
+    "asset": "public/images/marketing-hero-brain-mobile.webp",
+    "sha256": "4c2fbd129b13907144512da08668c8bbb0175dd8bc4bc78f41b28659512328a3",
+    "source": "Existing ProHotelAI Higgsfield marketing asset; reused unchanged"
+  },
+  {
+    "asset": "public/images/about-hero.webp",
+    "sha256": "53a35f11d641e597a714c2cda8ec5b78ce8460f842475be0065883eaea49e6be",
+    "source": "Existing ProHotelAI Higgsfield marketing asset; reused unchanged"
+  },
+  {
+    "asset": "public/images/marketing-hero-brain-desktop.webp",
+    "sha256": "d0842f254b501876948514d6051148cbd86daadb7da5e8c57ba1f9f0cbe94ecb",
+    "source": "Existing ProHotelAI Higgsfield marketing asset; reused unchanged"
+  },
+  {
+    "asset": "public/images/product-hero.webp",
+    "sha256": "d0f2be9a5f650a8257101f17773fb76c6f91b554fcd3e0a821ecd1b9a5f37aff",
+    "source": "Existing ProHotelAI Higgsfield marketing asset; reused unchanged"
+  }
+]

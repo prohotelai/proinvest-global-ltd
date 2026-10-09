@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Hero, Breadcrumb } from '@/app/components/Corporate';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -21,6 +22,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === 'sending') return;
     setStatus('sending');
     try {
       const response = await fetch('/api/contact', {
@@ -38,22 +40,11 @@ export default function Contact() {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Contact Us
-            </h1>
-            <p className="text-xl text-blue-100">
-              Want to discuss one of our AI products, partnerships, or a business opportunity? Get in touch with our team.
-            </p>
-          </div>
-        </div>
-      </section>
+      <Breadcrumb title="Contact" path="/contact" />
+      <Hero eyebrow="Contact / PROINVEST GLOBAL" title={<>Start with the operation.<br /><em>Talk to our team.</em></>} copy="Discuss ProHotelAI, a corporate partnership or your organisation’s operational priorities." scene="company" variant="wide" />
 
       {/* Contact Form and Info */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="contact-surface py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -72,6 +63,9 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    autoComplete="name"
+                    minLength={2}
+                    maxLength={120}
                     id="name"
                     name="name"
                     value={formData.name}
@@ -88,6 +82,9 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    autoComplete="organization"
+                    minLength={2}
+                    maxLength={160}
                     id="company"
                     name="company"
                     value={formData.company}
@@ -104,6 +101,8 @@ export default function Contact() {
                   </label>
                   <input
                     type="email"
+                    autoComplete="email"
+                    maxLength={254}
                     id="email"
                     name="email"
                     value={formData.email}
@@ -119,6 +118,8 @@ export default function Contact() {
                     Message *
                   </label>
                   <textarea
+                    minLength={10}
+                    maxLength={5000}
                     id="message"
                     name="message"
                     value={formData.message}
@@ -226,12 +227,12 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Map/Location Section (Placeholder) */}
+      {/* Registered corporate location */}
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Location</h2>
           <div className="bg-white rounded-lg shadow-md p-8 text-center">
-            <div className="text-5xl mb-4">📍</div>
+            
             <h3 className="text-xl font-bold text-gray-900 mb-2">London, United Kingdom</h3>
             <p className="text-gray-600">
               2 Frederick Street, Kings Cross<br />

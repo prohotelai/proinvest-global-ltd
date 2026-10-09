@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description: 'Cookie Policy for ProInvest Global Ltd. Learn how we use cookies and tracking technologies on our website and services.',
   keywords: 'cookie policy, cookies, tracking, GDPR cookies, ProInvest Global',
   alternates: {
-    canonical: 'https://www.proinvest.global/cookies',
+    canonical: 'https://proinvest.global/cookies',
   },
   openGraph: {
     title: 'Cookie Policy | ProInvest Global',
     description: 'Cookie Policy for ProInvest Global Ltd. Learn how we use cookies and tracking technologies on our website and services.',
-    url: 'https://www.proinvest.global/cookies',
+    url: 'https://proinvest.global/cookies',
     siteName: 'ProInvest Global Ltd',
     type: 'website',
   },
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
 
 export default function CookiePolicy() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://www.proinvest.global' },
-    { name: 'Cookie Policy', url: 'https://www.proinvest.global/cookies' },
+    { name: 'Home', url: 'https://proinvest.global' },
+    { name: 'Cookie Policy', url: 'https://proinvest.global/cookies' },
   ]);
 
   const lastUpdated = 'February 8, 2026';
@@ -65,7 +65,7 @@ export default function CookiePolicy() {
                 Cookies may be &quot;session&quot; cookies (which are deleted when you close your browser) or &quot;persistent&quot; cookies (which remain on your device until they expire or you delete them).
               </p>
               <p>
-                We use cookies and similar tracking technologies, including web beacons, pixels, and local storage, to collect and store information when you interact with our website at <a href="https://www.proinvest.global" className="text-blue-600 hover:text-blue-800">https://www.proinvest.global</a> and our SaaS platforms.
+                We use cookies and similar tracking technologies, including web beacons, pixels, and local storage, to collect and store information when you interact with our website at <a href="https://proinvest.global" className="text-blue-600 hover:text-blue-800">https://proinvest.global</a> and our SaaS platforms.
               </p>
             </div>
 
@@ -381,7 +381,7 @@ export default function CookiePolicy() {
                 <p className="font-semibold text-gray-900 text-lg mb-4">ProInvest Global Ltd</p>
                 <ul className="space-y-2 text-gray-700">
                   <li><strong>Email:</strong> <a href="mailto:info@proinvest.global" className="text-blue-600 hover:text-blue-800">info@proinvest.global</a></li>
-                  <li><strong>Website:</strong> <a href="https://www.proinvest.global" className="text-blue-600 hover:text-blue-800">https://www.proinvest.global</a></li>
+                  <li><strong>Website:</strong> <a href="https://proinvest.global" className="text-blue-600 hover:text-blue-800">https://proinvest.global</a></li>
                   <li><strong>Jurisdiction:</strong> United Kingdom</li>
                   <li><strong>Company Registration:</strong> 16851428</li>
                 </ul>

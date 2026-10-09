@@ -3,6 +3,7 @@ import { Providers } from './providers';
 
 export const metadata = {
   title: 'Partner Portal | ProInvest Partner Network',
+  robots: { index: false, follow: false },
 };
 
 export default async function PPNLayout({

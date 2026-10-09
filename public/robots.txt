@@ -1,27 +1,27 @@
 User-agent: *
 Allow: /
-Disallow: /ppn/
-Disallow: /api/
+Disallow: /ppn
+Disallow: /api
 
 User-agent: GPTBot
 Allow: /
-Disallow: /ppn/
-Disallow: /api/
+Disallow: /ppn
+Disallow: /api
 
 User-agent: ChatGPT-User
 Allow: /
-Disallow: /ppn/
-Disallow: /api/
+Disallow: /ppn
+Disallow: /api
 
 User-agent: Google-Extended
 Allow: /
-Disallow: /ppn/
-Disallow: /api/
+Disallow: /ppn
+Disallow: /api
 
 User-agent: PerplexityBot
 Allow: /
-Disallow: /ppn/
-Disallow: /api/
+Disallow: /ppn
+Disallow: /api
 
 Sitemap: https://proinvest.global/sitemap.xml
 

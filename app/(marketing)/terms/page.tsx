@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description: 'Terms of Service for ProInvest Global Ltd. Read our terms and conditions for using our SaaS platforms and services.',
   keywords: 'terms of service, terms and conditions, user agreement, ProInvest Global, SaaS terms',
   alternates: {
-    canonical: 'https://www.proinvest.global/terms',
+    canonical: 'https://proinvest.global/terms',
   },
   openGraph: {
     title: 'Terms of Service | ProInvest Global',
     description: 'Terms of Service for ProInvest Global Ltd. Read our terms and conditions for using our SaaS platforms and services.',
-    url: 'https://www.proinvest.global/terms',
+    url: 'https://proinvest.global/terms',
     siteName: 'ProInvest Global Ltd',
     type: 'website',
   },
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
 
 export default function TermsOfService() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://www.proinvest.global' },
-    { name: 'Terms of Service', url: 'https://www.proinvest.global/terms' },
+    { name: 'Home', url: 'https://proinvest.global' },
+    { name: 'Terms of Service', url: 'https://proinvest.global/terms' },
   ]);
 
   const lastUpdated = 'February 8, 2026';
@@ -62,7 +62,7 @@ export default function TermsOfService() {
                 These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you (&quot;User,&quot; &quot;you,&quot; or &quot;your&quot;) and ProInvest Global Ltd (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), a company registered in the United Kingdom (Company Number: 16851428).
               </p>
               <p>
-                These Terms govern your access to and use of our website at <a href="https://www.proinvest.global" className="text-blue-600 hover:text-blue-800">https://www.proinvest.global</a>, our SaaS platforms (including ProHotelAI and ProCafeAI), and all related services, features, content, and applications (collectively, the &quot;Services&quot;).
+                These Terms govern your access to and use of our website at <a href="https://proinvest.global" className="text-blue-600 hover:text-blue-800">https://proinvest.global</a>, our SaaS platforms (including ProHotelAI and ProCafeAI), and all related services, features, content, and applications (collectively, the &quot;Services&quot;).
               </p>
               <p>
                 By accessing or using our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to these Terms, you must not access or use our Services.
@@ -402,7 +402,7 @@ export default function TermsOfService() {
                 <p className="font-semibold text-gray-900 text-lg mb-4">ProInvest Global Ltd</p>
                 <ul className="space-y-2 text-gray-700">
                   <li><strong>Email:</strong> <a href="mailto:info@proinvest.global" className="text-blue-600 hover:text-blue-800">info@proinvest.global</a></li>
-                  <li><strong>Website:</strong> <a href="https://www.proinvest.global" className="text-blue-600 hover:text-blue-800">https://www.proinvest.global</a></li>
+                  <li><strong>Website:</strong> <a href="https://proinvest.global" className="text-blue-600 hover:text-blue-800">https://proinvest.global</a></li>
                   <li><strong>Jurisdiction:</strong> United Kingdom</li>
                   <li><strong>Company Registration:</strong> 16851428</li>
                 </ul>

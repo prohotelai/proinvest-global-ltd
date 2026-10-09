@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description: 'Privacy Policy for ProInvest Global Ltd. Learn how we collect, use, and protect your personal data. GDPR and CCPA compliant.',
   keywords: 'privacy policy, GDPR, CCPA, data protection, ProInvest Global, SaaS privacy',
   alternates: {
-    canonical: 'https://www.proinvest.global/privacy',
+    canonical: 'https://proinvest.global/privacy',
   },
   openGraph: {
     title: 'Privacy Policy | ProInvest Global',
     description: 'Privacy Policy for ProInvest Global Ltd. Learn how we collect, use, and protect your personal data. GDPR and CCPA compliant.',
-    url: 'https://www.proinvest.global/privacy',
+    url: 'https://proinvest.global/privacy',
     siteName: 'ProInvest Global Ltd',
     type: 'website',
   },
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicy() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://www.proinvest.global' },
-    { name: 'Privacy Policy', url: 'https://www.proinvest.global/privacy' },
+    { name: 'Home', url: 'https://proinvest.global' },
+    { name: 'Privacy Policy', url: 'https://proinvest.global/privacy' },
   ]);
 
   const lastUpdated = 'February 8, 2026';
@@ -59,7 +59,7 @@ export default function PrivacyPolicy() {
             <div className="mb-12">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">1. Introduction</h2>
               <p>
-                ProInvest Global Ltd (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy describes how we collect, use, disclose, and safeguard your information when you visit our website at <a href="https://www.proinvest.global" className="text-blue-600 hover:text-blue-800">https://www.proinvest.global</a> or use our SaaS platforms and services.
+                ProInvest Global Ltd (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy describes how we collect, use, disclose, and safeguard your information when you visit our website at <a href="https://proinvest.global" className="text-blue-600 hover:text-blue-800">https://proinvest.global</a> or use our SaaS platforms and services.
               </p>
               <p>
                 ProInvest Global Ltd is a company registered in the United Kingdom (Company Number: 16851428). We develop and provide artificial intelligence software solutions for the hospitality and food &amp; beverage industries.
@@ -362,7 +362,7 @@ export default function PrivacyPolicy() {
                 <p className="font-semibold text-gray-900 text-lg mb-4">ProInvest Global Ltd</p>
                 <ul className="space-y-2 text-gray-700">
                   <li><strong>Email:</strong> <a href="mailto:info@proinvest.global" className="text-blue-600 hover:text-blue-800">info@proinvest.global</a></li>
-                  <li><strong>Website:</strong> <a href="https://www.proinvest.global" className="text-blue-600 hover:text-blue-800">https://www.proinvest.global</a></li>
+                  <li><strong>Website:</strong> <a href="https://proinvest.global" className="text-blue-600 hover:text-blue-800">https://proinvest.global</a></li>
                   <li><strong>Jurisdiction:</strong> United Kingdom</li>
                   <li><strong>Company Registration:</strong> 16851428</li>
                 </ul>

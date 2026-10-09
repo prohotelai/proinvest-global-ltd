@@ -16,8 +16,8 @@ test('no hreflang points at nonexistent Arabic routes', () => {
 });
 test('private routes are excluded from indexing surfaces', () => {
   const robots = read('app/robots.ts');
-  assert.match(robots, /\/ppn\//);
-  assert.match(robots, /\/api\//);
+  assert.match(robots, /\/ppn(?:\/|')/);
+  assert.match(robots, /\/api(?:\/|')/);
   const sitemap = read('app/sitemap.ts');
   assert.equal(sitemap.includes('/ppn/'), false);
   assert.equal(sitemap.includes('/api/'), false);
@@ -29,7 +29,10 @@ test('AI facts index is present and conservative', () => {
 test('contact uses validated server delivery', () => {
   const page = read('app/(marketing)/contact/page.tsx');
   assert.match(page, /fetch\('\/api\/contact'/);
-  assert.equal(page.includes('mailto:'), false);
+  const submitHandler = page.slice(page.indexOf('const handleSubmit'), page.indexOf('return ('));
+  assert.equal(submitHandler.includes('mailto:'), false);
+  assert.match(submitHandler, /if \(!response\.ok\)/);
+  assert.match(submitHandler, /setStatus\('sent'\)/);
   assert.equal(page.includes('setTimeout'), false);
   const route = read('app/api/contact/route.ts');
   assert.match(route, /ContactSchema/);
