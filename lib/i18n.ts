@@ -20,7 +20,7 @@ export const languages = {
 /**
  * Generate hreflang tags for a page
  */
-export function generateHreflangTags(basePath: string, currentLocale: Locale) {
+export function generateHreflangTags(basePath: string, _currentLocale: Locale) {
   const baseUrl = 'https://proinvest.global';
   
   return locales.map(locale => ({
@@ -50,7 +50,7 @@ export const translations = {
   en: {
     common: {
       companyName: 'PROINVEST GLOBAL LTD',
-      companyTagline: 'Applied AI products for real operational workflows.',
+      companyTagline: 'Applied AI for Hospitality.',
       getStarted: 'Get Started',
       learnMore: 'Learn More',
       requestDemo: 'Request a Demo',
@@ -67,8 +67,8 @@ export const translations = {
       contact: 'Contact'
     },
     seo: {
-      defaultTitle: 'PROINVEST GLOBAL LTD — Applied AI Products for Real Operations',
-      defaultDescription: 'PROINVEST GLOBAL LTD is a UK technology and investment company building applied AI products including ProHotelAI, ProCafeAI and VisaRiskAI.',
+      defaultTitle: 'PROINVEST GLOBAL LTD — Applied AI for Hospitality',
+      defaultDescription: 'PROINVEST GLOBAL LTD is a UK applied AI technology company led by ProHotelAI, the Hotel Digital Brain. ProCafeAI and VisaRiskAI are under development.',
       keywords: 'AI hospitality operations, AI hotel management system, AI guest assistant, AI restaurant ordering system, Applied AI SaaS, Hospitality automation software'
     }
   },

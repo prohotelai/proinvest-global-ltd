@@ -6,12 +6,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/ppn/', '/api/'],
+        disallow: ['/ppn', '/api'],
       },
       {
         userAgent: ['GPTBot', 'ChatGPT-User', 'Google-Extended', 'PerplexityBot'],
         allow: '/',
-        disallow: ['/ppn/', '/api/'],
+        disallow: ['/ppn', '/api'],
       },
     ],
     sitemap: 'https://proinvest.global/sitemap.xml',

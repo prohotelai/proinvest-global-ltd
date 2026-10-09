@@ -15,6 +15,8 @@ const eslintConfig = defineConfig([
     // Ignore Prisma generated files
     "lib/generated/**",
   ]),
+  // CommonJS operational scripts legitimately use require().
+  { files: ["scripts/*.cjs"], rules: { "@typescript-eslint/no-require-imports": "off" } },
   // Custom rule overrides
   {
     rules: {

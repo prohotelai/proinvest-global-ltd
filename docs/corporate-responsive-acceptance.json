@@ -1,0 +1,632 @@
+{
+  "environment": "Local production build; Vercel Preview acceptance remains blocked",
+  "viewports": [
+    1440,
+    768,
+    390
+  ],
+  "results": [
+    {
+      "path": "/",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [
+        "5s"
+      ],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/about",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/solutions",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [
+        "5s"
+      ],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/solutions/prohotelai",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [
+        "5s"
+      ],
+      "pseudo": "5s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/solutions/procafeai",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/solutions/visariskai",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/industries",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [
+        "5s"
+      ],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/case-studies",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/insights",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/partners",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/contact",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/privacy",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/terms",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/cookies",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [
+        "5s"
+      ],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/about",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/solutions",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [
+        "5s"
+      ],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/solutions/prohotelai",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [
+        "5s"
+      ],
+      "pseudo": "5s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/solutions/procafeai",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/solutions/visariskai",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/industries",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [
+        "5s"
+      ],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/case-studies",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/insights",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/partners",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/contact",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/privacy",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/terms",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/cookies",
+      "width": 768,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [
+        "5s"
+      ],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/about",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/solutions",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [
+        "5s"
+      ],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/solutions/prohotelai",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [
+        "5s"
+      ],
+      "pseudo": "5s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/solutions/procafeai",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/solutions/visariskai",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/industries",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [
+        "5s"
+      ],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/case-studies",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/insights",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/partners",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/contact",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/privacy",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/terms",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    },
+    {
+      "path": "/cookies",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": 1,
+      "images": [],
+      "errors": [],
+      "animations": [],
+      "pseudo": "0s",
+      "headerLogo": 44
+    }
+  ],
+  "reducedMotion": {
+    "animations": 0,
+    "pseudo": "none"
+  },
+  "motionEvidence": [
+    {
+      "image": "motion-industries-390-calm",
+      "changedPixelsAbove8": 2565,
+      "percentOfHero": 0.76,
+      "boundingBox": [
+        170,
+        158,
+        247,
+        232
+      ]
+    },
+    {
+      "image": "motion-solutions-prohotelai-390-calm",
+      "changedPixelsAbove8": 17848,
+      "percentOfHero": 5.6,
+      "boundingBox": [
+        113,
+        70,
+        299,
+        234
+      ]
+    },
+    {
+      "image": "motion--1440-calm",
+      "changedPixelsAbove8": 11685,
+      "percentOfHero": 1.1,
+      "boundingBox": [
+        866,
+        344,
+        1035,
+        505
+      ]
+    },
+    {
+      "image": "motion-solutions-prohotelai-1440-calm",
+      "changedPixelsAbove8": 50858,
+      "percentOfHero": 4.77,
+      "boundingBox": [
+        892,
+        121,
+        1199,
+        441
+      ]
+    },
+    {
+      "image": "motion-industries-1440-calm",
+      "changedPixelsAbove8": 10466,
+      "percentOfHero": 1.17,
+      "boundingBox": [
+        650,
+        277,
+        867,
+        484
+      ]
+    },
+    {
+      "image": "motion-solutions-390-calm",
+      "changedPixelsAbove8": 2668,
+      "percentOfHero": 0.75,
+      "boundingBox": [
+        177,
+        138,
+        243,
+        198
+      ]
+    },
+    {
+      "image": "motion-solutions-1440-calm",
+      "changedPixelsAbove8": 13176,
+      "percentOfHero": 1.33,
+      "boundingBox": [
+        879,
+        271,
+        1031,
+        409
+      ]
+    },
+    {
+      "image": "motion--390-calm",
+      "changedPixelsAbove8": 2565,
+      "percentOfHero": 0.72,
+      "boundingBox": [
+        170,
+        158,
+        247,
+        232
+      ]
+    }
+  ]
+}

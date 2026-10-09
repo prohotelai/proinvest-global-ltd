@@ -34,13 +34,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/solutions/procafeai`,
       lastModified,
       changeFrequency: 'monthly' as const,
-      priority: 0.9,
+      priority: 0.5,
     },
     {
       url: `${baseUrl}/solutions/visariskai`,
       lastModified,
       changeFrequency: 'monthly' as const,
-      priority: 0.9,
+      priority: 0.5,
     },
     {
       url: `${baseUrl}/partners`,
