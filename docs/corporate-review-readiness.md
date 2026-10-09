@@ -61,3 +61,11 @@ Final verdict: **NOT SAFE TO REVIEW** until required exact-final-HEAD Preview ac
 ## Preserved boundaries
 
 No merge. No Production access/deployment. No database/schema/migration changes. No PPN domain, auth, API business behavior, contact delivery route, partner accounting or commission logic changes. Independent open PPN PR #12 is not included or overwritten. Repository-backed work is committed/pushed on the dedicated branch.
+
+
+## Final review clarification
+
+- The approved `Instant Deployment — Start in minutes` claim is preserved, while the public copy now explicitly distinguishes account start from property Go Live: property Go Live follows hotel onboarding and readiness.
+- The Contact delivery route was not redesigned in this PR. It remains validated, fail-closed and dependent on the existing `CONTACT_FORM_WEBHOOK_URL`, `CONTACT_FORM_WEBHOOK_ORIGIN` and `CONTACT_FORM_WEBHOOK_SECRET` environment contract. End-to-end real delivery is not claimed without configured-environment evidence.
+- Homepage B3 uses a 5000ms masked-photo illumination cycle; the base photograph remains static and reduced-motion disables the travel effect.
+- Organization and product structured data remain parseable JSON-LD generated from typed schema-dts structures; emerging products are explicitly marked Under Development.
