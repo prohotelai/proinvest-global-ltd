@@ -48,5 +48,23 @@
     "asset": "public/images/product-hero.webp",
     "sha256": "d0f2be9a5f650a8257101f17773fb76c6f91b554fcd3e0a821ecd1b9a5f37aff",
     "source": "Existing ProHotelAI Higgsfield marketing asset; reused unchanged"
+  },
+  {
+    "asset": "public/images/corporate-campus-master.webp",
+    "sha256": "7c97576d2560ed9c99d30d03d887d66a99db640b29135b65973dc18679d6b998",
+    "bytes": 1075380,
+    "source": "Higgsfield Model B3, job 24974106-525f-4754-a9cf-6b5d73023101; user selected B3 on 2026-10-09. Same selected master; production WebP derivative."
+  },
+  {
+    "asset": "public/images/corporate-campus-desktop.webp",
+    "sha256": "e893f99f7f1bde98de65624bb9aa8dd8f3de5d7c01c77e595ab7dc5d66fa0631",
+    "bytes": 323778,
+    "source": "Higgsfield Model B3, job 24974106-525f-4754-a9cf-6b5d73023101; user selected B3 on 2026-10-09. Same selected master; production WebP derivative."
+  },
+  {
+    "asset": "public/images/corporate-campus-mobile.webp",
+    "sha256": "2a1c2fa7cf10e57730859543f83b217050a429b612af5722927b0fc38939adf9",
+    "bytes": 221086,
+    "source": "Higgsfield Model B3, job 24974106-525f-4754-a9cf-6b5d73023101; user selected B3 on 2026-10-09. Crop x=1300, y=0, width=2000, height=1648."
   }
 ]

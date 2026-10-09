@@ -42,7 +42,7 @@ export default function HomepageHero() {
       <p className="hero-copy">PROINVEST GLOBAL develops AI-native technology for real hospitality operations. Our flagship platform, ProHotelAI, connects guests, staff, management and partners through one governed Hotel Digital Brain.</p>
       <div className="corporate-actions">
         <Link className="corporate-button" href="https://prohotelai.com/product">Explore ProHotelAI <span aria-hidden="true">→</span></Link>
-        <Link className="campus-secondary" href="#how-it-works">See How It Works</Link>
+        <a className="campus-secondary" href="#how-it-works">See How It Works</a>
       </div>
       <p className="campus-trust">UK Technology Company · ISO 27001 · GDPR Compliant · UK Data Sovereignty</p>
     </div>
