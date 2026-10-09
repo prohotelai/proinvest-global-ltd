@@ -54,3 +54,12 @@ test('public marketing pages do not retain known unsupported metrics', () => {
     for (const claim of forbidden) assert.equal(source.includes(claim), false, path + ': ' + claim);
   }
 });
+
+test('instant deployment claim is qualified by property readiness', () => {
+  const home = read('app/(marketing)/page.tsx');
+  const product = read('app/(marketing)/solutions/prohotelai/page.tsx');
+  for (const source of [home, product]) {
+    assert.match(source, /Instant Deployment — Start in minutes/);
+    assert.match(source, /property Go Live follows hotel onboarding and readiness/);
+  }
+});
