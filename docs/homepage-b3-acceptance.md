@@ -4,7 +4,7 @@ The user selected **B3** on 2026-10-09, following the explicit three-candidate v
 
 ## Delivered
 
-- One integrated technology/hotel architectural environment, generated through Higgsfield. Selected job: `24974106-525f-4754-a9cf-6b5d73023101`; original master is 3840 × 1648. No embedded typography, logos or executive figure. The other two candidates are not website assets.
+- One integrated technology/hotel architectural environment, generated through Higgsfield. Selected job: `24974106-525f-4754-a9cf-6b5d73023101`; original master is 3840 × 1648. No embedded typography, logos or executive figure. Only B3 is used on Home. A subsequent user instruction separately reused previously unused B2 on Industries; see `industries-hero-acceptance.md`.
 - Full-bleed Homepage composition with dark directional gradients and unchanged authoritative eyebrow, headline, supporting copy, CTA labels and trust line.
 - Primary CTA links to the official ProHotelAI product page. The secondary CTA is a native fragment link to the existing operational cycle section.
 - Optimised WebP: 4K master 1,075,380 bytes; 1920px desktop 323,778 bytes; 1000px mobile 221,086 bytes. Mobile uses a deliberate original-coordinate crop at x=1300, y=0, width=2000, height=1648.

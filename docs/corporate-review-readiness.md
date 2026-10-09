@@ -14,7 +14,7 @@ Final HEAD is reported in the PR; this document deliberately does not embed its 
 - All company-approved trust and commercial wording retained, with prepaid PAYG, onboarding and readiness stated accurately.
 - Serious company information, official corporate email, genuine resource themes and explicit absence of named customer outcome case studies.
 - New architectural P identity derived from the user-requested Higgsfield regeneration: horizontal light/dark/monochrome SVG, icon, ICO, Apple touch icon and 1200×630 social PNG. Header asset is 44px high; outlined wordmark has no font dependency or tagline.
-- Existing images on other pages reused unchanged. The later authorised Homepage-only generation explored three Model B compositions; the user selected B3. This new architectural master is used only on Home, with production WebP derivatives, matched light masks and a deliberate mobile crop. The original no-new-images rule remains applicable to other page Heroes.
+- Existing generated imagery is reused on the other pages. The later authorised Homepage-only generation explored three Model B compositions; the user selected B3. B3 is used only on Home, with production WebP derivatives, matched light masks and a deliberate mobile crop. The subsequent Industries instruction reuses previously unused B2 from that existing Higgsfield set, without new generation, with separate desktop/mobile derivatives and matching core illumination. The original no-new-images rule remains applicable to other page Heroes.
 - Localised 5-second motion on Home, Platforms, flagship and Industries. No photograph transforms or invented connection lines. Static company/people/contact scenes.
 - Canonical metadata, real English/x-default alternates only, product-authority relationships, breadcrumbs, social image, public sitemap and facts index. Private PPN/API root/subpaths receive noindex headers; PPN layout receives noindex metadata. PPN functionality is unchanged.
 
@@ -44,6 +44,8 @@ Local PPN login emitted the existing Auth.js UntrustedHost warning because the l
 ## Preview acceptance blocker
 
 Homepage B3 update: see `docs/homepage-b3-acceptance.md` and `docs/homepage-b3-responsive-acceptance.json`. The earlier 42-page checks remain historical evidence for the corporate redesign; the changed Homepage received fresh focused acceptance at six widths. Preview acceptance remains blocked as described below.
+
+Industries image update: see `docs/industries-hero-acceptance.md` and `docs/industries-hero-responsive-acceptance.json` for fresh focused local production-build checks at 1440/768/700/390/320px. Home B3 and other page assets remain unchanged by this update. Preview acceptance remains blocked.
 
 The actual project is `proinvest-global/proinvest-global-ltd` (project `prj_RmH7RhnDBv9Cr9BXO4EGENbsHwpy`, team `team_njE5eleKXeEPYum6g8wjO87P`). Current Vercel connection only has the separate ProHotel AI scope. Explicit access to `proinvest-global` returns 403; protected-URL lookup also fails for this scope. No CLI/OIDC credential is available.
 

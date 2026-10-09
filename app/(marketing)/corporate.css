@@ -25,6 +25,7 @@
 .hero-scene picture,.hero-scene img { display:block; width:100%; height:100%; }
 .hero-scene img { object-fit:cover; object-position:center; }
 .hero-light { position:absolute; inset:0; width:100%; height:100%; mix-blend-mode:screen; pointer-events:none; }
+.hero-light-mobile { display:none; }
 .intelligence-glow { transform-box:fill-box; transform-origin:center; animation:corporate-intelligence 5s ease-in-out infinite; }
 @keyframes corporate-intelligence { 0%,100% { opacity:.08; transform:translateX(-6px) scale(.92); } 10% { opacity:.15; } 40% { opacity:.7; } 60% { opacity:1; transform:translateX(7px) scale(1.08); } 80% { opacity:.45; } }
 .hero-shade { position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,#071322 0%,#071322f5 23%,#071322d0 40%,#07132248 69%,#07132218 100%),linear-gradient(0deg,#071322 0%,transparent 24%); }
@@ -164,6 +165,11 @@
 }
 @media (max-width:360px) { .campus-scene { height:255px; } .campus-hero { padding-top:215px; } .campus-shade { background:linear-gradient(180deg,transparent 0,#07132208 140px,#071322b0 215px,#071322 255px); } }
 @media (prefers-reduced-motion:reduce) { .campus-core { opacity:.2; } .campus-flow { opacity:0; transform:none; } }
+@media (max-width:700px) {
+  .scene-industries .hero-scene img { object-position:center; }
+  .scene-industries .hero-light:not(.hero-light-mobile) { display:none; }
+  .scene-industries .hero-light-mobile { display:block; }
+}
 @media (max-width:700px) {
   .hero-scene { mask-image:none; }
   .hero-shade,.hero-wide .hero-shade,.scene-brain .hero-shade,.scene-partners .hero-shade,.scene-operations .hero-shade,.scene-management .hero-shade { background:linear-gradient(180deg,transparent 0,#07132210 150px,#071322a0 250px,#071322 340px); }

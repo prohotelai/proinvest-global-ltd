@@ -66,5 +66,17 @@
     "sha256": "2a1c2fa7cf10e57730859543f83b217050a429b612af5722927b0fc38939adf9",
     "bytes": 221086,
     "source": "Higgsfield Model B3, job 24974106-525f-4754-a9cf-6b5d73023101; user selected B3 on 2026-10-09. Crop x=1300, y=0, width=2000, height=1648."
+  },
+  {
+    "asset": "public/images/industries-hero-desktop.webp",
+    "sha256": "03b5f0b2eab2389cf2d0055e8c1c60a1ea1373085442317de75758566a580eb4",
+    "bytes": 510762,
+    "source": "Previously generated Higgsfield Model B2, job 1d50e791-2e95-4165-829f-d67afee6004c; selected for Industries on 2026-10-09. Not used in the website before this change. Same existing master; resized to 2400px wide."
+  },
+  {
+    "asset": "public/images/industries-hero-mobile.webp",
+    "sha256": "69c7291a1e8c54515679dbdb657274e139bf24a3f711680d013abebdf68bbeaa",
+    "bytes": 250044,
+    "source": "Previously generated Higgsfield Model B2, job 1d50e791-2e95-4165-829f-d67afee6004c; selected for Industries on 2026-10-09. Not used in the website before this change. Crop x=1800, y=0, width=1900, height=1648; resized to 1000px wide."
   }
 ]
